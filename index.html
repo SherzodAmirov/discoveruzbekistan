@@ -1,4 +1,436 @@
-container.innerHTML = filtered.map(location => `
+<!DOCTYPE html>
+<html>
+<head>
+<title>Discover Uzbekistan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+  color: #333;
+}
+
+header {
+  background: linear-gradient(135deg, #006b54 0%, #008060 100%);
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 107, 84, 0.15);
+  animation: slideDown 0.8s ease-out;
+}
+
+header h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+header p {
+  font-size: 1.2em;
+  opacity: 0.95;
+  font-weight: 300;
+}
+
+nav {
+  background: #2c3e50;
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+nav button {
+  color: white;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.3);
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+nav button:hover {
+  background: #008060;
+  border-color: #008060;
+  transform: translateY(-2px);
+}
+
+nav button.active {
+  background: #008060;
+  border-color: #008060;
+}
+
+.container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.loader {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 18px;
+  color: #008060;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideUp 0.6s ease-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+.card-image {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-image img {
+  transform: scale(1.08);
+}
+
+.card-category {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 128, 96, 0.9);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.card-content {
+  padding: 25px;
+}
+
+.card h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+.card p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-size: 0.95em;
+}
+
+.card-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.4s ease-out;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 101;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transform: rotate(90deg);
+}
+
+.modal-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.modal-body {
+  padding: 40px;
+}
+
+.modal-body h2 {
+  font-size: 2em;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+      .modal-category {
+  display: inline-block;
+  background: #008060;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.modal-body p {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-size: 1em;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #008060 0%, #006b54 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 128, 96, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+}
+
+footer {
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2em;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  nav button {
+    width: 100%;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>🇺🇿 Discover Uzbekistan</h1>
+<p>Uzbekistondagi eng chiroyli joylar</p>
+</header>
+
+<nav id="nav">
+<button class="active" data-filter="all">Barchasi</button>
+<button data-filter="natural">Tabiat</button>
+<button data-filter="historical">Tarixiy joylar</button>
+</nav>
+
+<div class="container">
+<div id="cards-container" class="cards-grid"></div>
+</div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close">&times;</button>
+    <img id="modal-image" class="modal-image" src="" alt="">
+    <div class="modal-body">
+      <span id="modal-category" class="modal-category"></span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-description"></p>
+      <div class="modal-buttons">
+        <a id="modal-map-link" href="" target="_blank"><button>🗺 Xaritada ko'rish</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+<p>© 2024 Discover Uzbekistan - O'zbekistondagi tabiiy va tarixiy joylarni o'rganish</p>
+</footer>
+
+<script type="module">
+  const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+  const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_SUPABASE_ANON_KEY;
+
+  let allLocations = [];
+  let currentFilter = 'all';
+
+  async function fetchLocations() {
+    const container = document.getElementById('cards-container');
+    container.innerHTML = '<div class="loader">Joylar yuklanmoqda...</div>';
+
+    try {
+      const response = await fetch(${SUPABASE_URL}/rest/v1/locations, {
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': Bearer ${SUPABASE_KEY}
+        }
+      });
+
+      if (!response.ok) throw new Error('Ma\'lumotlar olinmadi');
+
+      allLocations = await response.json();
+      filterAndRender();
+    } catch (error) {
+      container.innerHTML = '<div class="empty-state"><p>Ma\'lumotlarni yuklashda xato: ' + error.message + '</p></div>';
+    }
+  }
+
+  function filterAndRender() {
+    const container = document.getElementById('cards-container');
+
+    let filtered = allLocations;
+    if (currentFilter !== 'all') {
+      filtered = allLocations.filter(loc => loc.category === currentFilter);
+    }
+
+    if (filtered.length === 0) {
+      container.innerHTML = '<div class="empty-state"><p>Joylar topilmadi</p></div>';
+      return;
+    }
+        container.innerHTML = filtered.map(location => `
       <div class="card" onclick="openModal('${location.id}')">
         <div class="card-image">
           <img src="${location.image_url}" alt="${location.name}" loading="lazy">
