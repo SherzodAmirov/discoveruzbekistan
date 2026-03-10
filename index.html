@@ -2,64 +2,69 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Discover Uzbekistan</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);color:#333;}
-header{background:linear-gradient(135deg,#006b54 0%,#008060 100%);color:white;padding:50px 20px;text-align:center;box-shadow:0 4px 15px rgba(0,107,84,0.15);}
-header h1{font-size:3em;margin-bottom:10px;}
-header p{font-size:1.2em;opacity:0.95;}
-nav{background:#2c3e50;padding:15px;text-align:center;display:flex;justify-content:center;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
-nav button{color:white;background:transparent;border:2px solid rgba(255,255,255,0.3);padding:10px 20px;font-size:16px;cursor:pointer;border-radius:25px;transition:all 0.3s ease;font-weight:500;}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#f5f7fa,#e8ecf1);color:#333;}
+header{background:linear-gradient(135deg,#006b54,#008060);color:white;padding:50px 20px;text-align:center;box-shadow:0 4px 15px rgba(0,107,84,0.15);}
+header h1{font-size:3em;margin-bottom:10px;animation:fadeIn 1s;}
+header p{font-size:1.2em;opacity:0.9;animation:fadeIn 1.5s;}
+.language-switch{margin-top:15px;display:flex;justify-content:center;gap:10px;}
+.language-switch button{display:flex;align-items:center;gap:5px;padding:8px 14px;border:none;border-radius:5px;background:rgba(255,255,255,0.3);color:white;cursor:pointer;transition:0.3s;}
+.language-switch button.active{background:white;color:#008060;font-weight:600;}
+.language-switch img{width:22px;height:14px;}
+nav{background:#2c3e50;padding:15px;text-align:center;display:flex;justify-content:center;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:10;}
+nav button{color:white;background:transparent;border:2px solid rgba(255,255,255,0.4);padding:10px 18px;font-size:16px;cursor:pointer;border-radius:25px;transition:0.3s;font-weight:500;}
 nav button:hover,nav button.active{background:#008060;border-color:#008060;}
-.language-switch{margin-left:10px;display:flex;align-items:center;gap:10px;}
-.language-switch img{width:24px;height:16px;cursor:pointer;border:1px solid #fff;border-radius:3px;}
-.container{padding:40px 20px;max-width:1200px;margin:0 auto;}
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:30px;}
-.card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);transition:all 0.35s cubic-bezier(0.4,0,0.2,1);cursor:pointer;}
-.card:hover{transform:translateY(-8px);box-shadow:0 12px 35px rgba(0,0,0,0.15);}
-.card-image{position:relative;overflow:hidden;height:220px;}
-.card-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
+.container{padding:40px 20px;max-width:1300px;margin:0 auto;}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:30px;}
+.card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);transition:0.35s;cursor:pointer;animation:fadeIn 0.8s;}
+.card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,0.15);}
+.card-image{position:relative;overflow:hidden;height:180px;}
+.card-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
 .card:hover .card-image img{transform:scale(1.08);}
-.card-category{position:absolute;top:15px;right:15px;background:rgba(0,128,96,0.9);color:white;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;text-transform:uppercase;z-index:2;}
-.card-content{padding:25px;}
-.card h2{font-size:1.5em;margin-bottom:10px;color:#2c3e50;font-weight:700;}
-.card p{color:#666;line-height:1.6;margin-bottom:15px;font-size:0.95em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:100;align-items:center;justify-content:center;}
+.card-category{position:absolute;top:10px;right:10px;background:rgba(0,128,96,0.9);color:white;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;text-transform:uppercase;}
+.card-content{padding:18px;}
+.card h2{font-size:1.4em;color:#2c3e50;margin-bottom:6px;}
+.card p{color:#666;font-size:0.95em;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:200;align-items:center;justify-content:center;}
 .modal.active{display:flex;}
-.modal-content{background:white;border-radius:20px;max-width:600px;width:90%;max-height:90vh;overflow-y:auto;position:relative;}
-.modal-close{position:absolute;top:20px;right:20px;width:40px;height:40px;background:rgba(0,0,0,0.1);border:none;border-radius:50%;font-size:24px;cursor:pointer;transition:all 0.3s ease;}
-.modal-close:hover{background:rgba(0,0,0,0.2);transform:rotate(90deg);}
-.modal-image{width:100%;height:300px;object-fit:cover;}
-.modal-body{padding:30px;}
+.modal-content{background:white;border-radius:20px;max-width:700px;width:90%;max-height:90vh;overflow-y:auto;position:relative;animation:fadeIn 0.5s;}
+.modal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;background:rgba(0,0,0,0.1);border:none;border-radius:50%;font-size:24px;cursor:pointer;}
+.modal-image{width:100%;height:300px;object-fit:cover;border-top-left-radius:20px;border-top-right-radius:20px;}
+.modal-body{padding:28px;}
 .modal-body h2{font-size:2em;color:#2c3e50;margin-bottom:10px;}
-.modal-category{display:inline-block;background:#008060;color:white;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;text-transform:uppercase;margin-bottom:20px;}
-.modal-body p{color:#666;line-height:1.8;margin-bottom:15px;font-size:1em;}
-.modal-buttons{display:flex;gap:10px;flex-wrap:wrap;}
-button.link-btn{padding:10px 18px;background:#008060;color:white;border:none;border-radius:8px;cursor:pointer;text-decoration:none;display:inline-block;font-weight:600;}
-footer{background:#2c3e50;color:white;text-align:center;padding:30px;margin-top:40px;}
-@media(max-width:768px){header h1{font-size:2em;}.cards-grid{grid-template-columns:1fr;}.language-switch{justify-content:center;}}
+.modal-body p{color:#444;line-height:1.7;margin-bottom:12px;font-size:1em;}
+.modal-category{display:inline-block;background:#008060;color:white;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;text-transform:uppercase;margin-bottom:12px;}
+button.link-btn{padding:10px 18px;background:#008060;color:white;border:none;border-radius:8px;font-size:0.95em;cursor:pointer;transition:0.3s;}
+button.link-btn:hover{transform:translateY(-2px);box-shadow:0 6px 15px rgba(0,128,96,0.3);}
+footer{background:#2c3e50;color:white;text-align:center;padding:24px;margin-top:30px;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 </style>
 </head>
 <body>
+
 <header>
 <h1>🇺🇿 Discover Uzbekistan</h1>
-<p id="header-text">Uzbekistondagi eng chiroyli joylar</p>
+<p id="header-text">Uzbekistondagi eng goʻzal joylar</p>
 <div class="language-switch">
-<img src="uz_flag.png" alt="UZ" data-lang="uz">
-<img src="ru_flag.png" alt="RU" data-lang="ru">
-<img src="en_flag.png" alt="EN" data-lang="en">
+<button class="active" data-lang="uz"><img src="https://flagcdn.com/uz.svg" alt="UZ"> Uzbek</button>
+<button data-lang="ru"><img src="https://flagcdn.com/ru.svg" alt="RU"> Русский</button>
+<button data-lang="en"><img src="https://flagcdn.com/gb.svg" alt="EN"> English</button>
 </div>
 </header>
+
 <nav id="nav">
 <button class="active" data-filter="all">Barchasi</button>
 <button data-filter="natural">Tabiat</button>
-<button data-filter="historical">Tarixiy joylar</button>
+<button data-filter="historical">Tarixiy</button>
 </nav>
+
 <div class="container">
 <div id="cards-container" class="cards-grid"></div>
 </div>
+
 <div id="modal" class="modal">
 <div class="modal-content">
 <button class="modal-close">&times;</button>
@@ -73,55 +78,175 @@ footer{background:#2c3e50;color:white;text-align:center;padding:30px;margin-top:
 <p><strong>Eng yaxshi vaqt:</strong> <span id="modal-best-time"></span></p>
 <p><strong>Qiziqarli fakt:</strong> <span id="modal-fun-fact"></span></p>
 <div class="modal-buttons">
-<a id="modal-map-link" href="" target="_blank"><button class="link-btn">🗺️ Xaritada ko'rish</button></a>
+<a id="modal-map-link" href="#" target="_blank"><button class="link-btn">🗺️ Xaritada koʻrish</button></a>
 </div>
 </div>
 </div>
 </div>
+
 <footer>
-<p>© 2026 Discover Uzbekistan - O'zbekistagi tabiiy va tarixiy joylarni o'rganish</p>
+<p>© 2026 Discover Uzbekistan — Tabiat va tarixiy joylarni o‘rganing</p>
 </footer>
 
 <script>
 let currentLang='uz';
 let currentFilter='all';
 
-// 20+ O‘zbekiston mashhur joylari
 const allLocations=[
-{id:"1",category:"historical",image_url:"images/registon.jpg",map_url:"https://goo.gl/maps/xxxx",name:{uz:"Registon, Samarqand",ru:"Регистан, Самарканд",en:"Registan, Samarkand"},description:{uz:"O'zbekistonning eng mashhur tarixiy yodgorligi.",ru:"Самая известная историческая достопримечательность Узбекистана.",en:"Uzbekistan's most famous historical monument."},history:{uz:"1400-yillarda qurilgan madrasa majmuasi...",ru:"Комплекс медресе, построенный в 1400-х годах...",en:"Madrasa complex built in 1400s..."},architecture:{uz:"Islomiy me'morchilik uslubi...",ru:"Исламский архитектурный стиль...",en:"Islamic architectural style..."},best_time_to_visit:{uz:"Bahor va kuz",ru:"Весна и осень",en:"Spring and Autumn"},fun_fact:{uz:"Registon nomi 'qum maydoni' degan ma'noni anglatadi.",ru:"Название Регистан означает 'песчаная площадь'.",en:"Registan means 'sand square'."}},
-{id:"2",category:"natural",image_url:"images/aydar.jpg",map_url:"https://goo.gl/maps/yyyy",name:{uz:"Aydar ko'li",ru:"Озеро Айдар",en:"Aydar Lake"},description:{uz:"O'zbekistonning mashhur tabiiy ko'llaridan biri.",ru:"Одно из знаменитых природных озер Узбекистана.",en:"One of Uzbekistan's famous natural lakes."},history:{uz:"...",ru:"...",en:"..."},architecture:{uz:"...",ru:"...",en:"..."},best_time_to_visit:{uz:"Bahor va yoz",ru:"Весна и лето",en:"Spring and Summer"},fun_fact:{uz:"...",ru:"...",en:"..."}},
-{id:"3",category:"historical",image_url:"images/bibi.jpg",map_url:"https://goo.gl/maps/zzzz",name:{uz:"Bibi Xonim",ru:"Биби Ханум",en:"Bibi Khanum"},description:{uz:"Samarqanddagi mashhur madrasa.",ru:"Известная медресе в Самарканде.",en:"Famous madrasa in Samarkand."},history:{uz:"1399-yilda qurilgan...",ru:"Построена в 1399 году...",en:"Built in 1399..."},architecture:{uz:"Islomiy me'morchilik.",ru:"Исламская архитектура.",en:"Islamic architecture."},best_time_to_visit:{uz:"Bahor",ru:"Весна",en:"Spring"},fun_fact:{uz:"Eng katta madrasa.",ru:"Самая большая медресе.",en:"Largest madrasa."}},
-// Shu tarzda 4–20+ gacha joylarni qo‘shing: Xiva, Shahrisabz, Chimgan, Charvak, Fergana vodiysi, etc.
-];
+{id:"1",category:"historical",image_url:"https://upload.wikimedia.org/wikipedia/commons/7/7f/Registan_Samarkand.jpg",map_url:"https://goo.gl/maps/1",name:{uz:"Registon, Samarqand",ru:"Регистан, Самарканд",en:"Registan, Samarkand"},description:{uz:"O‘zbekistonning eng mashhur tarixiy majmuasi.",ru:"Самая известная историческая достопримечательность Узбекистана.",en:"Uzbekistan's most famous historical complex."},history:{uz:"1400-yillarda qurilgan.",ru:"Построен в 1400-х годах.",en:"Built in the 1400s."},architecture:{uz:"Islomiy me'morchilik bezaklari.",ru:"Исламская архитектура и орнаменты.",en:"Islamic architectural ornaments."},best_time_to_visit:{uz:"Bahor va kuz",ru:"Весна и осень",en:"Spring & Autumn"},fun_fact:{uz:"Registon — qum maydoni degani.",ru:"Регистан значит песчаная площадь.",en:"Registan means sand square."}},
+{id:"2",category:"historical",image_url:"https://upload.wikimedia.org/wikipedia/commons/c/cd/Bibi-Khanym-Mosque-Samarkand-2007-07-23.jpg",map_url:"https://goo.gl/maps/2",name:{uz:"Bibi Xonim masjidi",ru:"Мечеть Биби-Ханым",en:"Bibi Khanum Mosque"},description:{uz:"Samarqanddagi mashhur tarixiy masjid.",ru:"Известная историческая мечеть.",en:"Famous historical mosque."},history:{uz:"1399-yilda qurilgan.",ru:"Построена в 1399 году.",en:"Built in 1399."},architecture:{uz:"Islomiy monument kompleks.",ru:"Исламский архитектурный комплекс.",en:"Islamic architectural complex."},best_time_to_visit:{uz:"Bahor, yoz",ru:"Весна и лето",en:"Spring & Summer"},fun_fact:{uz:"Bu masjid Amir Temur buyurtmasi bilan qurilgan.",ru:"Мечеть построена по приказу Амир Темура.",en:"Built by order of Amir Timur."}},
+{id:"3",category:"natural",image_url:"https://upload.wikimedia.org/wikipedia/commons/1/1f/Aydarkul_Lake.jpg",map_url:"https://goo.gl/maps/3",name:{uz:"Aydar koʻli",ru:"Озеро Айдар",en:"Aydar Lake"},description:{uz:"Keng va chiroyli tabiiy koʻl.",ru:"Большое красивое природное озеро.",en:"Large scenic natural lake."},history:{uz:"Suv ombori bilan boyitilgan.",ru:"Озеро увеличено водохранилищем.",en:"Lake enhanced by reservoir."},architecture:{uz:"Tabiiy landshaft go‘zalligi.",ru:"Красота природного пейзажа.",en:"Beautiful natural landscape."},best_time_to_visit:{uz:"Bahor, yoz",ru:"Весна и лето",en:"Spring & Summer"},fun_fact:{uz:"Uzbekistondagi eng uzun ko‘l.",ru:"Самое длинное озеро Узбекистана.",en:"Longest lake in Uzbekistan."}},
+{id:"4",category:"historical",image_url:"https://upload.wikimedia.org/wikipedia/commons/1/12/Ark_of_Bukhara.jpg",map_url:"https://goo.gl/maps/4",name:{uz:"Buxoro Ark",ru:"Арк Бухары",en:"Ark of Bukhara"},description:{uz:"Qadimiy mudofaa qasri.",ru:"Древняя оборонительная крепость.",en:"Ancient defensive fortress."},history:{uz:"V asrda boshlangan tarixi.",ru:"История с V века.",en:"History since 5th century."},architecture:{uz:"Mudофaa me'morchiligi.",ru:"Оборонительная архитектура.",en:"Defensive architecture."},best_time_to_visit:{uz:"Bahor, kuz",ru:"Весна и осень",en:"Spring & Autumn"},fun_fact:{uz:"Qal'a ichida muzey mavjud.",ru:"Внутри музей истории.",en:"History museum inside."}},
+{id:"5",category:"natural",image_url:"https://upload.wikimedia.org/wikipedia/commons/a/ab/Chimgan_Mountains.jpg",map_url:"https://goo.gl/maps/5",name:{uz:"Chimgan tog‘lari",ru:"Горы Чимган",en:"Chimgan Mountains"},description:{uz:"Tog‘lar va dam olish maskani.",ru:"Горная зона отдыха.",en:"Mountain recreation area."},history:{uz:"Tarixi ming yillar davomida.",ru:"История на протяжении веков.",en:"History over centuries."},architecture:{uz:"Tabiiy landshaft.",ru:"Природный ландшафт.",en:"Natural landscape."},best_time_to_visit:{uz:"Yoz, kuz",ru:"Лето и осень",en:"Summer & Autumn"},fun_fact:{uz:"Qish mavsumida chang‘ida ham mashhur.",ru:"Также популярен зимой для лыж.",en:"Also popular for skiing in winter."}},
+{id:"6",category:"historical",image_url:"https://upload.wikimedia.org/wikipedia/commons/0/06/Khiva_Itchan_Kala.jpg",map_url:"https://goo.gl/maps/6",name:{uz:"Ichan-Qalʼa, Xiva",ru:"Ичан‑Кала, Хива",en:"Itchan‑Kala, Khiva"},description:{uz:"Xiva shahrining tarixiy qal’asi.",ru:"Историческая крепость Хивы.",en:"Historical fortress of Khiva."},history:{uz:"IX asrda qurilgan.",ru:"Построена в IX веке.",en:"Built in the 9th century."},architecture:{uz:"Qadimiy me'morchilik namunasi.",ru:"Пример древней архитектуры.",en:"Example of ancient architecture."},best_time_to_visit:{uz:"Bahor, kuz",ru:"Весна и осень",en:"Spring & Autumn"},fun_fact:{uz:"UNESCO merosi ro‘yxatida.",ru:"В списке наследия ЮНЕСКО.",en:"On UNESCO World Heritage list."}},
+{id:"7",category:"natural",image_url:"https://upload.wikimedia.org/wikipedia/commons/5/5d/Charvak_Reservoir.jpg",map_url:"https://goo.gl/maps/7",name:{uz:"Charvak koʻli",ru:"Озеро Чарвак",en:"Charvak Reservoir"},description:{uz:"Mashhur dam olish joyi.",ru:"Известное место отдыха.",en:"Famous recreation spot."},history:{uz:"Sun’iy suv ombori.",ru:"Искусственное водохранилище.",en:"Artificial reservoir."},architecture:{uz:"Tabiiy go‘zallik bilan birga.",ru:"Красота природы.",en:"Natural beauty."},best_time_to_visit:{uz:"Yoz",ru:"Лето",en:"Summer"},fun_fact:{uz:"Suv sportlari uchun mashhur.",ru:"Популярно для водных видов спорта.",en:"Great for water sports."}},
+{id:"8",category:"historical",image_url:"https://upload.wikimedia.org/wikipedia/commons/b/b6/Shahrisabz_Ak-Sarai.jpg",map_url:"https://goo.gl/maps/8",name:{uz:"Ak‑Sarai saroyi",ru:"Дворец Ак‑Сарай",en:"Ak‑Sarai Palace"},description:{uz:"Amir Temur davridagi saroy.",ru:"Дворец эпохи Амир Темура.",en:"Palace from Amir Timur era."},history:{uz:"XIV asrda qurilgan.",ru:"Построен в XIV в.",en:"Built in 14th century."},architecture:{uz:"Buyuk saroy me'morchiligi.",ru:"Великолепная архитектура дворца.",en:"Magnificent palace architecture."},best_time_to_visit:{uz:"Bahor, kuz",ru:"Весна и осень",en:"Spring & Autumn"},fun_fact:{uz:"Ulkan kolonli saroy.",ru:"Дворец с огромными колоннами.",en:"Palace with huge columns."}},
+{id:"9",category:"natural",image_url:"https://upload.wikimedia.org/wikipedia/commons/8/84/FerganaValley.jpg",map_url:"https://goo.gl/maps/9",name:{uz:"Farg‘ona vodiysi",ru:"Ферганская долина",en:"Fergana Valley"},description:{uz:"Farg‘ona vodiysining manzarasi.",ru:"Пейзаж Ферганской долины.",en:"Landscape of Fergana Valley."},history:{uz:"Boy tarixiy hudud.",ru:"Обширный исторический регион.",en:"Extensive historical region."},architecture:{uz:"Tabiiy go‘zalliklar.",ru:"Природные красоты.",en:"Natural beauties."},best_time_to_visit:{uz:"Bahor va yoz",ru:"Весна и лето",en:"Spring & Summer"},fun_fact:{uz:"Ko‘plab tarixiy shaharlar atrofida joylashgan.",ru:"Расположена вокруг многих исторических городов.",en:"Surrounded by many historic cities."}},
+{id:"10",category:"historical",image_url:"https://upload.wikimedia.org/wikipedia/commons/9/91/Termiz_Toy_Shona.jpg",map_url:"https://goo.gl/maps/10",name:{uz:"Termiz tarixi",ru:"История Термиза",en:"Termez History"},description:{uz:"Termizdagi qadimiy tarixiy joy.",ru:"Древние исторические места в Термизе.",en:"Ancient historical site in Termez."},history:{uz:"Miloddan avvalgi asrlar.",ru:"До нашей эры.",en:"BC centuries."},architecture:{uz:"Qadimiy me'morchilik.",ru:"Древняя архитектура.",en:"Ancient architecture."},best_time_to_visit:{uz:"Bahor va kuz",ru:"Весна и осень",en:"Spring & Autumn"},fun_fact:{uz:"Termiz qadimiy savdo yo‘llari markazi.",ru:"Термез — центр древних торговых путей.",en:"Termez was ancient trade hub."}}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discover Uzbekistan</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#f5f7fa,#e8ecf1);color:#333;}
+header{background:linear-gradient(135deg,#006b54,#008060);color:white;padding:50px 20px;text-align:center;box-shadow:0 4px 15px rgba(0,107,84,0.15);}
+header h1{font-size:3em;margin-bottom:10px;animation:fadeIn 1s;}
+header p{font-size:1.2em;opacity:0.9;animation:fadeIn 1.5s;}
+.language-switch{margin-top:15px;display:flex;justify-content:center;gap:10px;}
+.language-switch button{display:flex;align-items:center;gap:5px;padding:8px 14px;border:none;border-radius:5px;background:rgba(255,255,255,0.3);color:white;cursor:pointer;transition:0.3s;}
+.language-switch button.active{background:white;color:#008060;font-weight:600;}
+.language-switch img{width:22px;height:14px;}
+nav{background:#2c3e50;padding:15px;text-align:center;display:flex;justify-content:center;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:10;}
+nav button{color:white;background:transparent;border:2px solid rgba(255,255,255,0.4);padding:10px 18px;font-size:16px;cursor:pointer;border-radius:25px;transition:0.3s;font-weight:500;}
+nav button:hover,nav button.active{background:#008060;border-color:#008060;}
+.container{padding:40px 20px;max-width:1300px;margin:0 auto;}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:30px;}
+.card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);transition:0.35s;cursor:pointer;animation:fadeIn 0.8s;}
+.card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,0.15);}
+.card-image{position:relative;overflow:hidden;height:180px;}
+.card-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
+.card:hover .card-image img{transform:scale(1.08);}
+.card-category{position:absolute;top:10px;right:10px;background:rgba(0,128,96,0.9);color:white;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;text-transform:uppercase;}
+.card-content{padding:18px;}
+.card h2{font-size:1.4em;color:#2c3e50;margin-bottom:6px;}
+.card p{color:#666;font-size:0.95em;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:200;align-items:center;justify-content:center;}
+.modal.active{display:flex;}
+.modal-content{background:white;border-radius:20px;max-width:700px;width:90%;max-height:90vh;overflow-y:auto;position:relative;animation:fadeIn 0.5s;}
+.modal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;background:rgba(0,0,0,0.1);border:none;border-radius:50%;font-size:24px;cursor:pointer;}
+.modal-image{width:100%;height:300px;object-fit:cover;border-top-left-radius:20px;border-top-right-radius:20px;}
+.modal-body{padding:28px;}
+.modal-body h2{font-size:2em;color:#2c3e50;margin-bottom:10px;}
+.modal-body p{color:#444;line-height:1.7;margin-bottom:12px;font-size:1em;}
+.modal-category{display:inline-block;background:#008060;color:white;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;text-transform:uppercase;margin-bottom:12px;}
+button.link-btn{padding:10px 18px;background:#008060;color:white;border:none;border-radius:8px;font-size:0.95em;cursor:pointer;transition:0.3s;}
+button.link-btn:hover{transform:translateY(-2px);box-shadow:0 6px 15px rgba(0,128,96,0.3);}
+footer{background:#2c3e50;color:white;text-align:center;padding:24px;margin-top:30px;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+</style>
+</head>
+<body>
 
-function filterAndRender(){
+<header>
+<h1>🇺🇿 Discover Uzbekistan</h1>
+<p id="header-text">Uzbekistondagi eng goʻzal joylar</p>
+<div class="language-switch">
+<button class="active" data-lang="uz"><img src="https://flagcdn.com/uz.svg" alt="UZ"> Uzbek</button>
+<button data-lang="ru"><img src="https://flagcdn.com/ru.svg" alt="RU"> Русский</button>
+<button data-lang="en"><img src="https://flagcdn.com/gb.svg" alt="EN"> English</button>
+</div>
+</header>
+
+<nav id="nav">
+<button class="active" data-filter="all">Barchasi</button>
+<button data-filter="natural">Tabiat</button>
+<button data-filter="historical">Tarixiy</button>
+</nav>
+
+<div class="container">
+<div id="cards-container" class="cards-grid"></div>
+</div>
+
+<div id="modal" class="modal">
+<div class="modal-content">
+<button class="modal-close">&times;</button>
+<img id="modal-image" class="modal-image" src="" alt="">
+<div class="modal-body">
+<span id="modal-category" class="modal-category"></span>
+<h2 id="modal-title"></h2>
+<p id="modal-description"></p>
+<p><strong>Tarixi:</strong> <span id="modal-history"></span></p>
+<p><strong>Me'morchilik:</strong> <span id="modal-architecture"></span></p>
+<p><strong>Eng yaxshi vaqt:</strong> <span id="modal-best-time"></span></p>
+<p><strong>Qiziqarli fakt:</strong> <span id="modal-fun-fact"></span></p>
+<div class="modal-buttons">
+<a id="modal-map-link" href="#" target="_blank"><button class="link-btn">🗺️ Xaritada koʻrish</button></a>
+</div>
+</div>
+</div>
+</div>
+
+<footer>
+<p>© 2026 Discover Uzbekistan — Tabiat va tarixiy joylarni o‘rganing</p>
+</footer>
+
+<script>
+let currentLang='uz';
+let currentFilter='all';
+
+const allLocations=[
+{id:"1",category:"historical",image_url:"https://upload.wikimedia.org/wikipedia/commons/7/7f/Registan_Samarkand.jpg",map_url:"https://goo.gl/maps/1",name:{uz:"Registon, Samarqand",ru:"Регистан, Самарканд",en:"Registan, Samarkand"},description:{uz:"O‘zbekistonning eng mashhur tarixiy majmuasi.",ru:"Самая известная историческая достопримечательность Узбекистана.",en:"Uzbekistan's most famous historical complex."},history:{uz:"1400-yillarda qurilgan.",ru:"Построен в 1400-х годах.",en:"Built in the 1400s."},architecture:{uz:"Islomiy me'morchilik bezaklari.",ru:"Исламская архитектура и орнаменты.",en:"Islamic architectural ornaments."},best_time_to_visit:{uz:"Bahor va kuz",ru:"Весна и осень",en:"Spring & Autumn"},fun_fact:{uz:"Registon — qum maydoni degani.",ru:"Регистан значит песчаная площадь.",en:"Registan means sand square."}},
+{id:"2",category:"historical",image_url:"https://upload.wikimedia.org/wikipedia/commons/c/cd/Bibi-Khanym-Mosque-Samarkand-2007-07-23.jpg",map_url:"https://goo.gl/maps/2",name:{uz:"Bibi Xonim masjidi",ru:"Мечеть Биби-Ханым",en:"Bibi Khanum Mosque"},description:{uz:"Samarqanddagi mashhur tarixiy masjid.",ru:"Известная историческая мечеть.",en:"Famous historical mosque."},history:{uz:"1399-yilda qurilgan.",ru:"Построена в 1399 году.",en:"Built in 1399."},architecture:{uz:"Islomiy monument kompleks.",ru:"Исламский архитектурный комплекс.",en:"Islamic architectural complex."},best_time_to_visit:{uz:"Bahor, yoz",ru:"Весна и лето",en:"Spring & Summer"},fun_fact:{uz:"Bu masjid Amir Temur buyurtmasi bilan qurilgan.",ru:"Мечеть построена по приказу Амир Темура.",en:"Built by order of Amir Timur."}},
+{id:"3",category:"natural",image_url:"https://upload.wikimedia.org/wikipedia/commons/1/1f/Aydarkul_Lake.jpg",map_url:"https://goo.gl/maps/3",name:{uz:"Aydar koʻli",ru:"Озеро Айдар",en:"Aydar Lake"},description:{uz:"Keng va chiroyli tabiiy koʻl.",ru:"Большое красивое природное озеро.",en:"Large scenic natural lake."},history:{uz:"Suv ombori bilan boyitilgan.",ru:"Озеро увеличено водохранилищем.",en:"Lake enhanced by reservoir."},architecture:{uz:"Tabiiy landshaft go‘zalligi.",ru:"Красота природного пейзажа.",en:"Beautiful natural landscape."},best_time_to_visit:{uz:"Bahor, yoz",ru:"Весна и лето",en:"Spring & Summer"},fun_fact:{uz:"Uzbekistondagi eng uzun ko‘l.",ru:"Самое длинное озеро Узбекистана.",en:"Longest lake in Uzbekistan."}},
+{id:"4",category:"historical",image_url:"https://upload.wikimedia.org/wikipedia/commons/1/12/Ark_of_Bukhara.jpg",map_url:"https://goo.gl/maps/4",name:{uz:"Buxoro Ark",ru:"Арк Бухары",en:"Ark of Bukhara"},description:{uz:"Qadimiy mudofaa qasri.",ru:"Древняя оборонительная крепость.",en:"Ancient defensive fortress."},history:{uz:"V asrda boshlangan tarixi.",ru:"История с V века.",en:"History since 5th century."},architecture:{uz:"Mudофaa me'morchiligi.",ru:"Оборонительная архитектура.",en:"Defensive architecture."},best_time_to_visit:{uz:"Bahor, kuz",ru:"Весна и осень",en:"Spring & Autumn"},fun_fact:{uz:"Qal'a ichida muzey mavjud.",ru:"Внутри музей истории.",en:"History museum inside."}},
+{id:"5",category:"natural",image_url:"https://upload.wikimedia.org/wikipedia/commons/a/ab/Chimgan_Mountains.jpg",map_url:"https://goo.gl/maps/5",name:{uz:"Chimgan tog‘lari",ru:"Горы Чимган",en:"Chimgan Mountains"},description:{uz:"Tog‘lar va dam olish maskani.",ru:"Горная зона отдыха.",en:"Mountain recreation area."},history:{uz:"Tarixi ming yillar davomida.",ru:"История на протяжении веков.",en:"History over centuries."},architecture:{uz:"Tabiiy landshaft.",ru:"Природный ландшафт.",en:"Natural landscape."},best_time_to_visit:{uz:"Yoz, kuz",ru:"Лето и осень",en:"Summer & Autumn"},fun_fact:{uz:"Qish mavsumida chang‘ida ham mashhur.",ru:"Также популярен зимой для лыж.",en:"Also popular for skiing in winter."}},
+{id:"6",category:"historical",image_url:"https://upload.wikimedia.org/wikipedia/commons/0/06/Khiva_Itchan_Kala.jpg",map_url:"https://goo.gl/maps/6",name:{uz:"Ichan-Qalʼa, Xiva",ru:"Ичан‑Кала, Хива",en:"Itchan‑Kala, Khiva"},description:{uz:"Xiva shahrining tarixiy qal’asi.",ru:"Историческая крепость Хивы.",en:"Historical fortress of Khiva."},history:{uz:"IX asrda qurilgan.",ru:"Построена в IX веке.",en:"Built in the 9th century."},architecture:{uz:"Qadimiy me'morchilik namunasi.",ru:"Пример древней архитектуры.",en:"Example of ancient architecture."},best_time_to_visit:{uz:"Bahor, kuz",ru:"Весна и осень",en:"Spring & Autumn"},fun_fact:{uz:"UNESCO merosi ro‘yxatida.",ru:"В списке наследия ЮНЕСКО.",en:"On UNESCO World Heritage list."}},
+{id:"7",category:"natural",image_url:"https://upload.wikimedia.org/wikipedia/commons/5/5d/Charvak_Reservoir.jpg",map_url:"https://goo.gl/maps/7",name:{uz:"Charvak koʻli",ru:"Озеро Чарвак",en:"Charvak Reservoir"},description:{uz:"Mashhur dam olish joyi.",ru:"Известное место отдыха.",en:"Famous recreation spot."},history:{uz:"Sun’iy suv ombori.",ru:"Искусственное водохранилище.",en:"Artificial reservoir."},architecture:{uz:"Tabiiy go‘zallik bilan birga.",ru:"Красота природы.",en:"Natural beauty."},best_time_to_visit:{uz:"Yoz",ru:"Лето",en:"Summer"},fun_fact:{uz:"Suv sportlari uchun mashhur.",ru:"Популярно для водных видов спорта.",en:"Great for water sports."}},
+{id:"8",category:"historical",image_url:"https://upload.wikimedia.org/wikipedia/commons/b/b6/Shahrisabz_Ak-Sarai.jpg",map_url:"https://goo.gl/maps/8",name:{uz:"Ak‑Sarai saroyi",ru:"Дворец Ак‑Сарай",en:"Ak‑Sarai Palace"},description:{uz:"Amir Temur davridagi saroy.",ru:"Дворец эпохи Амир Темура.",en:"Palace from Amir Timur era."},history:{uz:"XIV asrda qurilgan.",ru:"Построен в XIV в.",en:"Built in 14th century."},architecture:{uz:"Buyuk saroy me'morchiligi.",ru:"Великолепная архитектура дворца.",en:"Magnificent palace architecture."},best_time_to_visit:{uz:"Bahor, kuz",ru:"Весна и осень",en:"Spring & Autumn"},fun_fact:{uz:"Ulkan kolonli saroy.",ru:"Дворец с огромными колоннами.",en:"Palace with huge columns."}},
+{id:"9",category:"natural",image_url:"https://upload.wikimedia.org/wikipedia/commons/8/84/FerganaValley.jpg",map_url:"https://goo.gl/maps/9",name:{uz:"Farg‘ona vodiysi",ru:"Ферганская долина",en:"Fergana Valley"},description:{uz:"Farg‘ona vodiysining manzarasi.",ru:"Пейзаж Ферганской долины.",en:"Landscape of Fergana Valley."},history:{uz:"Boy tarixiy hudud.",ru:"Обширный исторический регион.",en:"Extensive historical region."},architecture:{uz:"Tabiiy go‘zalliklar.",ru:"Природные красоты.",en:"Natural beauties."},best_time_to_visit:{uz:"Bahor va yoz",ru:"Весна и лето",en:"Spring & Summer"},fun_fact:{uz:"Ko‘plab tarixiy shaharlar atrofida joylashgan.",ru:"Расположена вокруг многих исторических городов.",en:"Surrounded by many historic cities."}},
+{id:"10",category:"historical",image_url:"https://upload.wikimedia.org/wikipedia/commons/9/91/Termiz_Toy_Shona.jpg",map_url:"https://goo.gl/maps/10",name:{uz:"Termiz tarixi",ru:"История Термиза",en:"Termez History"},description:{uz:"Termizdagi qadimiy tarixiy joy.",ru:"Древние исторические места в Термизе.",en:"Ancient historical site in Termez."},history:{uz:"Miloddan avvalgi asrlar.",ru:"До нашей эры.",en:"BC centuries."},architecture:{uz:"Qadimiy me'morchilik.",ru:"Древняя архитектура.",en:"Ancient architecture."},best_time_to_visit:{uz:"Bahor va kuz",ru:"Весна и осень",en:"Spring & Autumn"},fun_fact:{uz:"Termiz qadimiy savdo yo‘llari markazi.",ru:"Термез — центр древних торговых путей.",en:"Termez was ancient trade hub."}}
+  
+{id:"11",category:"natural",image_url:"https://upload.wikimedia.org/wikipedia/commons/3/3b/Sarmishsay.jpg",map_url:"https://goo.gl/maps/11",name:{uz:"Sarmishsay yodgorliklari",ru:"Памятники Сармышсая",en:"Sarmishsay Monuments"},description:{uz:"Tabiiy qoyalar va qadimiy gravürlar.",ru:"Природные скалы и древние гравюры.",en:"Natural rocks with ancient engravings."},history:{uz:"Qadimgi davrda yaratilgan.",ru:"Созданы в древние времена.",en:"Created in ancient times."},architecture:{uz:"Tabiiy va qadimiy san’at uyg‘unligi.",ru:"Сочетание природы и древнего искусства.",en:"Blend of natural and ancient art."},best_time_to_visit:{uz:"Bahor, yoz",ru:"Весна и лето",en:"Spring & Summer"},fun_fact:{uz:"Eng qadimiy rock-art namunalaridan biri.",ru:"Один из древнейших примеров наскальной живописи.",en:"One of the oldest rock-art examples."}},
+{id:"12",category:"historical",image_url:"https://upload.wikimedia.org/wikipedia/commons/6/6c/Kukeldash_Madrasa.jpg",map_url:"https://goo.gl/maps/12",name:{uz:"Kukeldash madrasasi",ru:"Медресе Кукельдаш",en:"Kukeldash Madrasa"},description:{uz:"Toshkentdagi mashhur madrasah.",ru:"Известная медресе в Ташкенте.",en:"Famous madrasa in Tashkent."},history:{uz:"XV asrda qurilgan.",ru:"Построена в XV веке.",en:"Built in 15th century."},architecture:{uz:"Islomiy me’morchilik.",ru:"Исламская архитектура.",en:"Islamic architecture."},best_time_to_visit:{uz:"Bahor, kuz",ru:"Весна и осень",en:"Spring & Autumn"},fun_fact:{uz:"Toshkentdagi eng qadimiy madrasa.",ru:"Самое древнее медресе Ташкента.",en:"Oldest madrasa in Tashkent."}},
+{id:"13",category:"natural",image_url:"https://upload.wikimedia.org/wikipedia/commons/4/4e/Boysun_Mountains.jpg",map_url:"https://goo.gl/maps/13",name:{uz:"Boysun tog‘lari",ru:"Горы Бойсун",en:"Boysun Mountains"},description:{uz:"Tabiiy va tog‘li hudud.",ru:"Природный горный район.",en:"Mountainous natural area."},history:{uz:"Miloddan avvalgi davrlardan.",ru:"С давних времён.",en:"Since ancient times."},architecture:{uz:"Tabiiy go‘zalliklar.",ru:"Природная красота.",en:"Natural beauty."},best_time_to_visit:{uz:"Bahor, yoz",ru:"Весна и лето",en:"Spring & Summer"},fun_fact:{uz:"Ko‘plab qiziqarli yodgorliklar mavjud.",ru:"Много интересных памятников.",en:"Many interesting monuments."}},
+{id:"14",category:"historical",image_url:"https://upload.wikimedia.org/wikipedia/commons/9/96/Gur-Emir.jpg",map_url:"https://goo.gl/maps/14",name:{uz:"G‘ur-Emir maqbarasi",ru:"Мавзолей Гур-Эмир",en:"Gur-Emir Mausoleum"},description:{uz:"Amir Temurning maqbarasi.",ru:"Мавзолей Амир Темура.",en:"Amir Timur’s mausoleum."},history:{uz:"1404-yilda qurilgan.",ru:"Построен в 1404 году.",en:"Built in 1404."},architecture:{uz:"Timuriylar me’morchiligi.",ru:"Архитектура Тимуридов.",en:"Timurid architecture."},best_time_to_visit:{uz:"Bahor, kuz",ru:"Весна и осень",en:"Spring & Autumn"},fun_fact:{uz:"Samarqandning eng mashhur yodgorligi.",ru:"Самая известная достопримечательность Самарканда.",en:"Most famous Samarkand landmark."}},
+{id:"15",category:"natural",image_url:"https://upload.wikimedia.org/wikipedia/commons/7/71/Sentyabrskiy_Chimgan.jpg",map_url:"https://goo.gl/maps/15",name:{uz:"Sentyabr tog‘lari",ru:"Горы Сентябрь",en:"Sentyabr Mountains"},description:{uz:"Tog‘larda dam olish va sayr.",ru:"Горы для отдыха и прогулок.",en:"Mountains for recreation and hiking."},history:{uz:"Yaqin tarixiy davr.",ru:"Недавняя история.",en:"Recent history."},architecture:{uz:"Tabiiy manzaralar.",ru:"Природные пейзажи.",en:"Natural landscapes."},best_time_to_visit:{uz:"Yoz",ru:"Лето",en:"Summer"},fun_fact:{uz:"Sentyabr tog‘lari chang‘ida mashhur.",ru:"Горы популярны для лыж.",en:"Famous for skiing."}},
+{id:"16",category:"historical",image_url:"https://upload.wikimedia.org/wikipedia/commons/5/5c/Po-i-Kalyan.jpg",map_url:"https://goo.gl/maps/16",name:{uz:"Po-i-Kalon majmuasi",ru:"Комплекс Пои-Калян",en:"Po-i-Kalyan Complex"},description:{uz:"Buxorodagi mashhur tarixiy majmua.",ru:"Известный исторический комплекс в Бухаре.",en:"Famous historical complex in Bukhara."},history:{uz:"XII asrda qurilgan.",ru:"Построен в XII веке.",en:"Built in 12th century."},architecture:{uz:"Islomiy me’morchilik.",ru:"Исламская архитектура.",en:"Islamic architecture."},best_time_to_visit:{uz:"Bahor, kuz",ru:"Весна и осень",en:"Spring & Autumn"},fun_fact:{uz:"Minora eng baland.",ru:"Самая высокая минарета.",en:"Tallest minaret."}},
+{id:"17",category:"natural",image_url:"https://upload.wikimedia.org/wikipedia/commons/2/28/Kyzylkum_desert.jpg",map_url:"https://goo.gl/maps/17",name:{uz:"Qizilqum cho‘li",ru:"Пустыня Кызылкум",en:"Kyzylkum Desert"},description:{uz:"Keng cho‘l hududi.",ru:"Обширная пустыня.",en:"Vast desert area."},history:{uz:"Tarixi qadimiy davrlarga boradi.",ru:"История уходит в древние времена.",en:"History dates back to ancient times."},architecture:{uz:"Tabiiy cho‘l go‘zalligi.",ru:"Природная красота пустыни.",en:"Natural desert beauty."},best_time_to_visit:{uz:"Bahor, kuz",ru:"Весна и осень",en:"Spring & Autumn"},fun_fact:{uz:"O‘zbekistondagi eng katta cho‘l.",ru:"Самая большая пустыня Узбекистана.",en:"Largest desert in Uzbekistan."}},
+{id:"18",category:"historical",image_url:"https://upload.wikimedia.org/wikipedia/commons/0/0f/Mausoleum_of_the_Sultan_Sanjar.jpg",map_url:"https://goo.gl/maps/18",name:{uz:"Sulton Sanjar maqbarasi",ru:"Мавзолей Султана Санджара",en:"Sultan Sanjar Mausoleum"},description:{uz:"Qadimiy maqbara.",ru:"Древний мавзолей.",en:"Ancient mausoleum."},history:{uz:"XIII asrda qurilgan.",ru:"Построен в XIII в.",en:"Built in 13th century."},architecture:{uz:"Timuriylar me’morchiligi.",ru:"Архитектура Тимуридов.",en:"Timurid architecture."},best_time_to_visit:{uz:"Bahor, kuz",ru:"Весна и осень",en:"Spring & Autumn"},fun_fact:{uz:"Tarixiy diqqatga sazovor joy.",ru:"Историческое место.",en:"Historic landmark."}},
+{id:"19",category:"natural",image_url:"https://upload.wikimedia.org/wikipedia/commons/3/3f/Tuyabuguz_reservoir.jpg",map_url:"https://goo.gl/maps/19",name:{uz:"Tuyabo‘g‘uz suv ombori",ru:"Водохранилище Туябугуз",en:"Tuyabuguz Reservoir"},description:{uz:"Suv sportlari va dam olish joyi.",ru:"Место для водных видов спорта и отдыха.",en:"Water sports and recreation spot."},history:{uz:"Sun’iy suv ombori.",ru:"Искусственное водохранилище.",en:"Artificial reservoir."},architecture:{uz:"Tabiiy va sun’iy uyg‘unlik.",ru:"Сочетание природы и искусственного.",en:"Blend of natural and artificial."},best_time_to_visit:{uz:"Yoz",ru:"Лето",en:"Summer"},fun_fact:{uz:"Dam olish uchun juda mashhur.",ru:"Очень популярно для отдыха.",en:"Very popular for recreation."}},
+{id:"20",category:"historical",image_url:"https://upload.wikimedia.org/wikipedia/commons/4/4c/Khiva_Madrasah.jpg",map_url:"https://goo.gl/maps/20",name:{uz:"Xiva madrasasi",ru:"Медресе Хивы",en:"Khiva Madrasa"},description:{uz:"Xiva shahridagi tarixiy madrasah.",ru:"Историческая медресе в Хиве.",en:"Historical madrasa in Khiva."},history:{uz:"XV asrda qurilgan.",ru:"Построена в XV веке.",en:"Built in 15th century."},architecture:{uz:"Islomiy me’morchilik.",ru:"Исламская архитектура.",en:"Islamic architecture."},best_time_to_visit:{uz:"Bahor va kuz",ru:"Весна и осень",en:"Spring & Autumn"},fun_fact:{uz:"Ko‘plab sayyohlar uchun diqqatga sazovor.",ru:"Привлекает множество туристов.",en:"Attracts many tourists."}}
+);
+
+// Render funksiyasi
+function renderCards(){
 const container=document.getElementById('cards-container');
-let filtered=allLocations;
-if(currentFilter!=='all') filtered=allLocations.filter(l=>l.category===currentFilter);
-if(filtered.length===0){container.innerHTML='<p>Joylar topilmadi</p>';return;}
-container.innerHTML=filtered.map(l=>`
-<div class="card" data-id="${l.id}">
+let filtered=allLocations.filter(loc=>currentFilter==='all'||loc.category===currentFilter);
+container.innerHTML=filtered.map(loc=>`
+<div class="card" onclick="openModal('${loc.id}')">
 <div class="card-image">
-<img src="${l.image_url}" alt="${l.name[currentLang]}">
-<span class="card-category">${l.category==="natural"?"Tabiat":"Tarixiy"}</span>
+<img src="${loc.image_url}" alt="${loc.name[currentLang]}" loading="lazy">
+<span class="card-category">${loc.category==='natural'?lang('Tabiat'):lang('Tarixiy')}</span>
 </div>
 <div class="card-content">
-<h2>${l.name[currentLang]}</h2>
-<p class="card-description">${l.description[currentLang]}</p>
+<h2>${loc.name[currentLang]}</h2>
+<p>${loc.description[currentLang]}</p>
 </div>
-</div>
-`).join('');
-document.querySelectorAll('.card').forEach(card=>{
-card.addEventListener('click',function(){openModal(this.dataset.id);});
-});
+</div>`).join('');
 }
 
+// Til funksiyasi
+function lang(text){switch(currentLang){case'uz':return text;case'ru':return text==='Tabiat'?'Природа':'Историческое';case'en':return text==='Tabiat'?'Nature':'Historical';default:return text;}}
+
+// Modal funksiyasi
 function openModal(id){
-const loc=allLocations.find(l=>l.id===id);
-if(!loc)return;
+const loc=allLocations.find(l=>l.id===id);if(!loc)return;
 document.getElementById('modal-image').src=loc.image_url;
 document.getElementById('modal-title').textContent=loc.name[currentLang];
-document.getElementById('modal-category').textContent=loc.category==="natural"?"Tabiat":"Tarixiy";
+document.getElementById('modal-category').textContent=loc.category==='natural'?lang('Tabiat'):lang('Tarixiy');
 document.getElementById('modal-description').textContent=loc.description[currentLang];
 document.getElementById('modal-history').textContent=loc.history[currentLang];
 document.getElementById('modal-architecture').textContent=loc.architecture[currentLang];
@@ -131,31 +256,32 @@ document.getElementById('modal-map-link').href=loc.map_url;
 document.getElementById('modal').classList.add('active');
 document.body.style.overflow='hidden';
 }
-
-function closeModal(){
-document.getElementById('modal').classList.remove('active');
-document.body.style.overflow='auto';
-}
-
-document.querySelector('.modal-close').addEventListener('click',closeModal);
+function closeModal(){document.getElementById('modal').classList.remove('active');document.body.style.overflow='auto';}
 document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal();});
+document.querySelector('.modal-close').addEventListener('click',closeModal);
+
+// Filter tugmalari
 document.querySelectorAll('nav button').forEach(btn=>{
 btn.addEventListener('click',e=>{
 document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
 e.target.classList.add('active');
 currentFilter=e.target.dataset.filter;
-filterAndRender();
+renderCards();
 });
 });
-document.querySelectorAll('.language-switch img').forEach(img=>{
-img.addEventListener('click',e=>{
+
+// Til tugmalari
+document.querySelectorAll('.language-switch button').forEach(btn=>{
+btn.addEventListener('click',e=>{
+document.querySelectorAll('.language-switch button').forEach(b=>b.classList.remove('active'));
+e.target.classList.add('active');
 currentLang=e.target.dataset.lang;
-const headerTexts={uz:"Uzbekistondagi eng chiroyli joylar",ru:"Самые красивые места Узбекистана",en:"Most beautiful places in Uzbekistan"};
-document.getElementById('header-text').textContent=headerTexts[currentLang];
-filterAndRender();
+renderCards();
 });
 });
-filterAndRender();
+
+// Dastlabki render
+renderCards();
 </script>
 </body>
-</html>
+</html>  
