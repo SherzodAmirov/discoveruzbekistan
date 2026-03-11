@@ -5,33 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Discover Uzbekistan</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-
 <style>
 
 body{
-font-family:Poppins;
 margin:0;
-background:#f4f6f9;
+font-family:Arial;
+background:#f2f2f2;
 }
 
 header{
-background:url("https://upload.wikimedia.org/wikipedia/commons/3/36/Registan_Square_Samarkand.jpg") center/cover;
+background-image:url("https://upload.wikimedia.org/wikipedia/commons/3/36/Registan_Square_Samarkand.jpg");
+background-size:cover;
+background-position:center;
 height:80vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 color:white;
-text-align:center;
-}
-
-header h1{
-font-size:55px;
+text-shadow:2px 2px 5px black;
 }
 
 nav{
-background:#111;
+background:black;
 padding:15px;
 text-align:center;
 }
@@ -40,6 +36,7 @@ nav a{
 color:white;
 margin:15px;
 text-decoration:none;
+font-size:18px;
 }
 
 .container{
@@ -49,14 +46,14 @@ padding:40px;
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+gap:25px;
 }
 
 .card{
 background:white;
 border-radius:10px;
 overflow:hidden;
-box-shadow:0 10px 20px rgba(0,0,0,0.1);
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
 transition:0.3s;
 }
 
@@ -71,33 +68,28 @@ object-fit:cover;
 }
 
 .card h3{
-padding:15px;
+padding:10px;
 }
 
 .card p{
-padding:0 15px;
+padding:0 10px;
 }
 
 button{
-margin:15px;
-padding:10px 15px;
-background:#008060;
-color:white;
+margin:10px;
+padding:8px 15px;
+background:#0a7d4f;
 border:none;
+color:white;
 border-radius:6px;
 cursor:pointer;
 }
 
-.controls{
-text-align:center;
-margin:20px;
-}
-
 footer{
-background:#111;
+background:black;
 color:white;
 text-align:center;
-padding:25px;
+padding:20px;
 }
 
 </style>
@@ -108,13 +100,14 @@ padding:25px;
 
 <header>
 <h1>Discover Uzbekistan</h1>
-<p>Nature & Historical Places</p>
+<p>Explore nature and historical places</p>
 </header>
 
 <nav>
 <a href="#nature">Nature</a>
 <a href="#history">History</a>
 </nav>
+
 
 <div class="container">
 
@@ -124,46 +117,43 @@ padding:25px;
 
 <div class="card">
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Charvak_reservoir.jpg">
-<h3>Charvak</h3>
-<p>Beautiful reservoir near Tashkent.</p>
-<p><b>Estimated cost:</b> 200 000 so'm</p>
-<a href="https://maps.google.com/?q=charvak" target="_blank">
+<h3>Charvak Lake</h3>
+<p>Beautiful lake near Tashkent</p>
+<a href="https://maps.google.com/?q=charvak">
 <button>View Map</button>
 </a>
 </div>
 
 <div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Amirsoy_resort.jpg">
-<h3>Amirsoy</h3>
-<p>Largest mountain resort in Uzbekistan.</p>
-<p><b>Estimated cost:</b> 500 000 so'm</p>
-<a href="https://maps.google.com/?q=amirsoy" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Aydarkul_Lake_Uzbekistan.jpg">
+<h3>Aydarkul Lake</h3>
+<p>Desert lake famous for camping</p>
+<a href="https://maps.google.com/?q=aydarkul">
 <button>View Map</button>
 </a>
 </div>
 
 <div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Zaamin_national_park.jpg">
-<h3>Zaamin</h3>
-<p>Clean air and beautiful mountains.</p>
-<p><b>Estimated cost:</b> 300 000 so'm</p>
-<a href="https://maps.google.com/?q=zaamin" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Zaamin_national_park.jpg">
+<h3>Zaamin National Park</h3>
+<p>Mountain forests and clean air</p>
+<a href="https://maps.google.com/?q=zaamin">
 <button>View Map</button>
 </a>
 </div>
 
 <div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Aydarkul_Lake.jpg">
-<h3>Aydarkul</h3>
-<p>Huge desert lake for camping and fishing.</p>
-<p><b>Estimated cost:</b> 350 000 so'm</p>
-<a href="https://maps.google.com/?q=aydarkul" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Amirsoy_Mountain_Resort.jpg">
+<h3>Amirsoy Resort</h3>
+<p>Largest ski resort in Uzbekistan</p>
+<a href="https://maps.google.com/?q=amirsoy">
 <button>View Map</button>
 </a>
 </div>
 
 </div>
 </div>
+
 
 <div class="container">
 
@@ -174,19 +164,17 @@ padding:25px;
 <div class="card">
 <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Registan_Square_Samarkand.jpg">
 <h3>Registan</h3>
-<p>Famous historical square in Samarkand.</p>
-<p><b>Estimated cost:</b> 100 000 so'm</p>
-<a href="https://maps.google.com/?q=registan" target="_blank">
+<p>Famous square in Samarkand</p>
+<a href="https://maps.google.com/?q=registan">
 <button>View Map</button>
 </a>
 </div>
 
 <div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Ark_Bukhara.jpg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Ark_of_Bukhara.jpg">
 <h3>Bukhara Ark</h3>
-<p>Ancient fortress in Bukhara.</p>
-<p><b>Estimated cost:</b> 80 000 so'm</p>
-<a href="https://maps.google.com/?q=bukhara ark" target="_blank">
+<p>Ancient fortress in Bukhara</p>
+<a href="https://maps.google.com/?q=bukhara ark">
 <button>View Map</button>
 </a>
 </div>
@@ -194,9 +182,8 @@ padding:25px;
 <div class="card">
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Khiva_Ichan_Kala.jpg">
 <h3>Ichan Kala</h3>
-<p>Ancient city in Khiva.</p>
-<p><b>Estimated cost:</b> 90 000 so'm</p>
-<a href="https://maps.google.com/?q=khiva" target="_blank">
+<p>Historic city in Khiva</p>
+<a href="https://maps.google.com/?q=khiva">
 <button>View Map</button>
 </a>
 </div>
@@ -204,9 +191,8 @@ padding:25px;
 <div class="card">
 <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Shah-i-Zinda_Samarkand.jpg">
 <h3>Shah-i-Zinda</h3>
-<p>Historical mausoleum complex.</p>
-<p><b>Estimated cost:</b> 70 000 so'm</p>
-<a href="https://maps.google.com/?q=shah i zinda" target="_blank">
+<p>Historic mausoleum complex</p>
+<a href="https://maps.google.com/?q=shahizinda">
 <button>View Map</button>
 </a>
 </div>
@@ -216,7 +202,7 @@ padding:25px;
 </div>
 
 <footer>
-<p>© Discover Uzbekistan</p>
+© Discover Uzbekistan
 </footer>
 
 </body>
