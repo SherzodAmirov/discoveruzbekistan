@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Discover Uzbekistan</title>
 
 <style>
@@ -10,20 +11,24 @@
 body{
 margin:0;
 font-family:Arial;
-background:#f2f2f2;
+background:#f3f3f3;
 }
 
 header{
-background-image:url("https://upload.wikimedia.org/wikipedia/commons/3/36/Registan_Square_Samarkand.jpg");
+height:80vh;
+background:url("https://upload.wikimedia.org/wikipedia/commons/3/36/Registan_Square_Samarkand.jpg");
 background-size:cover;
 background-position:center;
-height:80vh;
 display:flex;
 flex-direction:column;
-justify-content:center;
 align-items:center;
+justify-content:center;
 color:white;
-text-shadow:2px 2px 5px black;
+text-shadow:2px 2px 10px black;
+}
+
+header h1{
+font-size:60px;
 }
 
 nav{
@@ -37,6 +42,12 @@ color:white;
 margin:15px;
 text-decoration:none;
 font-size:18px;
+}
+
+.lang{
+position:absolute;
+top:20px;
+right:20px;
 }
 
 .container{
@@ -53,12 +64,12 @@ gap:25px;
 background:white;
 border-radius:10px;
 overflow:hidden;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
-transition:0.3s;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+transition:0.4s;
 }
 
 .card:hover{
-transform:scale(1.05);
+transform:translateY(-10px);
 }
 
 .card img{
@@ -81,7 +92,7 @@ padding:8px 15px;
 background:#0a7d4f;
 border:none;
 color:white;
-border-radius:6px;
+border-radius:5px;
 cursor:pointer;
 }
 
@@ -98,9 +109,19 @@ padding:20px;
 
 <body>
 
+<div class="lang">
+<select id="language">
+<option value="en">EN</option>
+<option value="uz">UZ</option>
+<option value="ru">RU</option>
+</select>
+</div>
+
 <header>
-<h1>Discover Uzbekistan</h1>
-<p>Explore nature and historical places</p>
+
+<h1 id="title">Discover Uzbekistan</h1>
+<p id="subtitle">Nature and historical places</p>
+
 </header>
 
 <nav>
@@ -118,40 +139,41 @@ padding:20px;
 <div class="card">
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Charvak_reservoir.jpg">
 <h3>Charvak Lake</h3>
-<p>Beautiful lake near Tashkent</p>
-<a href="https://maps.google.com/?q=charvak">
-<button>View Map</button>
-</a>
-</div>
-
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Aydarkul_Lake_Uzbekistan.jpg">
-<h3>Aydarkul Lake</h3>
-<p>Desert lake famous for camping</p>
-<a href="https://maps.google.com/?q=aydarkul">
-<button>View Map</button>
-</a>
-</div>
-
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Zaamin_national_park.jpg">
-<h3>Zaamin National Park</h3>
-<p>Mountain forests and clean air</p>
-<a href="https://maps.google.com/?q=zaamin">
-<button>View Map</button>
+<p>Estimated cost: 200 000 so'm</p>
+<a href="https://maps.google.com/?q=charvak" target="_blank">
+<button>Map</button>
 </a>
 </div>
 
 <div class="card">
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Amirsoy_Mountain_Resort.jpg">
 <h3>Amirsoy Resort</h3>
-<p>Largest ski resort in Uzbekistan</p>
-<a href="https://maps.google.com/?q=amirsoy">
-<button>View Map</button>
+<p>Estimated cost: 350 000 so'm</p>
+<a href="https://maps.google.com/?q=amirsoy" target="_blank">
+<button>Map</button>
+</a>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Zaamin_national_park.jpg">
+<h3>Zaamin Park</h3>
+<p>Estimated cost: 180 000 so'm</p>
+<a href="https://maps.google.com/?q=zaamin" target="_blank">
+<button>Map</button>
+</a>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Aydarkul_Lake_Uzbekistan.jpg">
+<h3>Aydarkul Lake</h3>
+<p>Estimated cost: 250 000 so'm</p>
+<a href="https://maps.google.com/?q=aydarkul" target="_blank">
+<button>Map</button>
 </a>
 </div>
 
 </div>
+
 </div>
 
 
@@ -164,45 +186,39 @@ padding:20px;
 <div class="card">
 <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Registan_Square_Samarkand.jpg">
 <h3>Registan</h3>
-<p>Famous square in Samarkand</p>
-<a href="https://maps.google.com/?q=registan">
-<button>View Map</button>
+<p>Estimated cost: 150 000 so'm</p>
+<a href="https://maps.google.com/?q=registan" target="_blank">
+<button>Map</button>
 </a>
 </div>
 
 <div class="card">
 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Ark_of_Bukhara.jpg">
 <h3>Bukhara Ark</h3>
-<p>Ancient fortress in Bukhara</p>
-<a href="https://maps.google.com/?q=bukhara ark">
-<button>View Map</button>
+<p>Estimated cost: 170 000 so'm</p>
+<a href="https://maps.google.com/?q=bukhara ark" target="_blank">
+<button>Map</button>
 </a>
 </div>
 
 <div class="card">
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Khiva_Ichan_Kala.jpg">
 <h3>Ichan Kala</h3>
-<p>Historic city in Khiva</p>
-<a href="https://maps.google.com/?q=khiva">
-<button>View Map</button>
-</a>
-</div>
-
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Shah-i-Zinda_Samarkand.jpg">
-<h3>Shah-i-Zinda</h3>
-<p>Historic mausoleum complex</p>
-<a href="https://maps.google.com/?q=shahizinda">
-<button>View Map</button>
+<p>Estimated cost: 200 000 so'm</p>
+<a href="https://maps.google.com/?q=khiva" target="_blank">
+<button>Map</button>
 </a>
 </div>
 
 </div>
 
 </div>
+
 
 <footer>
-© Discover Uzbekistan
+
+<p>Discover Uzbekistan tourism project</p>
+
 </footer>
 
 </body>
