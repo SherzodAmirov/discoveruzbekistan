@@ -1,29 +1,23 @@
 <!DOCTYPE html>
 <html lang="uz">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Discover Uzbekistan</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins;
-}
-
 body{
+font-family:Poppins;
+margin:0;
 background:#f4f6f9;
 }
 
 header{
-height:90vh;
-background:url("https://images.unsplash.com/photo-1587135941948-670b381f08ce") center/cover;
+background:url("https://upload.wikimedia.org/wikipedia/commons/3/36/Registan_Square_Samarkand.jpg") center/cover;
+height:80vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -33,11 +27,7 @@ text-align:center;
 }
 
 header h1{
-font-size:60px;
-}
-
-header p{
-font-size:20px;
+font-size:55px;
 }
 
 nav{
@@ -50,25 +40,6 @@ nav a{
 color:white;
 margin:15px;
 text-decoration:none;
-font-size:18px;
-}
-
-.controls{
-text-align:center;
-margin:25px;
-}
-
-.controls input{
-padding:10px;
-width:250px;
-border-radius:6px;
-border:1px solid #ccc;
-}
-
-.controls select{
-padding:10px;
-margin-left:10px;
-border-radius:6px;
 }
 
 .container{
@@ -86,7 +57,7 @@ background:white;
 border-radius:10px;
 overflow:hidden;
 box-shadow:0 10px 20px rgba(0,0,0,0.1);
-transition:0.4s;
+transition:0.3s;
 }
 
 .card:hover{
@@ -104,7 +75,7 @@ padding:15px;
 }
 
 .card p{
-padding:0 15px 10px 15px;
+padding:0 15px;
 }
 
 button{
@@ -117,12 +88,16 @@ border-radius:6px;
 cursor:pointer;
 }
 
+.controls{
+text-align:center;
+margin:20px;
+}
+
 footer{
 background:#111;
 color:white;
 text-align:center;
-padding:30px;
-margin-top:40px;
+padding:25px;
 }
 
 </style>
@@ -133,71 +108,107 @@ margin-top:40px;
 
 <header>
 <h1>Discover Uzbekistan</h1>
-<p>Uzbekistondagi eng chiroyli tabiat va tarixiy joylar</p>
+<p>Nature & Historical Places</p>
 </header>
 
 <nav>
-<a href="#nature">Tabiat</a>
-<a href="#history">Tarixiy joylar</a>
+<a href="#nature">Nature</a>
+<a href="#history">History</a>
 </nav>
-
-<div class="controls">
-
-<input type="text" id="search" placeholder="Joy qidirish...">
-
-<select id="currency">
-<option value="uzs">UZS</option>
-<option value="usd">USD</option>
-</select>
-
-</div>
 
 <div class="container">
 
-<h2 id="nature">Tabiat joylari</h2>
+<h2 id="nature">Nature Places</h2>
 
 <div class="grid">
 
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf">
-
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Charvak_reservoir.jpg">
 <h3>Charvak</h3>
-
-<p class="price" data-uzs="200000">200000 so'm</p>
-
+<p>Beautiful reservoir near Tashkent.</p>
+<p><b>Estimated cost:</b> 200 000 so'm</p>
 <a href="https://maps.google.com/?q=charvak" target="_blank">
-<button>Xaritada ko‘rish</button>
+<button>View Map</button>
 </a>
-
 </div>
 
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1">
-
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Amirsoy_resort.jpg">
 <h3>Amirsoy</h3>
-
-<p class="price" data-uzs="500000">500000 so'm</p>
-
+<p>Largest mountain resort in Uzbekistan.</p>
+<p><b>Estimated cost:</b> 500 000 so'm</p>
 <a href="https://maps.google.com/?q=amirsoy" target="_blank">
-<button>Xaritada ko‘rish</button>
+<button>View Map</button>
 </a>
-
 </div>
 
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Zaamin_national_park.jpg">
 <h3>Zaamin</h3>
-
-<p class="price" data-uzs="300000">300000 so'm</p>
-
+<p>Clean air and beautiful mountains.</p>
+<p><b>Estimated cost:</b> 300 000 so'm</p>
 <a href="https://maps.google.com/?q=zaamin" target="_blank">
-<button>Xaritada ko‘rish</button>
+<button>View Map</button>
 </a>
+</div>
 
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Aydarkul_Lake.jpg">
+<h3>Aydarkul</h3>
+<p>Huge desert lake for camping and fishing.</p>
+<p><b>Estimated cost:</b> 350 000 so'm</p>
+<a href="https://maps.google.com/?q=aydarkul" target="_blank">
+<button>View Map</button>
+</a>
+</div>
+
+</div>
+</div>
+
+<div class="container">
+
+<h2 id="history">Historical Places</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Registan_Square_Samarkand.jpg">
+<h3>Registan</h3>
+<p>Famous historical square in Samarkand.</p>
+<p><b>Estimated cost:</b> 100 000 so'm</p>
+<a href="https://maps.google.com/?q=registan" target="_blank">
+<button>View Map</button>
+</a>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Ark_Bukhara.jpg">
+<h3>Bukhara Ark</h3>
+<p>Ancient fortress in Bukhara.</p>
+<p><b>Estimated cost:</b> 80 000 so'm</p>
+<a href="https://maps.google.com/?q=bukhara ark" target="_blank">
+<button>View Map</button>
+</a>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Khiva_Ichan_Kala.jpg">
+<h3>Ichan Kala</h3>
+<p>Ancient city in Khiva.</p>
+<p><b>Estimated cost:</b> 90 000 so'm</p>
+<a href="https://maps.google.com/?q=khiva" target="_blank">
+<button>View Map</button>
+</a>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Shah-i-Zinda_Samarkand.jpg">
+<h3>Shah-i-Zinda</h3>
+<p>Historical mausoleum complex.</p>
+<p><b>Estimated cost:</b> 70 000 so'm</p>
+<a href="https://maps.google.com/?q=shah i zinda" target="_blank">
+<button>View Map</button>
+</a>
 </div>
 
 </div>
@@ -205,57 +216,8 @@ margin-top:40px;
 </div>
 
 <footer>
-
 <p>© Discover Uzbekistan</p>
-
 </footer>
 
-<script>
-
-const search = document.getElementById("search")
-
-search.addEventListener("keyup",function(){
-
-const value = search.value.toLowerCase()
-
-const cards = document.querySelectorAll(".card")
-
-cards.forEach(card=>{
-
-const title = card.querySelector("h3").innerText.toLowerCase()
-
-card.style.display = title.includes(value) ? "block":"none"
-
-})
-
-})
-
-const currency = document.getElementById("currency")
-
-currency.addEventListener("change",function(){
-
-const prices = document.querySelectorAll(".price")
-
-prices.forEach(p=>{
-
-const uzs = p.dataset.uzs
-
-if(currency.value=="usd"){
-
-p.innerText = (uzs/11000).toFixed(2)+" $"
-
-}else{
-
-p.innerText = uzs+" so'm"
-
-}
-
-})
-
-})
-
-</script>
-
 </body>
-
 </html>
