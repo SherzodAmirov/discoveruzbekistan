@@ -1,0 +1,22 @@
+body{
+font-family: Arial;
+margin:0;
+padding:0;
+}
+
+header{
+background:#0f4c75;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+header h1{
+margin:0;
+font-size:32px;
+}
+
+#map{
+height:90vh;
+width:100%;
+}
