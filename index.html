@@ -1,1 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Modern tourism website for Uzbekistan with destinations, hotels, tours, gallery, and booking form."
+  >
+  <title>UzJourney | Discover Uzbekistan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-accent page-accent-a" aria-hidden="true"></div>
+  <div class="page-accent page-accent-b" aria-hidden="true"></div>
 
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="UzJourney home">
+        <span class="brand-mark">U</span>
+        <span class="brand-text">UzJourney</span>
+      </a>
+
+      <nav class="nav-menu" id="siteNav">
+        <a class="nav-link" href="#home" data-i18n="navHome">Home</a>
+        <a class="nav-link" href="#destinations" data-i18n="navDestinations">Destinations</a>
+        <a class="nav-link" href="#hotels" data-i18n="navHotels">Hotels</a>
+        <a class="nav-link" href="#tours" data-i18n="navTours">Tours</a>
+        <a class="nav-link" href="#gallery" data-i18n="navGallery">Gallery</a>
+        <a class="nav-link" href="#contact" data-i18n="navContact">Contact</a>
+      </nav>
+
+      <div class="header-tools">
+        <div class="language-switcher" aria-label="Language switcher">
+          <button class="lang-btn" type="button" data-lang="uz">UZ</button>
+          <button class="lang-btn" type="button" data-lang="ru">RU</button>
+          <button class="lang-btn active" type="button" data-lang="en">EN</button>
+        </div>
+
+        <button
+          class="menu-button"
+          id="menuButton"
+          type="button"
+          aria-controls="siteNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          data-i18n-aria="menuLabel"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal is-visible">
+          <p class="section-kicker" data-i18n="heroEyebrow">Silk Road escapes across Uzbekistan</p>
+          <h1 data-i18n="heroTitle">Discover the timeless beauty of Uzbekistan</h1>
+          <p class="hero-text" data-i18n="heroText">
+            From turquoise domes in Samarkand to sunset alleys in Khiva, plan elegant journeys with
+            handpicked stays, guided tours, and seamless booking.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#destinations" data-i18n="heroPrimary">Explore Destinations</a>
+            <a class="btn btn-secondary" href="#booking" data-i18n="heroSecondary">Plan My Trip</a>
+          </div>
+
+          <div class="chip-row">
+            <span class="chip" data-i18n="heroChip1">UNESCO cities</span>
+            <span class="chip" data-i18n="heroChip2">Boutique stays</span>
+            <span class="chip" data-i18n="heroChip3">Local guides</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-hidden="true">
+          <div class="visual-glow"></div>
+          <div class="visual-sun"></div>
+          <div class="visual-ridge visual-ridge-back"></div>
+          <div class="visual-ridge visual-ridge-front"></div>
+
+          <div class="visual-cityline">
+            <span class="city-block city-block-left"></span>
+            <span class="city-block city-block-center"></span>
+            <span class="city-block city-block-right"></span>
+            <span class="city-dome"></span>
+            <span class="city-minaret city-minaret-left"></span>
+            <span class="city-minaret city-minaret-right"></span>
+          </div>
+
+          <div class="visual-arch"></div>
+
+          <article class="floating-card floating-card-left">
+            <p class="floating-label" data-i18n="heroCardCity">Most booked route</p>
+            <strong data-i18n="heroCardCityValue">Samarkand - Bukhara</strong>
+          </article>
+
+          <article class="floating-card floating-card-top">
+            <p class="floating-label" data-i18n="heroCardSeason">Best season</p>
+            <strong data-i18n="heroCardSeasonValue">April to June</strong>
+          </article>
+
+          <article class="floating-card floating-card-bottom">
+            <p class="floating-label" data-i18n="heroCardSupport">Guided in</p>
+            <strong data-i18n="heroCardSupportValue">UZ / RU / EN</strong>
+          </article>
+        </div>
+      </div>
+
+      <div class="container stats-strip reveal">
+        <article class="stat-card">
+          <strong data-i18n="statValue1">5</strong>
+          <span data-i18n="statLabel1">Historic cities</span>
+        </article>
+        <article class="stat-card">
+          <strong data-i18n="statValue2">12+</strong>
+          <span data-i18n="statLabel2">Signature tours</span>
+        </article>
+        <article class="stat-card">
+          <strong data-i18n="statValue3">24/7</strong>
+          <span data-i18n="statLabel3">Support</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="destinations">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-kicker" data-i18n="destinationsKicker">Signature Journeys</p>
+          <h2 data-i18n="destinationsTitle">Top Destinations</h2>
+          <p data-i18n="destinationsText">
+            Visit Uzbekistan's most iconic cities with flexible itineraries, reliable transfers, and
+            cultural highlights.
+          </p>
+        </div>
+
+        <div class="card-grid destination-grid" id="destinationGrid"></div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="hotels">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-kicker" data-i18n="hotelsKicker">Comfortable Stays</p>
+          <h2 data-i18n="hotelsTitle">Recommended Hotels</h2>
+          <p data-i18n="hotelsText">
+            Stay in carefully selected hotels that combine local character, comfort, and ideal
+            locations.
+          </p>
+        </div>
+
+        <div class="card-grid hotel-grid" id="hotelGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="tours">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-kicker" data-i18n="toursKicker">Curated Packages</p>
+          <h2 data-i18n="toursTitle">Popular Tours</h2>
+          <p data-i18n="toursText">
+            Choose from curated cultural journeys, city escapes, and multi-day adventures through
+            Uzbekistan.
+          </p>
+        </div>
+
+        <div class="card-grid tour-grid" id="tourGrid"></div>
+
+        <div class="booking-panel panel reveal" id="booking">
+          <div class="booking-copy">
+            <p class="section-kicker" data-i18n="bookingKicker">Easy Booking</p>
+            <h2 data-i18n="bookingTitle">Book Your Uzbekistan Tour</h2>
+            <p data-i18n="bookingText">
+              Tell us your travel details and we will prepare a tailored itinerary for you.
+            </p>
+
+            <div class="benefit-list">
+              <div class="benefit-item">
+                <span class="benefit-dot"></span>
+                <span data-i18n="bookingBenefit1">Handpicked route planning</span>
+              </div>
+              <div class="benefit-item">
+                <span class="benefit-dot"></span>
+                <span data-i18n="bookingBenefit2">Hotel and transfer coordination</span>
+              </div>
+              <div class="benefit-item">
+                <span class="benefit-dot"></span>
+                <span data-i18n="bookingBenefit3">English, Russian, or Uzbek-speaking support</span>
+              </div>
+            </div>
+
+            <p class="booking-hint" data-i18n="bookingHint">
+              A travel specialist will contact you shortly.
+            </p>
+          </div>
+
+          <form class="booking-form" id="bookingForm" novalidate>
+            <label class="field">
+              <span data-i18n="bookingName">Full name</span>
+              <input
+                id="travelerName"
+                name="name"
+                type="text"
+                autocomplete="name"
+                data-i18n-placeholder="bookingNamePlaceholder"
+                placeholder="Enter your full name"
+                required
+              >
+            </label>
+
+            <label class="field">
+              <span data-i18n="bookingDestination">Destination</span>
+              <select id="destinationSelect" name="destination" required></select>
+            </label>
+
+            <label class="field">
+              <span data-i18n="bookingDate">Travel date</span>
+              <input id="travelDate" name="date" type="date" required>
+            </label>
+
+            <label class="field">
+              <span data-i18n="bookingPeople">Number of people</span>
+              <input
+                id="travelersCount"
+                name="people"
+                type="number"
+                min="1"
+                max="20"
+                value="2"
+                data-i18n-placeholder="bookingPeoplePlaceholder"
+                placeholder="2"
+                required
+              >
+            </label>
+
+            <div class="form-actions">
+              <button class="btn btn-primary form-submit" type="submit" data-i18n="bookingSubmit">
+                Send Booking
+              </button>
+              <p class="form-message" id="bookingMessage" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="gallery">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-kicker" data-i18n="galleryKicker">Visual Highlights</p>
+          <h2 data-i18n="galleryTitle">Landmark Gallery</h2>
+          <p data-i18n="galleryText">
+            A glimpse of the architecture, atmosphere, and legendary sites that define Uzbekistan.
+          </p>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-layout">
+        <div class="section-head section-head-left reveal">
+          <p class="section-kicker" data-i18n="contactBadge">Travel concierge</p>
+          <h2 data-i18n="contactTitle">Contact Us</h2>
+          <p data-i18n="contactText">
+            Need help with routes, hotels, or custom group travel? Reach out and let us design the
+            right plan.
+          </p>
+
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="https://wa.me/998710000000" target="_blank" rel="noopener" data-i18n="contactPrimary">
+              Contact on WhatsApp
+            </a>
+            <a class="btn btn-secondary" href="#booking" data-i18n="contactSecondary">Book a Consultation</a>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card panel reveal">
+            <h3 data-i18n="contactCard1Title">Travel Office</h3>
+            <p data-i18n="contactCard1Text">
+              Tashkent-based consultants for private and group journeys across Uzbekistan.
+            </p>
+            <a href="https://www.google.com/maps?q=Tashkent+Uzbekistan" target="_blank" rel="noopener">
+              Tashkent, Uzbekistan
+            </a>
+          </article>
+
+          <article class="contact-card panel reveal">
+            <h3 data-i18n="contactCard2Title">Phone &amp; Email</h3>
+            <p data-i18n="contactCard2Text">
+              Call +998 71 000 00 00 or email hello@uzjourney.uz for fast assistance.
+            </p>
+            <a href="tel:+998710000000">+998 71 000 00 00</a>
+            <a href="mailto:hello@uzjourney.uz">hello@uzjourney.uz</a>
+          </article>
+
+          <article class="contact-card panel reveal">
+            <h3 data-i18n="contactCard3Title">Working Hours</h3>
+            <p data-i18n="contactCard3Text">
+              Mon-Sun, 9:00 - 21:00. Emergency travel support stays available 24/7.
+            </p>
+            <span>09:00 - 21:00</span>
+            <span data-i18n="contactCard3Support">Emergency line available 24/7</span>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p data-i18n="footerText">UzJourney. Modern travel experiences across Uzbekistan.</p>
+      <span>&copy; <span id="currentYear"></span> UzJourney</span>
+    </div>
+  </footer>
+
+  <script src="script.js" charset="utf-8"></script>
+</body>
+</html>
