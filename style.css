@@ -205,6 +205,32 @@ section[id] {
   gap: 0.8rem;
 }
 
+.hidden {
+  display: none !important;
+}
+
+.session-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.session-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(15, 122, 119, 0.08);
+  border: 1px solid rgba(15, 122, 119, 0.12);
+  color: var(--primary-dark);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.header-auth-btn {
+  padding-inline: 1rem;
+}
+
 .language-switcher {
   display: inline-flex;
   align-items: center;
@@ -727,6 +753,27 @@ section[id] {
   gap: 1rem;
 }
 
+.booking-lock {
+  margin-top: 1.4rem;
+  padding: 1rem 1.1rem;
+  border-radius: 1.25rem;
+  background: rgba(15, 122, 119, 0.06);
+  border: 1px dashed rgba(15, 122, 119, 0.24);
+}
+
+.booking-lock strong {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.booking-lock p {
+  margin: 0 0 0.85rem;
+}
+
+.booking-login-btn {
+  min-width: 10rem;
+}
+
 .field {
   display: grid;
   gap: 0.55rem;
@@ -754,6 +801,13 @@ section[id] {
   border-color: rgba(15, 122, 119, 0.38);
   box-shadow: 0 0 0 4px rgba(15, 122, 119, 0.12);
   transform: translateY(-1px);
+}
+
+.field input:disabled,
+.field select:disabled,
+.form-submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
 }
 
 .form-actions {
@@ -833,6 +887,225 @@ section[id] {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.owner-section {
+  padding-top: 0;
+}
+
+.owner-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.owner-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.owner-card {
+  padding: 1.4rem;
+  border-radius: var(--radius-lg);
+}
+
+.owner-card-wide {
+  grid-column: 1 / -1;
+}
+
+.owner-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.owner-card-head h3,
+.owner-card-head p {
+  margin: 0;
+}
+
+.owner-stat {
+  padding: 1.2rem;
+  border-radius: 1.4rem;
+  background: linear-gradient(180deg, #ffffff, #fbf8f3);
+  border: 1px solid var(--line);
+}
+
+.owner-stat strong {
+  display: block;
+  font-size: 1.8rem;
+  margin-bottom: 0.35rem;
+}
+
+.owner-stat span {
+  color: var(--muted);
+}
+
+.owner-distribution {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.distribution-row {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.distribution-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+.distribution-bar {
+  width: 100%;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: rgba(24, 50, 55, 0.08);
+  overflow: hidden;
+}
+
+.distribution-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 620px;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.85rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.data-table th {
+  color: var(--muted);
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.editor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.editor-field:last-child {
+  grid-column: 1 / -1;
+}
+
+.editor-field textarea {
+  min-height: 10rem;
+  resize: vertical;
+  border: 1px solid rgba(24, 59, 63, 0.12);
+  border-radius: 1rem;
+  padding: 0.95rem 1rem;
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--text);
+  font: 0.9rem/1.5 "Outfit", "Segoe UI", sans-serif;
+}
+
+.owner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.auth-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+}
+
+.auth-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 17, 20, 0.62);
+  backdrop-filter: blur(6px);
+}
+
+.auth-card {
+  position: relative;
+  width: min(34rem, calc(100% - 1.2rem));
+  margin: 5vh auto 0;
+  padding: 1.4rem;
+  border-radius: 1.8rem;
+  z-index: 1;
+}
+
+.auth-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(24, 50, 55, 0.08);
+  color: var(--text);
+  font-size: 1.4rem;
+}
+
+.auth-tabs {
+  display: inline-flex;
+  gap: 0.3rem;
+  padding: 0.3rem;
+  border-radius: 999px;
+  background: rgba(24, 50, 55, 0.06);
+}
+
+.auth-tab {
+  border: 0;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.auth-tab.active {
+  background: #ffffff;
+  color: var(--text);
+  box-shadow: 0 10px 22px rgba(16, 30, 33, 0.08);
+}
+
+.auth-pane {
+  display: none;
+  margin-top: 1rem;
+}
+
+.auth-pane.active {
+  display: block;
+}
+
+.auth-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.auth-hint {
+  color: var(--muted);
+  line-height: 1.7;
 }
 
 .contact-layout {
@@ -920,6 +1193,18 @@ section[id] {
   }
 }
 
+@keyframes pulseSun {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.92;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
 @media (max-width: 1100px) {
   .hero-grid,
   .contact-layout,
@@ -929,6 +1214,11 @@ section[id] {
 
   .contact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .owner-layout,
+  .editor-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -980,6 +1270,12 @@ section[id] {
   .hero-visual {
     min-height: 31rem;
   }
+
+  .session-bar {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
 }
 
 @media (max-width: 720px) {
@@ -1004,7 +1300,7 @@ section[id] {
 
   .floating-card-top {
     right: 1rem;
-    top: 6.2rem;
+    top: 6rem;
   }
 
   .floating-card-bottom {
@@ -1030,6 +1326,8 @@ section[id] {
 
   .header-inner {
     padding: 0.8rem 0.9rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
   }
 
   .language-switcher {
@@ -1039,6 +1337,17 @@ section[id] {
   .lang-btn {
     padding: 0.48rem 0.72rem;
     font-size: 0.85rem;
+  }
+
+  .header-tools {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .session-bar {
+    width: 100%;
+    justify-content: space-between;
   }
 
   .hero-actions,
