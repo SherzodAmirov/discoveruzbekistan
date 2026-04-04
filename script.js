@@ -1,537 +1,735 @@
-const translations = {
+const uiText = {
   en: {
-    pageTitle: "Discover Uzbekistan | Discover Uzbekistan",
-    menuLabel: "Toggle navigation",
+    pageTitle: "DiscoverUzbekistan | Tourism & Booking",
     navHome: "Home",
     navDestinations: "Destinations",
     navHotels: "Hotels",
     navTours: "Tours",
     navGallery: "Gallery",
     navContact: "Contact",
-    heroEyebrow: "Silk Road escapes across Uzbekistan",
-    heroTitle: "Discover the timeless beauty of Uzbekistan",
-    heroText:
-      "From turquoise domes in Samarkand to sunset alleys in Khiva, plan elegant journeys with handpicked stays, guided tours, and seamless booking.",
-    heroPrimary: "Explore Destinations",
-    heroSecondary: "Plan My Trip",
-    heroChip1: "UNESCO cities",
-    heroChip2: "Boutique stays",
-    heroChip3: "Local guides",
-    heroCardCity: "Most booked route",
-    heroCardCityValue: "Samarkand - Bukhara",
-    heroCardSeason: "Best season",
-    heroCardSeasonValue: "April to June",
-    heroCardSupport: "Guided in",
-    heroCardSupportValue: "UZ / RU / EN",
-    statValue1: "5",
-    statLabel1: "Historic cities",
-    statValue2: "12+",
-    statLabel2: "Signature tours",
-    statValue3: "24/7",
-    statLabel3: "Support",
-    destinationsKicker: "Signature Journeys",
-    destinationsTitle: "Top Destinations",
-    destinationsText:
-      "Visit Uzbekistan's most iconic cities with flexible itineraries, reliable transfers, and cultural highlights.",
+    menuLabel: "Toggle navigation",
     mapsButton: "View on Maps",
     bookButton: "Book Tour",
     priceLabel: "Estimated from",
-    hotelsKicker: "Comfortable Stays",
-    hotelsTitle: "Recommended Hotels",
-    hotelsText:
-      "Stay in carefully selected hotels that combine local character, comfort, and ideal locations.",
-    hotelPriceLabel: "From",
-    toursKicker: "Curated Packages",
-    toursTitle: "Popular Tours",
-    toursText:
-      "Choose from curated cultural journeys, city escapes, and multi-day adventures through Uzbekistan.",
+    hotelPriceLabel: "Per night",
     tourDuration: "Duration",
     tourIncludes: "Includes",
-    tourCta: "Reserve This Tour",
-    bookingKicker: "Easy Booking",
-    bookingTitle: "Book Your Uzbekistan Tour",
-    bookingText: "Tell us your travel details and we will prepare a tailored itinerary for you.",
+    tourCta: "Reserve Tour",
+    perNight: "per night",
+    packageTotal: "package total",
     bookingName: "Full name",
     bookingNamePlaceholder: "Enter your full name",
+    bookingPhone: "Phone number",
+    bookingPhonePlaceholder: "+998 90 123 45 67",
     bookingDestination: "Destination",
     bookingDate: "Travel date",
     bookingPeople: "Number of people",
     bookingPeoplePlaceholder: "2",
-    bookingSubmit: "Send Booking",
-    bookingHint: "A travel specialist will contact you shortly.",
-    bookingBenefit1: "Handpicked route planning",
-    bookingBenefit2: "Hotel and transfer coordination",
-    bookingBenefit3: "English, Russian, or Uzbek-speaking support",
+    bookingSubmit: "Submit Travel Order",
+    bookingBenefit1: "Owner-managed travel planning",
+    bookingBenefit2: "Hotel, transfer, and guide coordination",
+    bookingBenefit3: "Language and currency adapt automatically",
+    bookingHint: "Travel orders are stored locally and can also be forwarded to operators via bot.",
+    bookingLockedTitle: "Login required for booking",
+    bookingLockedText: "Please sign in before submitting a travel order.",
     selectDestination: "Select a destination",
-    galleryKicker: "Visual Highlights",
-    galleryTitle: "Landmark Gallery",
-    galleryText:
-      "A glimpse of the architecture, atmosphere, and legendary sites that define Uzbekistan.",
-    galleryBadge: "Featured",
-    contactBadge: "Travel concierge",
+    authLogin: "Login",
+    authLogout: "Logout",
+    authGuest: "Guest mode",
+    authLoginTab: "Login",
+    authRegisterTab: "Register",
+    authLoginTitle: "Login to continue",
+    authRegisterTitle: "Create traveler account",
+    authOwnerHint: "Owner account is reserved for Shahzod. Travelers can create their own account.",
+    authName: "Name",
+    authEmail: "Email",
+    authPassword: "Password",
+    authCreateAccount: "Create Account",
+    authInvalid: "Invalid email or password.",
+    authExists: "This email is already registered.",
+    authRegistered: "Account created. You can now book tours.",
+    authRequired: "Login is required before booking.",
+    authWelcomeOwner: "Owner",
+    authWelcomeUser: "Traveler",
+    bookingSuccess: "Travel order saved for {destination}. Total: {total}.",
+    bookingError: "Please fill in all booking fields.",
+    bookingOperatorSent: "Operator notification sent.",
+    bookingOperatorPending: "Operator webhook is not configured yet.",
+    bookingOperatorFailed: "Saved locally, but operator notification failed.",
+    bookingStatusSent: "Sent",
+    bookingStatusPending: "Pending",
+    bookingStatusFailed: "Failed",
     contactTitle: "Contact Us",
-    contactText:
-      "Need help with routes, hotels, or custom group travel? Reach out and let us design the right plan.",
+    contactBadge: "Travel concierge",
     contactPrimary: "Contact on WhatsApp",
-    contactSecondary: "Book a Consultation",
+    contactSecondary: "Plan a private route",
     contactCard1Title: "Travel Office",
-    contactCard1Text: "Tashkent-based consultants for private and group journeys across Uzbekistan.",
+    contactCard1Text: "Owner-managed operations with traveler support across Uzbekistan.",
     contactCard2Title: "Phone & Email",
-    contactCard2Text: "Call +998 71 000 00 00 or email hello@uzjourney.uz for fast assistance.",
+    contactCard2Text: "Use the contact details below for route planning, pricing, and support.",
     contactCard3Title: "Working Hours",
-    contactCard3Text: "Mon-Sun, 9:00 - 21:00. Emergency travel support stays available 24/7.",
-    contactCard3Support: "Emergency line available 24/7",
-    footerText: "UzJourney. Modern travel experiences across Uzbekistan.",
-    bookingSuccess:
-      "Thank you, {name}! Your booking request for {destination} on {date} for {people} traveler(s) has been received.",
-    bookingError: "Please complete all booking fields before submitting."
+    contactCard3Text: "Every day, 09:00 - 21:00. Orders and analytics stay available to the owner.",
+    contactCard3Support: "Owner dashboard available any time",
+    ownerKicker: "Owner control",
+    ownerTitle: "Owner Dashboard",
+    ownerText: "The owner can manage content, review users, and track all booking statistics.",
+    ownerBookingsStats: "Booking Statistics",
+    ownerUsersTitle: "Users",
+    ownerOrdersTitle: "Orders",
+    ownerStudioTitle: "Content Studio",
+    ownerStudioText: "Edit settings and all content collections as JSON. Paste operatorWebhookUrl into Settings JSON after deploying the bot.",
+    ownerSettingsJson: "Settings JSON",
+    ownerDestinationsJson: "Destinations JSON",
+    ownerHotelsJson: "Hotels JSON",
+    ownerToursJson: "Tours JSON",
+    ownerGalleryJson: "Gallery JSON",
+    ownerSaveContent: "Save Changes",
+    ownerExportStats: "Export Statistics",
+    ownerResetBookings: "Reset Orders",
+    ownerOnly: "Only the owner can access this section.",
+    ownerSaved: "Content updated successfully.",
+    ownerSaveError: "JSON is invalid. Please check the editor fields.",
+    ownerResetDone: "All orders were cleared.",
+    statUsers: "Registered users",
+    statOrders: "Travel orders",
+    statRevenue: "Revenue estimate",
+    statTop: "Top destination",
+    statOperator: "Operator sent",
+    tableUserName: "Name",
+    tableUserEmail: "Email",
+    tableUserRole: "Role",
+    tableUserCreated: "Created",
+    tableOrderUser: "Traveler",
+    tableOrderDestination: "Destination",
+    tableOrderPhone: "Phone",
+    tableOrderDate: "Travel date",
+    tableOrderPeople: "People",
+    tableOrderTotal: "Total",
+    tableOrderStatus: "Operator",
+    tableOrderLang: "Language",
+    tableOrderCreated: "Created",
+    emptyUsers: "No users yet.",
+    emptyOrders: "No travel orders yet.",
+    ownerRole: "Owner",
+    travelerRole: "Traveler"
   },
   uz: {
-    pageTitle: "UzJourney | O'zbekistonni kashf eting",
-    menuLabel: "Navigatsiyani ochish",
+    pageTitle: "DiscoverUzbekistan | Sayohat va Buyurtma",
     navHome: "Bosh sahifa",
     navDestinations: "Manzillar",
     navHotels: "Mehmonxonalar",
     navTours: "Turlar",
     navGallery: "Galereya",
     navContact: "Aloqa",
-    heroEyebrow: "O'zbekiston bo'ylab Ipak yo'li sayohatlari",
-    heroTitle: "O'zbekistonning betakror go'zalligini kashf eting",
-    heroText:
-      "Samarqanddagi moviy gumbazlardan Xivadagi quyosh botishi ko'chalarigacha bo'lgan sayohatni qulay mehmonxonalar, gidli ekskursiyalar va oson bron bilan rejalashtiring.",
-    heroPrimary: "Manzillarni ko'rish",
-    heroSecondary: "Safarni rejalash",
-    heroChip1: "UNESCO shaharlari",
-    heroChip2: "Boutique turar joylar",
-    heroChip3: "Mahalliy gidlar",
-    heroCardCity: "Eng ko'p tanlangan yo'nalish",
-    heroCardCityValue: "Samarqand - Buxoro",
-    heroCardSeason: "Eng yaxshi mavsum",
-    heroCardSeasonValue: "Aprel - Iyun",
-    heroCardSupport: "Ekskursiya tillari",
-    heroCardSupportValue: "UZ / RU / EN",
-    statValue1: "5",
-    statLabel1: "Tarixiy shahar",
-    statValue2: "12+",
-    statLabel2: "Maxsus tur",
-    statValue3: "24/7",
-    statLabel3: "Yordam",
-    destinationsKicker: "Tanlangan yo'nalishlar",
-    destinationsTitle: "Mashhur Manzillar",
-    destinationsText:
-      "Moslashuvchan marshrutlar, ishonchli transferlar va boy madaniy dasturlar bilan O'zbekistonning eng mashhur shaharlari bo'ylab sayohat qiling.",
+    menuLabel: "Navigatsiyani ochish",
     mapsButton: "Xaritada ko'rish",
-    bookButton: "Tur bron qilish",
-    priceLabel: "Taxminiy narx",
-    hotelsKicker: "Qulay joylashuv",
-    hotelsTitle: "Tavsiya Etilgan Mehmonxonalar",
-    hotelsText:
-      "Mahalliy ruh, yuqori qulaylik va ajoyib lokatsiyani birlashtirgan mehmonxonalarda dam oling.",
-    hotelPriceLabel: "Boshlanadi",
-    toursKicker: "Tayyor paketlar",
-    toursTitle: "Ommabop Turlar",
-    toursText:
-      "O'zbekiston bo'ylab madaniy yo'nalishlar, shahar sayohatlari va ko'p kunlik sarguzasht turlaridan birini tanlang.",
+    bookButton: "Tur buyurtma qilish",
+    priceLabel: "Boshlanish narxi",
+    hotelPriceLabel: "Bir tun",
     tourDuration: "Davomiyligi",
     tourIncludes: "Ichiga oladi",
-    tourCta: "Ushbu turni band qilish",
-    bookingKicker: "Oson bron",
-    bookingTitle: "O'zbekiston Turingizni Bron Qiling",
-    bookingText: "Sayohat tafsilotlaringizni kiriting, biz siz uchun mos marshrut tayyorlaymiz.",
+    tourCta: "Turni band qilish",
+    perNight: "bir tun",
+    packageTotal: "to'liq paket",
     bookingName: "To'liq ism",
     bookingNamePlaceholder: "Ism va familiyangizni kiriting",
+    bookingPhone: "Telefon raqami",
+    bookingPhonePlaceholder: "+998 90 123 45 67",
     bookingDestination: "Manzil",
     bookingDate: "Safar sanasi",
-    bookingPeople: "Sayohatchilar soni",
+    bookingPeople: "Odam soni",
     bookingPeoplePlaceholder: "2",
-    bookingSubmit: "Bron yuborish",
-    bookingHint: "Tez orada sayohat bo'yicha mutaxassis siz bilan bog'lanadi.",
-    bookingBenefit1: "Moslashtirilgan marshrut tuzish",
-    bookingBenefit2: "Mehmonxona va transferni tashkil qilish",
-    bookingBenefit3: "O'zbek, rus yoki ingliz tilidagi yordam",
+    bookingSubmit: "Sayohat buyurtmasini yuborish",
+    bookingBenefit1: "Ega boshqaradigan sayohat rejalashtirish",
+    bookingBenefit2: "Mehmonxona, transfer va gid koordinatsiyasi",
+    bookingBenefit3: "Til va valyuta avtomatik moslashadi",
+    bookingHint: "Buyurtmalar local saqlanadi va bot orqali operatorlarga ham yuborilishi mumkin.",
+    bookingLockedTitle: "Buyurtma uchun login kerak",
+    bookingLockedText: "Sayohat buyurtmasini yuborishdan oldin tizimga kiring.",
     selectDestination: "Manzilni tanlang",
-    galleryKicker: "Vizual ilhom",
-    galleryTitle: "Diqqatga Sazovor Joylar",
-    galleryText:
-      "O'zbekistonni mashhur qilgan me'morchilik, muhit va tarixiy maskanlardan ilhom oling.",
-    galleryBadge: "Tanlangan",
+    authLogin: "Kirish",
+    authLogout: "Chiqish",
+    authGuest: "Mehmon rejimi",
+    authLoginTab: "Kirish",
+    authRegisterTab: "Ro'yxatdan o'tish",
+    authLoginTitle: "Davom etish uchun kiring",
+    authRegisterTitle: "Sayohatchi akkaunti yarating",
+    authOwnerHint: "Owner akkaunti Shahzod uchun ajratilgan. Sayohatchilar yangi akkaunt ochishi mumkin.",
+    authName: "Ism",
+    authEmail: "Email",
+    authPassword: "Parol",
+    authCreateAccount: "Akkaunt yaratish",
+    authInvalid: "Email yoki parol noto'g'ri.",
+    authExists: "Bu email allaqachon ro'yxatdan o'tgan.",
+    authRegistered: "Akkaunt yaratildi. Endi tur buyurtma qilishingiz mumkin.",
+    authRequired: "Buyurtma berish uchun login kerak.",
+    authWelcomeOwner: "Ega",
+    authWelcomeUser: "Sayohatchi",
+    bookingSuccess: "{destination} uchun buyurtma saqlandi. Jami: {total}.",
+    bookingError: "Iltimos, barcha maydonlarni to'ldiring.",
+    bookingOperatorSent: "Operatorga xabar yuborildi.",
+    bookingOperatorPending: "Operator webhook hali sozlanmagan.",
+    bookingOperatorFailed: "Local saqlandi, lekin operatorga yuborish muvaffaqiyatsiz bo'ldi.",
+    bookingStatusSent: "Yuborildi",
+    bookingStatusPending: "Kutilmoqda",
+    bookingStatusFailed: "Xato",
+    contactTitle: "Biz bilan bog'laning",
     contactBadge: "Sayohat konsyerji",
-    contactTitle: "Biz Bilan Bog'laning",
-    contactText:
-      "Marshrut, mehmonxona yoki guruh sayohati bo'yicha yordam kerakmi? Biz bilan bog'laning va sizga mos reja tuzib beramiz.",
-    contactPrimary: "WhatsApp orqali yozish",
-    contactSecondary: "Maslahat olish",
-    contactCard1Title: "Sayohat Ofisi",
-    contactCard1Text: "Toshkentdagi maslahatchilar xususiy va guruh sayohatlaringizni tashkil etadi.",
+    contactPrimary: "WhatsApp orqali bog'lanish",
+    contactSecondary: "Shaxsiy marshrut rejalash",
+    contactCard1Title: "Sayohat ofisi",
+    contactCard1Text: "Owner tomonidan boshqariladigan xizmat va O'zbekiston bo'ylab sayohatchi qo'llovi.",
     contactCard2Title: "Telefon va Email",
-    contactCard2Text: "Tez yordam uchun +998 71 000 00 00 raqamiga qo'ng'iroq qiling yoki hello@uzjourney.uz ga yozing.",
-    contactCard3Title: "Ish Vaqti",
-    contactCard3Text: "Du-Yak, 9:00 - 21:00. Favqulodda sayohat yordami 24/7 ishlaydi.",
-    contactCard3Support: "Favqulodda aloqa 24/7 mavjud",
-    footerText: "UzJourney. O'zbekiston bo'ylab zamonaviy sayohat tajribalari.",
-    bookingSuccess:
-      "Rahmat, {name}! {destination} uchun {date} sanasiga {people} kishi nomidan yuborilgan bron so'rovingiz qabul qilindi.",
-    bookingError: "Bron yuborishdan oldin barcha maydonlarni to'ldiring."
+    contactCard2Text: "Marshrut, narx va qo'llov uchun quyidagi aloqa vositalaridan foydalaning.",
+    contactCard3Title: "Ish vaqti",
+    contactCard3Text: "Har kuni, 09:00 - 21:00. Buyurtma va statistika owner uchun doim ochiq.",
+    contactCard3Support: "Owner panel istalgan vaqtda ochiq",
+    ownerKicker: "Owner boshqaruvi",
+    ownerTitle: "Owner Panel",
+    ownerText: "Ega kontentni boshqaradi, foydalanuvchilarni ko'radi va barcha statistika bilan ishlaydi.",
+    ownerBookingsStats: "Buyurtma statistikasi",
+    ownerUsersTitle: "Foydalanuvchilar",
+    ownerOrdersTitle: "Buyurtmalar",
+    ownerStudioTitle: "Kontent Studio",
+    ownerStudioText: "Sozlamalar va barcha kolleksiyalarni JSON orqali tahrir qiling. Botni deploy qilgandan keyin operatorWebhookUrl ni Settings JSON ichiga yozing.",
+    ownerSettingsJson: "Settings JSON",
+    ownerDestinationsJson: "Destinations JSON",
+    ownerHotelsJson: "Hotels JSON",
+    ownerToursJson: "Tours JSON",
+    ownerGalleryJson: "Gallery JSON",
+    ownerSaveContent: "O'zgarishlarni saqlash",
+    ownerExportStats: "Statistikani export qilish",
+    ownerResetBookings: "Buyurtmalarni tozalash",
+    ownerOnly: "Bu bo'lim faqat owner uchun.",
+    ownerSaved: "Kontent muvaffaqiyatli yangilandi.",
+    ownerSaveError: "JSON xato. Editor maydonlarini tekshiring.",
+    ownerResetDone: "Barcha buyurtmalar o'chirildi.",
+    statUsers: "Ro'yxatdan o'tganlar",
+    statOrders: "Sayohat buyurtmalari",
+    statRevenue: "Taxminiy tushum",
+    statTop: "Eng ko'p tanlangan manzil",
+    statOperator: "Operatorga yuborilgan",
+    tableUserName: "Ism",
+    tableUserEmail: "Email",
+    tableUserRole: "Rol",
+    tableUserCreated: "Yaratilgan",
+    tableOrderUser: "Sayohatchi",
+    tableOrderDestination: "Manzil",
+    tableOrderPhone: "Telefon",
+    tableOrderDate: "Safar sanasi",
+    tableOrderPeople: "Odam",
+    tableOrderTotal: "Jami",
+    tableOrderStatus: "Operator",
+    tableOrderLang: "Til",
+    tableOrderCreated: "Yaratilgan",
+    emptyUsers: "Hali foydalanuvchilar yo'q.",
+    emptyOrders: "Hali buyurtmalar yo'q.",
+    ownerRole: "Ega",
+    travelerRole: "Sayohatchi"
   },
   ru: {
-    pageTitle: "UzJourney | Откройте Узбекистан",
-    menuLabel: "Открыть навигацию",
+    pageTitle: "DiscoverUzbekistan | Туризм и Бронирование",
     navHome: "Главная",
     navDestinations: "Направления",
     navHotels: "Отели",
     navTours: "Туры",
     navGallery: "Галерея",
     navContact: "Контакты",
-    heroEyebrow: "Путешествия по Шелковому пути в Узбекистане",
-    heroTitle: "Откройте вневременную красоту Узбекистана",
-    heroText:
-      "От бирюзовых куполов Самарканда до вечерних улиц Хивы, планируйте стильные путешествия с тщательно подобранными отелями, экскурсиями и удобным бронированием.",
-    heroPrimary: "Смотреть направления",
-    heroSecondary: "Спланировать поездку",
-    heroChip1: "Города UNESCO",
-    heroChip2: "Бутик-отели",
-    heroChip3: "Местные гиды",
-    heroCardCity: "Самый популярный маршрут",
-    heroCardCityValue: "Самарканд - Бухара",
-    heroCardSeason: "Лучший сезон",
-    heroCardSeasonValue: "Апрель - Июнь",
-    heroCardSupport: "Языки сопровождения",
-    heroCardSupportValue: "UZ / RU / EN",
-    statValue1: "5",
-    statLabel1: "Исторических городов",
-    statValue2: "12+",
-    statLabel2: "Авторских туров",
-    statValue3: "24/7",
-    statLabel3: "Поддержка",
-    destinationsKicker: "Авторские маршруты",
-    destinationsTitle: "Лучшие Направления",
-    destinationsText:
-      "Путешествуйте по самым знаковым городам Узбекистана с гибкими маршрутами, надежными трансферами и насыщенной культурной программой.",
-    mapsButton: "Открыть на карте",
-    bookButton: "Забронировать тур",
-    priceLabel: "Примерная цена",
-    hotelsKicker: "Комфортное проживание",
-    hotelsTitle: "Рекомендуемые Отели",
-    hotelsText:
-      "Остановитесь в тщательно выбранных отелях, где сочетаются местный колорит, комфорт и удачное расположение.",
-    hotelPriceLabel: "От",
-    toursKicker: "Готовые пакеты",
-    toursTitle: "Популярные Туры",
-    toursText:
-      "Выберите культурные маршруты, городские поездки и многодневные путешествия по Узбекистану.",
+    menuLabel: "Открыть навигацию",
+    mapsButton: "Открыть карту",
+    bookButton: "Заказать тур",
+    priceLabel: "Цена от",
+    hotelPriceLabel: "За ночь",
     tourDuration: "Длительность",
     tourIncludes: "Включено",
-    tourCta: "Забронировать этот тур",
-    bookingKicker: "Простое бронирование",
-    bookingTitle: "Забронируйте Тур в Узбекистан",
-    bookingText: "Сообщите детали поездки, и мы подготовим для вас индивидуальный маршрут.",
+    tourCta: "Забронировать тур",
+    perNight: "за ночь",
+    packageTotal: "стоимость пакета",
     bookingName: "Полное имя",
     bookingNamePlaceholder: "Введите ваше имя и фамилию",
+    bookingPhone: "Номер телефона",
+    bookingPhonePlaceholder: "+998 90 123 45 67",
     bookingDestination: "Направление",
     bookingDate: "Дата поездки",
-    bookingPeople: "Количество человек",
+    bookingPeople: "Количество людей",
     bookingPeoplePlaceholder: "2",
     bookingSubmit: "Отправить заявку",
-    bookingHint: "С вами скоро свяжется тревел-специалист.",
-    bookingBenefit1: "Индивидуальное планирование маршрута",
-    bookingBenefit2: "Организация отелей и трансферов",
-    bookingBenefit3: "Поддержка на узбекском, русском или английском",
+    bookingBenefit1: "Планирование поездки под контролем владельца",
+    bookingBenefit2: "Координация отелей, трансферов и гидов",
+    bookingBenefit3: "Язык и валюта меняются автоматически",
+    bookingHint: "Заявки сохраняются локально для панели владельца.",
+    bookingLockedTitle: "Для бронирования нужен вход",
+    bookingLockedText: "Пожалуйста, войдите перед отправкой заявки.",
     selectDestination: "Выберите направление",
-    galleryKicker: "Визуальные акценты",
-    galleryTitle: "Галерея Достопримечательностей",
-    galleryText:
-      "Взгляд на архитектуру, атмосферу и легендарные места, которые делают Узбекистан особенным.",
-    galleryBadge: "Избранное",
+    authLogin: "Войти",
+    authLogout: "Выйти",
+    authGuest: "Гостевой режим",
+    authLoginTab: "Вход",
+    authRegisterTab: "Регистрация",
+    authLoginTitle: "Войдите, чтобы продолжить",
+    authRegisterTitle: "Создать аккаунт путешественника",
+    authOwnerHint: "Аккаунт владельца зарезервирован для Shahzod. Путешественники могут зарегистрироваться отдельно.",
+    authName: "Имя",
+    authEmail: "Email",
+    authPassword: "Пароль",
+    authCreateAccount: "Создать аккаунт",
+    authInvalid: "Неверный email или пароль.",
+    authExists: "Этот email уже зарегистрирован.",
+    authRegistered: "Аккаунт создан. Теперь можно оформлять туры.",
+    authRequired: "Для оформления нужна авторизация.",
+    authWelcomeOwner: "Владелец",
+    authWelcomeUser: "Путешественник",
+    bookingSuccess: "Заявка для {destination} сохранена. Итого: {total}.",
+    bookingError: "Пожалуйста, заполните все поля.",
+    bookingOperatorSent: "Уведомление оператору отправлено.",
+    bookingOperatorPending: "Webhook операторов еще не настроен.",
+    bookingOperatorFailed: "Сохранено локально, но отправка оператору не удалась.",
+    contactTitle: "Свяжитесь с нами",
     contactBadge: "Тревел-консьерж",
-    contactTitle: "Свяжитесь с Нами",
-    contactText:
-      "Нужна помощь с маршрутом, отелями или групповым путешествием? Напишите нам, и мы предложим оптимальный план.",
-    contactPrimary: "Написать в WhatsApp",
-    contactSecondary: "Заказать консультацию",
+    contactPrimary: "Связаться в WhatsApp",
+    contactSecondary: "Спланировать личный маршрут",
     contactCard1Title: "Туристический офис",
-    contactCard1Text: "Консультанты в Ташкенте помогут организовать частные и групповые поездки по Узбекистану.",
+    contactCard1Text: "Управление владельцем и поддержка путешественников по всему Узбекистану.",
     contactCard2Title: "Телефон и Email",
-    contactCard2Text: "Позвоните по номеру +998 71 000 00 00 или напишите на hello@uzjourney.uz для быстрой связи.",
-    contactCard3Title: "Время работы",
-    contactCard3Text: "Пн-Вс, 9:00 - 21:00. Экстренная туристическая поддержка доступна 24/7.",
-    contactCard3Support: "Экстренная линия доступна 24/7",
-    footerText: "UzJourney. Современные путешествия по Узбекистану.",
-    bookingSuccess:
-      "Спасибо, {name}! Ваша заявка на {destination} на дату {date} для {people} путешественника(ов) получена.",
-    bookingError: "Пожалуйста, заполните все поля формы перед отправкой."
+    contactCard2Text: "Используйте контакты ниже для маршрутов, цен и поддержки.",
+    contactCard3Title: "Часы работы",
+    contactCard3Text: "Ежедневно, 09:00 - 21:00. Заказы и статистика всегда доступны владельцу.",
+    contactCard3Support: "Панель владельца доступна всегда",
+    ownerKicker: "Контроль владельца",
+    ownerTitle: "Панель Владельца",
+    ownerText: "Владелец управляет контентом, видит пользователей и отслеживает всю статистику.",
+    ownerBookingsStats: "Статистика заказов",
+    ownerUsersTitle: "Пользователи",
+    ownerOrdersTitle: "Заказы",
+    ownerStudioTitle: "Content Studio",
+    ownerStudioText: "Редактируйте настройки и все коллекции в формате JSON.",
+    ownerSettingsJson: "Settings JSON",
+    ownerDestinationsJson: "Destinations JSON",
+    ownerHotelsJson: "Hotels JSON",
+    ownerToursJson: "Tours JSON",
+    ownerGalleryJson: "Gallery JSON",
+    ownerSaveContent: "Сохранить изменения",
+    ownerExportStats: "Экспорт статистики",
+    ownerResetBookings: "Очистить заказы",
+    ownerOnly: "Этот раздел доступен только владельцу.",
+    ownerSaved: "Контент успешно обновлен.",
+    ownerSaveError: "Ошибка JSON. Проверьте поля редактора.",
+    ownerResetDone: "Все заказы удалены.",
+    statUsers: "Пользователи",
+    statOrders: "Заказы",
+    statRevenue: "Прогноз выручки",
+    statTop: "Популярное направление",
+    tableUserName: "Имя",
+    tableUserEmail: "Email",
+    tableUserRole: "Роль",
+    tableUserCreated: "Создан",
+    tableOrderUser: "Путешественник",
+    tableOrderDestination: "Направление",
+    tableOrderPhone: "Телефон",
+    tableOrderDate: "Дата поездки",
+    tableOrderPeople: "Люди",
+    tableOrderTotal: "Итого",
+    tableOrderLang: "Язык",
+    tableOrderCreated: "Создан",
+    emptyUsers: "Пользователей пока нет.",
+    emptyOrders: "Заказов пока нет.",
+    ownerRole: "Владелец",
+    travelerRole: "Путешественник"
   }
 };
 
-const destinations = [
-  {
-    id: "samarkand",
-    name: {
-      en: "Samarkand",
-      uz: "Samarqand",
-      ru: "Самарканд"
-    },
-    description: {
-      en: "Majestic mosaics, Registan grandeur, and Silk Road heritage in Uzbekistan's most iconic city.",
-      uz: "Registon, moviy gumbazlar va Ipak yo'li ruhi uyg'unlashgan afsonaviy tarixiy shahar.",
-      ru: "Величественный Регистан, бирюзовые купола и атмосфера Великого шелкового пути."
-    },
-    subtitle: {
-      en: "Registan & Gur-e-Amir",
-      uz: "Registon va Go'ri Amir",
-      ru: "Регистан и Гур-Эмир"
-    },
-    price: "$320",
-    map: "https://www.google.com/maps?q=Samarkand+Uzbekistan",
-    palette: ["#0e7278", "#2f9d9d", "#f3c36d", "#e28a39"]
-  },
-  {
-    id: "bukhara",
-    name: {
-      en: "Bukhara",
-      uz: "Buxoro",
-      ru: "Бухара"
-    },
-    description: {
-      en: "Ancient caravan routes, atmospheric courtyards, and beautifully preserved Islamic architecture.",
-      uz: "Qadimiy karvon yo'llari, sokin hovlilar va islomiy me'morchilik markazi.",
-      ru: "Древние караванные пути, уютные дворики и прекрасно сохранившаяся исламская архитектура."
-    },
-    subtitle: {
-      en: "Poi Kalyan Ensemble",
-      uz: "Poi Kalon majmuasi",
-      ru: "Комплекс Пои-Калян"
-    },
-    price: "$280",
-    map: "https://www.google.com/maps?q=Bukhara+Uzbekistan",
-    palette: ["#8f5a2c", "#c6894d", "#f0c680", "#f3a75f"]
-  },
-  {
-    id: "khiva",
-    name: {
-      en: "Khiva",
-      uz: "Xiva",
-      ru: "Хива"
-    },
-    description: {
-      en: "Step into a walled open-air museum filled with minarets, madrasahs, and sunset views.",
-      uz: "Minoralar, madrasalar va quyosh botishi manzaralari bilan to'lgan tarixiy shahar.",
-      ru: "Музей под открытым небом с крепостными стенами, минаретами и медресе."
-    },
-    subtitle: {
-      en: "Ichan Kala",
-      uz: "Ichan qal'a",
-      ru: "Ичан-Кала"
-    },
-    price: "$340",
-    map: "https://www.google.com/maps?q=Khiva+Uzbekistan",
-    palette: ["#116d7a", "#27a3aa", "#f1d492", "#da8c49"]
-  },
-  {
-    id: "tashkent",
-    name: {
-      en: "Tashkent",
-      uz: "Toshkent",
-      ru: "Ташкент"
-    },
-    description: {
-      en: "A vibrant capital blending modern boulevards, museums, metro art, and culinary hotspots.",
-      uz: "Zamonaviy xiyobonlar, muzeylar, metro san'ati va gastronomiyani birlashtirgan poytaxt.",
-      ru: "Живая столица с современными проспектами, музеями и метро-артом."
-    },
-    subtitle: {
-      en: "Metro Art & City Lights",
-      uz: "Metro san'ati va shahar chiroqlari",
-      ru: "Метро-арт и огни города"
-    },
-    price: "$210",
-    map: "https://www.google.com/maps?q=Tashkent+Uzbekistan",
-    palette: ["#2f5f8b", "#4e8dc5", "#f0c58a", "#e19759"]
-  },
-  {
-    id: "shahrisabz",
-    name: {
-      en: "Shahrisabz",
-      uz: "Shahrisabz",
-      ru: "Шахрисабз"
-    },
-    description: {
-      en: "The birthplace of Amir Timur with grand ruins, palace heritage, and mountain-framed scenery.",
-      uz: "Amir Temur tavallud topgan, tarixiy xarobalar va tog' manzaralari bilan mashhur maskan.",
-      ru: "Родина Амира Темура с дворцовым наследием и видами на горы."
-    },
-    subtitle: {
-      en: "Ak-Saray Heritage",
-      uz: "Oqsaroy merosi",
-      ru: "Наследие Ак-Сарая"
-    },
-    price: "$250",
-    map: "https://www.google.com/maps?q=Shahrisabz+Uzbekistan",
-    palette: ["#356751", "#4f916f", "#f1c98b", "#d78149"]
-  }
-];
-
-const hotels = [
-  {
-    name: "Registan Heritage Hotel",
-    city: "Samarkand",
-    description: "A refined stay with traditional interiors, a rooftop terrace, and quick access to major landmarks.",
-    price: "$95 / night",
-    features: ["Breakfast included", "Airport transfer", "Rooftop terrace"],
-    subtitle: "Classic comfort in the old city",
-    palette: ["#0d6d74", "#3da7a0", "#f1cb89", "#d98b49"]
-  },
-  {
-    name: "Old Caravan Boutique",
-    city: "Bukhara",
-    description: "A warm boutique hideaway near Lyabi-Hauz with handcrafted details and peaceful courtyards.",
-    price: "$78 / night",
-    features: ["Courtyard dining", "Walking distance center", "Traditional decor"],
-    subtitle: "Boutique charm by Lyabi-Hauz",
-    palette: ["#8d542f", "#d09056", "#f3cf8f", "#e6a56c"]
-  },
-  {
-    name: "Ichan Kala View Hotel",
-    city: "Khiva",
-    description: "Wake up inside the ancient walls with panoramic terraces and a cozy atmosphere.",
-    price: "$88 / night",
-    features: ["Historic district", "Sunset terrace", "Local breakfast"],
-    subtitle: "Stay within the old fortress",
-    palette: ["#126a77", "#3cb0b2", "#f0cc8f", "#d98d52"]
-  },
-  {
-    name: "Capital City Lights",
-    city: "Tashkent",
-    description: "Modern comfort with stylish rooms, excellent dining, and quick access to the city's business and cultural hubs.",
-    price: "$105 / night",
-    features: ["Modern rooms", "Fitness zone", "Central location"],
-    subtitle: "Modern stay in the capital",
-    palette: ["#2e628f", "#5b97ca", "#f1ca90", "#e39a62"]
-  }
-];
-
-const tours = [
-  {
-    name: "Golden Route Highlights",
-    route: "Tashkent - Samarkand - Bukhara",
-    description: "A classic introduction to Uzbekistan with city tours, cultural dinners, and high-speed train connections.",
-    duration: "5 days / 4 nights",
-    includes: "Hotels, guide, transfers",
-    price: "$590",
-    focusDestination: "samarkand"
-  },
-  {
-    name: "Desert to Domes Escape",
-    route: "Khiva - Bukhara - Samarkand",
-    description: "Journey through ancient fortresses, bustling bazaars, and UNESCO wonders with immersive storytelling.",
-    duration: "7 days / 6 nights",
-    includes: "Hotels, entrance tickets, guide",
-    price: "$860",
-    focusDestination: "khiva"
-  },
-  {
-    name: "Timurid Legacy Weekend",
-    route: "Samarkand - Shahrisabz",
-    description: "A shorter cultural escape focused on grand monuments, artisan workshops, and scenic road trips.",
-    duration: "3 days / 2 nights",
-    includes: "Transport, guide, boutique stay",
-    price: "$420",
-    focusDestination: "shahrisabz"
-  }
-];
-
-const galleryItems = [
-  {
-    name: "Registan Square",
-    location: "Samarkand",
-    subtitle: "The ceremonial heart of the Silk Road",
-    palette: ["#0e6d77", "#2fa4a5", "#f3cb8a", "#dd8b43"]
-  },
-  {
-    name: "Poi Kalyan",
-    location: "Bukhara",
-    subtitle: "A timeless ensemble of minaret and mosque",
-    palette: ["#975d31", "#cf9455", "#f3cf92", "#e4a265"]
-  },
-  {
-    name: "Ichan Kala Walls",
-    location: "Khiva",
-    subtitle: "Sunset colors over ancient fortifications",
-    palette: ["#136f7a", "#38adb0", "#f2d293", "#d88d50"]
-  },
-  {
-    name: "Amir Timur Museum",
-    location: "Tashkent",
-    subtitle: "Elegant domes in the modern capital",
-    palette: ["#2f618f", "#5f97cc", "#f0c992", "#e1975c"]
-  },
-  {
-    name: "Ak-Saray Remains",
-    location: "Shahrisabz",
-    subtitle: "Timurid history framed by mountain horizons",
-    palette: ["#376b54", "#5a9978", "#f3cf95", "#db8a4f"]
-  },
-  {
-    name: "Gur-e-Amir",
-    location: "Samarkand",
-    subtitle: "One of Central Asia's most iconic mausoleums",
-    palette: ["#0f747d", "#35a2aa", "#f3cc92", "#db8a4a"]
-  }
-];
-
-const photoSet = {
-  samarkand: "https://commons.wikimedia.org/wiki/Special:FilePath/Registan%20square%20Samarkand.jpg",
-  bukhara: "https://commons.wikimedia.org/wiki/Special:FilePath/Po-i-Kalyan%20in%20Bukhara.jpg",
-  khiva: "https://commons.wikimedia.org/wiki/Special:FilePath/Khiva%2C%20Uzbekistan%20%286132128821%29.jpg",
-  tashkent: "https://commons.wikimedia.org/wiki/Special:FilePath/Tashkent%20city%20skyline.jpg",
-  shahrisabz: "https://commons.wikimedia.org/wiki/Special:FilePath/Aksaray%20Shahrisabz.jpg",
-  registanAlt: "https://commons.wikimedia.org/wiki/Special:FilePath/Registan%20Samarkand.jpg"
+const currencyByLanguage = {
+  en: { code: "USD", rate: 1, locale: "en-US", suffix: "$", prefix: true },
+  uz: { code: "UZS", rate: 12800, locale: "uz-UZ", suffix: " so'm", prefix: false },
+  ru: { code: "RUB", rate: 92, locale: "ru-RU", suffix: " ₽", prefix: false }
 };
 
-destinations[0].image = photoSet.samarkand;
-destinations[1].image = photoSet.bukhara;
-destinations[2].image = photoSet.khiva;
-destinations[3].image = photoSet.tashkent;
-destinations[4].image = photoSet.shahrisabz;
+const STORAGE_KEYS = {
+  users: "discover-uzbekistan-users",
+  session: "discover-uzbekistan-session",
+  bookings: "discover-uzbekistan-bookings",
+  content: "discover-uzbekistan-content"
+};
 
-hotels[0].image = photoSet.samarkand;
-hotels[1].image = photoSet.bukhara;
-hotels[2].image = photoSet.khiva;
-hotels[3].image = photoSet.tashkent;
+const OWNER_ACCOUNT = {
+  id: "owner-shahzod",
+  name: "SherzodAmirov",
+  email: "sherzod@discoveruzbekistan.uz",
+  password: "Amirov1717",
+  role: "owner",
+  createdAt: "2026-04-04T00:00:00.000Z"
+};
 
-galleryItems[0].image = photoSet.samarkand;
-galleryItems[1].image = photoSet.bukhara;
-galleryItems[2].image = photoSet.khiva;
-galleryItems[3].image = photoSet.tashkent;
-galleryItems[4].image = photoSet.shahrisabz;
-galleryItems[5].image = photoSet.registanAlt;
-
-const state = { language: "en" };
-
-const destinationGrid = document.getElementById("destinationGrid");
-const hotelGrid = document.getElementById("hotelGrid");
-const tourGrid = document.getElementById("tourGrid");
-const galleryGrid = document.getElementById("galleryGrid");
-const destinationSelect = document.getElementById("destinationSelect");
-const bookingForm = document.getElementById("bookingForm");
-const bookingMessage = document.getElementById("bookingMessage");
-const travelDateInput = document.getElementById("travelDate");
-const langButtons = document.querySelectorAll(".lang-btn");
-const siteHeader = document.querySelector(".site-header");
-const menuButton = document.getElementById("menuButton");
-const navMenu = document.getElementById("siteNav");
-const currentYear = document.getElementById("currentYear");
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("is-visible");
-      revealObserver.unobserve(entry.target);
+const defaultContent = {
+  settings: {
+    brandName: "DiscoverUzbekistan",
+    footerText: {
+      en: "DiscoverUzbekistan. Modern travel experiences across Uzbekistan.",
+      uz: "DiscoverUzbekistan. O'zbekiston bo'ylab zamonaviy sayohat tajribalari.",
+      ru: "DiscoverUzbekistan. Современные путешествия по Узбекистану."
+    },
+    heroEyebrow: {
+      en: "Owner-led journeys through Uzbekistan",
+      uz: "Owner boshqaruvidagi O'zbekiston sayohatlari",
+      ru: "Путешествия по Узбекистану под управлением владельца"
+    },
+    heroTitle: {
+      en: "DiscoverUzbekistan with flexible routes, login booking, and real owner control",
+      uz: "DiscoverUzbekistan: moslashuvchan marshrut, login bilan buyurtma va to'liq owner nazorati",
+      ru: "DiscoverUzbekistan: гибкие маршруты, бронирование через вход и полный контроль владельца"
+    },
+    heroText: {
+      en: "Explore historic cities, modern routes, trusted hotels, and curated tours. Booking requires login, and all activity appears in the owner dashboard.",
+      uz: "Tarixiy shaharlar, zamonaviy yo'nalishlar, ishonchli mehmonxonalar va tanlangan turlarni ko'ring. Buyurtma uchun login kerak va barcha harakatlar owner panelida ko'rinadi.",
+      ru: "Изучайте исторические города, современные маршруты, надежные отели и авторские туры. Для заказа нужен вход, а вся активность отображается в панели владельца."
+    },
+    contactText: {
+      en: "Need a private itinerary, hotel package, or owner-approved pricing? Reach out directly.",
+      uz: "Shaxsiy marshrut, mehmonxona paketi yoki owner tasdiqlagan narxlar kerakmi? To'g'ridan-to'g'ri bog'laning.",
+      ru: "Нужен личный маршрут, пакет с отелем или цены, утвержденные владельцем? Свяжитесь напрямую."
     }
-  });
-}, { threshold: 0.16 });
+  },
+  destinations: [
+    {
+      id: "samarkand",
+      name: { en: "Samarkand", uz: "Samarqand", ru: "Самарканд" },
+      subtitle: { en: "Registan and Timurid heritage", uz: "Registon va temuriylar merosi", ru: "Регистан и наследие Тимуридов" },
+      description: {
+        en: "The flagship route for blue domes, Registan evenings, and premium guided city walks.",
+        uz: "Moviy gumbazlar, Registon oqshomi va yuqori darajadagi ekskursiyalar uchun asosiy manzil.",
+        ru: "Главное направление для голубых куполов, вечернего Регистана и качественных городских экскурсий."
+      },
+      priceUsd: 320,
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Registan%20square%20Samarkand.jpg",
+      map: "https://www.google.com/maps?q=Samarkand+Uzbekistan"
+    },
+    {
+      id: "bukhara",
+      name: { en: "Bukhara", uz: "Buxoro", ru: "Бухара" },
+      subtitle: { en: "Courtyards and caravan history", uz: "Hovlilar va karvon tarixi", ru: "Дворики и караванная история" },
+      description: {
+        en: "A classic cultural stop for madrasahs, artisan streets, and atmospheric old-town evenings.",
+        uz: "Madrasa, hunarmand ko'chalari va qadimiy shahar muhitini sevuvchilar uchun klassik manzil.",
+        ru: "Классическая культурная остановка с медресе, ремесленными улицами и атмосферой старого города."
+      },
+      priceUsd: 280,
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Po-i-Kalyan%20in%20Bukhara.jpg",
+      map: "https://www.google.com/maps?q=Bukhara+Uzbekistan"
+    },
+    {
+      id: "khiva",
+      name: { en: "Khiva", uz: "Xiva", ru: "Хива" },
+      subtitle: { en: "Ichan Kala sunset route", uz: "Ichan qal'a quyosh botishi", ru: "Закатный маршрут Ичан-Кала" },
+      description: {
+        en: "Compact, photogenic, and ideal for travelers who want fortress walls, minarets, and desert mood.",
+        uz: "Qal'a devorlari, minoralar va sahro kayfiyatini xohlaganlar uchun ixcham va juda fotogenik yo'nalish.",
+        ru: "Компактный и очень фотогеничный маршрут для тех, кто ищет стены крепости, минареты и атмосферу пустыни."
+      },
+      priceUsd: 340,
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Khiva%2C%20Uzbekistan%20%286132128821%29.jpg",
+      map: "https://www.google.com/maps?q=Khiva+Uzbekistan"
+    },
+    {
+      id: "tashkent",
+      name: { en: "Tashkent", uz: "Toshkent", ru: "Ташкент" },
+      subtitle: { en: "Capital comfort and city lights", uz: "Poytaxt qulayligi va shahar chiroqlari", ru: "Комфорт столицы и огни города" },
+      description: {
+        en: "The modern gateway with metro art, business hotels, food routes, and direct owner support.",
+        uz: "Metro san'ati, biznes mehmonxonalari, gastronomik yo'nalishlar va owner qo'llovi bilan zamonaviy markaz.",
+        ru: "Современная точка входа с метро-артом, бизнес-отелями, гастрономическими маршрутами и поддержкой владельца."
+      },
+      priceUsd: 210,
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Metro-Tashkent.jpg",
+      map: "https://www.google.com/maps?q=Tashkent+Uzbekistan"
+    },
+    {
+      id: "shahrisabz",
+      name: { en: "Shahrisabz", uz: "Shahrisabz", ru: "Шахрисабз" },
+      subtitle: { en: "Ak-Saray and mountain approach", uz: "Oqsaroy va tog' manzarasi", ru: "Ак-Сарай и горный пейзаж" },
+      description: {
+        en: "A strong add-on for travelers interested in Amir Timur heritage and scenic day drives.",
+        uz: "Amir Temur merosi va manzarali kunlik safarlarga qiziqqanlar uchun kuchli qo'shimcha yo'nalish.",
+        ru: "Сильное дополнение для гостей, которым интересны наследие Амира Темура и живописные поездки."
+      },
+      priceUsd: 250,
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Aksaray%20Shahrisabz.jpg",
+      map: "https://www.google.com/maps?q=Shahrisabz+Uzbekistan"
+    },
+    {
+      id: "kokand",
+      name: { en: "Kokand", uz: "Qo'qon", ru: "Коканд" },
+      subtitle: { en: "Palace architecture", uz: "Saroy me'morchiligi", ru: "Дворцовая архитектура" },
+      description: {
+        en: "A Fergana Valley route focused on palace interiors, craft heritage, and calmer city pacing.",
+        uz: "Farg'ona vodiysidagi saroy interyerlari, hunarmandchilik va sokin shahar ritmi bilan mashhur yo'nalish.",
+        ru: "Маршрут по Ферганской долине с дворцовыми интерьерами, ремеслами и более спокойным ритмом."
+      },
+      priceUsd: 230,
+      image: "",
+      map: "https://www.google.com/maps?q=Kokand+Uzbekistan"
+    },
+    {
+      id: "fergana",
+      name: { en: "Fergana Valley", uz: "Farg'ona vodiysi", ru: "Ферганская долина" },
+      subtitle: { en: "Craft and silk route", uz: "Hunarmandchilik va ipak yo'li", ru: "Ремесла и шелк" },
+      description: {
+        en: "Best for silk workshops, ceramics, family-run studios, and private artisan experiences.",
+        uz: "Ipak ustaxonalari, keramika, oilaviy studiyalar va shaxsiy hunarmand tajribasi uchun eng yaxshi hudud.",
+        ru: "Лучший выбор для шелковых мастерских, керамики, семейных студий и частных ремесленных программ."
+      },
+      priceUsd: 260,
+      image: "",
+      map: "https://www.google.com/maps?q=Fergana+Valley+Uzbekistan"
+    }
+  ],
+  hotels: [
+    {
+      id: "registan-heritage",
+      name: "Registan Heritage Hotel",
+      city: "Samarkand",
+      description: "Owner-approved stay with rooftop access, private transfers, and walking distance to major landmarks.",
+      priceUsd: 95,
+      features: ["Breakfast included", "Airport transfer", "Rooftop terrace"],
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Registan%20square%20Samarkand.jpg"
+    },
+    {
+      id: "old-caravan",
+      name: "Old Caravan Boutique",
+      city: "Bukhara",
+      description: "A smaller atmospheric hotel near the old center for guests who prefer local style over standard chains.",
+      priceUsd: 78,
+      features: ["Courtyard dining", "Walking access", "Traditional decor"],
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Po-i-Kalyan%20in%20Bukhara.jpg"
+    },
+    {
+      id: "ichan-view",
+      name: "Ichan Kala View",
+      city: "Khiva",
+      description: "Inside the old walls with terrace views and direct access to the main historical quarter.",
+      priceUsd: 88,
+      features: ["Historic district", "Terrace", "Local breakfast"],
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Khiva%2C%20Uzbekistan%20%286132128821%29.jpg"
+    },
+    {
+      id: "capital-lights",
+      name: "Capital City Lights",
+      city: "Tashkent",
+      description: "Modern rooms, food options, and direct access to the city core for business and city travelers.",
+      priceUsd: 105,
+      features: ["Modern rooms", "Fitness zone", "Central location"],
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Metro-Tashkent.jpg"
+    }
+  ],
+  tours: [
+    {
+      id: "golden-route",
+      name: "Golden Route Highlights",
+      route: "Tashkent - Samarkand - Bukhara",
+      description: "The core premium itinerary with rail connections, guided visits, and balanced pacing.",
+      duration: "5 days / 4 nights",
+      includes: "Hotels, guide, transfers",
+      priceUsd: 590,
+      focusDestination: "samarkand"
+    },
+    {
+      id: "desert-domes",
+      name: "Desert to Domes Escape",
+      route: "Khiva - Bukhara - Samarkand",
+      description: "A route for travelers who want fortress walls, desert color, and high-value historical stops.",
+      duration: "7 days / 6 nights",
+      includes: "Hotels, tickets, guide",
+      priceUsd: 860,
+      focusDestination: "khiva"
+    },
+    {
+      id: "timurid-line",
+      name: "Timurid Legacy Route",
+      route: "Samarkand - Shahrisabz",
+      description: "Shorter cultural route focused on monuments, scenic road sections, and private pacing.",
+      duration: "3 days / 2 nights",
+      includes: "Transport, guide, boutique stay",
+      priceUsd: 420,
+      focusDestination: "shahrisabz"
+    }
+  ],
+  gallery: [
+    { id: "registan", name: "Registan Square", location: "Samarkand", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Registan%20square%20Samarkand.jpg" },
+    { id: "poi-kalyan", name: "Poi Kalyan", location: "Bukhara", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Po-i-Kalyan%20in%20Bukhara.jpg" },
+    { id: "ichan-kala", name: "Ichan Kala Walls", location: "Khiva", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Khiva%2C%20Uzbekistan%20%286132128821%29.jpg" },
+    { id: "metro", name: "Tashkent Metro", location: "Tashkent", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Metro-Tashkent.jpg" },
+    { id: "aksaray", name: "Ak-Saray Remains", location: "Shahrisabz", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Aksaray%20Shahrisabz.jpg" }
+  ]
+};
+
+const state = {
+  language: "en",
+  authTab: "login",
+  currentUser: null,
+  users: [],
+  bookings: [],
+  content: null
+};
+
+const refs = {};
+
+function $(id) {
+  return document.getElementById(id);
+}
+
+function textValue(value) {
+  if (typeof value === "string") {
+    return value;
+  }
+  return value?.[state.language] || value?.en || "";
+}
+
+function deepClone(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
+function readStorage(key, fallback) {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? JSON.parse(raw) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function writeStorage(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
+function seedOwner() {
+  const users = readStorage(STORAGE_KEYS.users, []);
+  if (!users.some((user) => user.role === "owner")) {
+    users.push(deepClone(OWNER_ACCOUNT));
+    writeStorage(STORAGE_KEYS.users, users);
+  }
+}
+
+function loadState() {
+  seedOwner();
+  state.users = readStorage(STORAGE_KEYS.users, []);
+  state.bookings = readStorage(STORAGE_KEYS.bookings, []);
+  state.content = readStorage(STORAGE_KEYS.content, deepClone(defaultContent));
+  if (!state.content.settings) {
+    state.content.settings = {};
+  }
+  if (typeof state.content.settings.operatorWebhookUrl !== "string") {
+    state.content.settings.operatorWebhookUrl = "";
+  }
+  const session = readStorage(STORAGE_KEYS.session, null);
+  state.currentUser = session ? state.users.find((user) => user.id === session.userId) || null : null;
+}
+
+function saveUsers() {
+  writeStorage(STORAGE_KEYS.users, state.users);
+}
+
+function saveBookings() {
+  writeStorage(STORAGE_KEYS.bookings, state.bookings);
+}
+
+function saveContent() {
+  writeStorage(STORAGE_KEYS.content, state.content);
+}
+
+function setSession(user) {
+  state.currentUser = user;
+  if (user) {
+    writeStorage(STORAGE_KEYS.session, { userId: user.id });
+  } else {
+    localStorage.removeItem(STORAGE_KEYS.session);
+  }
+}
+
+function currentText() {
+  return uiText[state.language];
+}
+
+function fallbackText(key) {
+  return currentText()[key] || uiText.en[key] || "";
+}
+
+function currencyMeta() {
+  return currencyByLanguage[state.language];
+}
+
+function formatMoney(usdValue) {
+  const meta = currencyMeta();
+  const amount = Math.round(usdValue * meta.rate);
+  const formatted = new Intl.NumberFormat(meta.locale).format(amount);
+  return meta.prefix ? `${meta.suffix}${formatted}` : `${formatted}${meta.suffix}`;
+}
+
+function formatDate(dateValue) {
+  if (!dateValue) {
+    return "-";
+  }
+  const parsed = new Date(`${dateValue}T00:00:00`);
+  const locale = state.language === "uz" ? "uz-UZ" : state.language === "ru" ? "ru-RU" : "en-GB";
+  return new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year: "numeric" }).format(parsed);
+}
+
+function nowLabel() {
+  const locale = state.language === "uz" ? "uz-UZ" : state.language === "ru" ? "ru-RU" : "en-GB";
+  return new Intl.DateTimeFormat(locale, {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit"
+  }).format(new Date());
+}
+
+function operatorStatusLabel(status) {
+  const key = status === "sent"
+    ? "bookingStatusSent"
+    : status === "failed"
+      ? "bookingStatusFailed"
+      : "bookingStatusPending";
+  return fallbackText(key);
+}
+
+async function notifyOperators(booking) {
+  const webhookUrl = String(state.content.settings.operatorWebhookUrl || "").trim();
+  if (!webhookUrl) {
+    return "pending";
+  }
+
+  const payload = {
+    bookingId: booking.id,
+    traveler: booking.userName,
+    phone: booking.phone,
+    destination: booking.destinationName,
+    people: booking.people,
+    totalUsd: booking.totalUsd,
+    totalLabel: formatMoney(booking.totalUsd),
+    language: booking.language,
+    travelDate: booking.travelDate,
+    travelDateLabel: booking.travelDateFormatted,
+    createdAt: booking.createdAt,
+    createdLabel: booking.createdLabel
+  };
+
+  try {
+    await fetch(webhookUrl, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify(payload)
+    });
+    return "sent";
+  } catch {
+    return "failed";
+  }
+}
 
 function escapeHtml(value) {
-  return value
+  return String(value)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
@@ -539,102 +737,147 @@ function escapeHtml(value) {
     .replace(/'/g, "&#39;");
 }
 
-function createArtwork(title, subtitle, palette) {
-  const safeTitle = escapeHtml(title);
-  const safeSubtitle = escapeHtml(subtitle);
-  const [skyStart, skyEnd, hill, accent] = palette;
-
+function createFallbackImage(title, accent) {
+  const safe = escapeHtml(title);
   const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-label="${safeTitle}">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="${safe}">
       <defs>
-        <linearGradient id="sky" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="${skyStart}" />
-          <stop offset="100%" stop-color="${skyEnd}" />
-        </linearGradient>
-        <linearGradient id="dune" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="${hill}" />
-          <stop offset="100%" stop-color="${accent}" />
+        <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0f7a77"/>
+          <stop offset="100%" stop-color="${accent || "#d68a3c"}"/>
         </linearGradient>
       </defs>
-      <rect width="800" height="560" fill="url(#sky)" />
-      <circle cx="635" cy="118" r="90" fill="${hill}" opacity="0.26" />
-      <circle cx="158" cy="106" r="44" fill="#ffffff" opacity="0.12" />
-      <path d="M0 344C106 306 182 318 258 286C342 250 396 264 486 224C578 182 652 194 800 132V560H0Z" fill="${hill}" opacity="0.22" />
-      <path d="M0 402C106 360 176 378 270 340C366 302 430 332 530 286C630 240 700 252 800 210V560H0Z" fill="url(#dune)" opacity="0.44" />
-      <rect x="102" y="326" width="388" height="128" rx="22" fill="#fff7ea" opacity="0.95" />
-      <rect x="128" y="346" width="336" height="86" rx="18" fill="${skyStart}" opacity="0.13" />
-      <rect x="140" y="254" width="30" height="200" rx="10" fill="#fff7ea" opacity="0.95" />
-      <rect x="420" y="230" width="30" height="224" rx="10" fill="#fff7ea" opacity="0.92" />
-      <path d="M122 254C122 226 146 202 155 188C164 202 188 226 188 254Z" fill="${accent}" opacity="0.8" />
-      <path d="M402 230C402 202 426 178 435 164C444 178 468 202 468 230Z" fill="${accent}" opacity="0.76" />
-      <path d="M236 236C236 194 276 160 296 130C316 160 356 194 356 236Z" fill="#fff7ea" opacity="0.95" />
-      <path d="M264 326C264 276 281 252 296 236C311 252 328 276 328 326Z" fill="${skyStart}" opacity="0.76" />
-      <path d="M200 326C216 278 248 252 296 252C344 252 376 278 392 326Z" fill="${accent}" opacity="0.34" />
-      <rect x="126" y="420" width="340" height="10" rx="5" fill="${skyStart}" opacity="0.15" />
-      <text x="92" y="108" fill="#fffaf3" font-family="Outfit, Arial, sans-serif" font-size="56" font-weight="700">${safeTitle}</text>
-      <text x="92" y="150" fill="#fff7ef" font-family="Outfit, Arial, sans-serif" font-size="24" font-weight="500" opacity="0.9">${safeSubtitle}</text>
+      <rect width="1200" height="800" fill="url(#g)"/>
+      <circle cx="930" cy="180" r="110" fill="rgba(255,255,255,0.16)"/>
+      <path d="M0 540C156 474 306 522 454 446C594 376 739 430 884 368C1028 306 1115 324 1200 286V800H0Z" fill="rgba(255,255,255,0.12)"/>
+      <rect x="250" y="350" width="420" height="210" rx="26" fill="rgba(255,255,255,0.88)"/>
+      <path d="M420 350C420 292 472 246 510 198C548 246 600 292 600 350Z" fill="rgba(255,255,255,0.92)"/>
+      <rect x="338" y="300" width="32" height="260" rx="12" fill="rgba(255,255,255,0.9)"/>
+      <rect x="610" y="268" width="32" height="292" rx="12" fill="rgba(255,255,255,0.9)"/>
+      <text x="96" y="122" fill="rgba(255,255,255,0.92)" font-family="Outfit, Arial, sans-serif" font-size="72" font-weight="700">${safe}</text>
     </svg>
   `;
   return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
 }
 
-function getDictionary() {
-  return translations[state.language];
+function ensureRefs() {
+  refs.brandText = $("brandText");
+  refs.footerText = $("footerText");
+  refs.footerBrand = $("footerBrand");
+  refs.sessionChip = $("sessionChip");
+  refs.authButton = $("authButton");
+  refs.logoutButton = $("logoutButton");
+  refs.bookingLoginButton = $("bookingLoginButton");
+  refs.destinationGrid = $("destinationGrid");
+  refs.hotelGrid = $("hotelGrid");
+  refs.tourGrid = $("tourGrid");
+  refs.galleryGrid = $("galleryGrid");
+  refs.destinationSelect = $("destinationSelect");
+  refs.bookingForm = $("bookingForm");
+  refs.bookingMessage = $("bookingMessage");
+  refs.bookingLock = $("bookingLock");
+  refs.travelDate = $("travelDate");
+  refs.ownerPanel = $("ownerPanel");
+  refs.ownerStatsGrid = $("ownerStatsGrid");
+  refs.destinationStats = $("destinationStats");
+  refs.usersTable = $("usersTable");
+  refs.bookingsTable = $("bookingsTable");
+  refs.ownerCurrencyBadge = $("ownerCurrencyBadge");
+  refs.settingsEditor = $("settingsEditor");
+  refs.destinationsEditor = $("destinationsEditor");
+  refs.hotelsEditor = $("hotelsEditor");
+  refs.toursEditor = $("toursEditor");
+  refs.galleryEditor = $("galleryEditor");
+  refs.ownerMessage = $("ownerMessage");
+  refs.saveContentButton = $("saveContentButton");
+  refs.exportStatsButton = $("exportStatsButton");
+  refs.resetBookingsButton = $("resetBookingsButton");
+  refs.authModal = $("authModal");
+  refs.authOverlay = $("authOverlay");
+  refs.closeAuthButton = $("closeAuthButton");
+  refs.loginForm = $("loginForm");
+  refs.registerForm = $("registerForm");
+  refs.authMessage = $("authMessage");
+  refs.menuButton = $("menuButton");
+  refs.navMenu = $("siteNav");
+  refs.header = document.querySelector(".site-header");
 }
 
-function formatMessage(template, values) {
-  return Object.entries(values).reduce(
-    (result, [key, value]) => result.replace(`{${key}}`, value),
-    template
-  );
+function applyUiText() {
+  const t = currentText();
+  document.documentElement.lang = state.language;
+  document.title = t.pageTitle;
+
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const key = element.getAttribute("data-i18n");
+    if (t[key]) {
+      element.textContent = t[key];
+    }
+  });
+
+  document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+    const key = element.getAttribute("data-i18n-aria");
+    if (t[key]) {
+      element.setAttribute("aria-label", t[key]);
+    }
+  });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+    const key = element.getAttribute("data-i18n-placeholder");
+    if (t[key]) {
+      element.setAttribute("placeholder", t[key]);
+    }
+  });
+
+  const settings = state.content.settings;
+  refs.brandText.textContent = settings.brandName;
+  refs.footerBrand.textContent = settings.brandName;
+  refs.footerText.textContent = textValue(settings.footerText);
+  document.querySelector('[data-i18n="heroEyebrow"]').textContent = textValue(settings.heroEyebrow);
+  document.querySelector('[data-i18n="heroTitle"]').textContent = textValue(settings.heroTitle);
+  document.querySelector('[data-i18n="heroText"]').textContent = textValue(settings.heroText);
+  document.querySelector('[data-i18n="contactText"]').textContent = textValue(settings.contactText);
+
+  document.querySelectorAll(".lang-btn").forEach((button) => {
+    button.classList.toggle("active", button.dataset.lang === state.language);
+  });
+
+  refs.ownerCurrencyBadge.textContent = currencyMeta().code;
 }
 
-function renderDestinationOptions(selectedValue = "") {
-  const dictionary = getDictionary();
-  destinationSelect.innerHTML = `
-    <option value="">${dictionary.selectDestination}</option>
-    ${destinations.map((destination) => `
-      <option value="${destination.id}">${destination.name[state.language]}</option>
+function renderDestinationSelect() {
+  const t = currentText();
+  refs.destinationSelect.innerHTML = `
+    <option value="">${t.selectDestination}</option>
+    ${state.content.destinations.map((destination) => `
+      <option value="${destination.id}">${textValue(destination.name)}</option>
     `).join("")}
   `;
-  if (selectedValue) {
-    destinationSelect.value = selectedValue;
-  }
 }
 
 function renderDestinations() {
-  const dictionary = getDictionary();
-
-  destinationGrid.innerHTML = destinations.map((destination) => {
-    const image = destination.image || createArtwork(
-      destination.name[state.language],
-      destination.subtitle[state.language],
-      destination.palette
-    );
-
+  const t = currentText();
+  refs.destinationGrid.innerHTML = state.content.destinations.map((destination) => {
+    const image = destination.image || createFallbackImage(textValue(destination.name));
     return `
-      <article class="destination-card panel reveal">
+      <article class="destination-card panel reveal is-visible">
         <div class="card-image">
-          <img src="${image}" alt="${destination.name[state.language]}" loading="lazy" decoding="async">
+          <img src="${image}" alt="${escapeHtml(textValue(destination.name))}" loading="lazy" decoding="async">
         </div>
         <div class="card-body">
           <div class="destination-topline">
-            <span class="eyebrow-pill">${destination.subtitle[state.language]}</span>
-            <span class="price-pill">${dictionary.priceLabel}</span>
+            <span class="eyebrow-pill">${escapeHtml(textValue(destination.subtitle))}</span>
+            <span class="price-pill">${t.priceLabel}</span>
           </div>
-          <h3>${destination.name[state.language]}</h3>
-          <p>${destination.description[state.language]}</p>
+          <h3>${escapeHtml(textValue(destination.name))}</h3>
+          <p>${escapeHtml(textValue(destination.description))}</p>
           <div class="destination-price">
-            <span>${dictionary.priceLabel}</span>
-            <strong>${destination.price}</strong>
+            <span>${t.priceLabel}</span>
+            <strong>${formatMoney(destination.priceUsd)}</strong>
           </div>
           <div class="card-actions">
-            <a class="btn btn-ghost" href="${destination.map}" target="_blank" rel="noopener">
-              ${dictionary.mapsButton}
-            </a>
-            <button class="btn btn-primary" type="button" data-book-destination="${destination.id}">
-              ${dictionary.bookButton}
-            </button>
+            <a class="btn btn-ghost" href="${destination.map}" target="_blank" rel="noopener">${t.mapsButton}</a>
+            <button class="btn btn-primary" type="button" data-book-destination="${destination.id}">${t.bookButton}</button>
           </div>
         </div>
       </article>
@@ -643,30 +886,26 @@ function renderDestinations() {
 }
 
 function renderHotels() {
-  const dictionary = getDictionary();
-
-  hotelGrid.innerHTML = hotels.map((hotel) => {
-    const image = hotel.image || createArtwork(hotel.name, hotel.subtitle, hotel.palette);
-
+  const t = currentText();
+  refs.hotelGrid.innerHTML = state.content.hotels.map((hotel) => {
+    const image = hotel.image || createFallbackImage(hotel.name, "#cb9452");
     return `
-      <article class="hotel-card panel reveal">
+      <article class="hotel-card panel reveal is-visible">
         <div class="card-image">
-          <img src="${image}" alt="${hotel.name}" loading="lazy" decoding="async">
+          <img src="${image}" alt="${escapeHtml(hotel.name)}" loading="lazy" decoding="async">
         </div>
         <div class="card-body">
           <div class="hotel-topline">
-            <span class="eyebrow-pill">${hotel.city}</span>
-            <span class="price-pill">${dictionary.hotelPriceLabel}</span>
+            <span class="eyebrow-pill">${escapeHtml(hotel.city)}</span>
+            <span class="price-pill">${t.hotelPriceLabel}</span>
           </div>
-          <h3>${hotel.name}</h3>
-          <p>${hotel.description}</p>
+          <h3>${escapeHtml(hotel.name)}</h3>
+          <p>${escapeHtml(hotel.description)}</p>
           <div class="hotel-meta">
-            <span>${hotel.city}</span>
-            <strong>${hotel.price}</strong>
+            <span>${t.perNight}</span>
+            <strong>${formatMoney(hotel.priceUsd)}</strong>
           </div>
-          <div class="tag-row">
-            ${hotel.features.map((feature) => `<span class="tag">${feature}</span>`).join("")}
-          </div>
+          <div class="tag-row">${hotel.features.map((feature) => `<span class="tag">${escapeHtml(feature)}</span>`).join("")}</div>
         </div>
       </article>
     `;
@@ -674,204 +913,504 @@ function renderHotels() {
 }
 
 function renderTours() {
-  const dictionary = getDictionary();
-
-  tourGrid.innerHTML = tours.map((tour) => `
-    <article class="tour-card panel reveal">
-      <p class="tour-route">${tour.route}</p>
-      <h3>${tour.name}</h3>
-      <p>${tour.description}</p>
+  const t = currentText();
+  refs.tourGrid.innerHTML = state.content.tours.map((tour) => `
+    <article class="tour-card panel reveal is-visible">
+      <p class="tour-route">${escapeHtml(tour.route)}</p>
+      <h3>${escapeHtml(tour.name)}</h3>
+      <p>${escapeHtml(tour.description)}</p>
       <div class="tour-meta">
-        <span>${dictionary.tourDuration}</span>
-        <strong>${tour.duration}</strong>
+        <span>${t.tourDuration}</span>
+        <strong>${escapeHtml(tour.duration)}</strong>
       </div>
       <div class="tour-meta">
-        <span>${dictionary.tourIncludes}</span>
-        <strong>${tour.includes}</strong>
+        <span>${t.tourIncludes}</span>
+        <strong>${escapeHtml(tour.includes)}</strong>
       </div>
       <div class="tour-footer">
-        <span class="tour-price">${tour.price}</span>
-        <button class="btn btn-primary" type="button" data-book-destination="${tour.focusDestination}">
-          ${dictionary.tourCta}
-        </button>
+        <span class="tour-price">${formatMoney(tour.priceUsd)}</span>
+        <button class="btn btn-primary" type="button" data-book-destination="${tour.focusDestination}">${t.tourCta}</button>
       </div>
     </article>
   `).join("");
 }
 
 function renderGallery() {
-  const dictionary = getDictionary();
-
-  galleryGrid.innerHTML = galleryItems.map((item, index) => {
-    const image = item.image || createArtwork(item.name, item.subtitle, item.palette);
-    const tallClass = index % 3 === 0 ? "tall" : "";
-
+  refs.galleryGrid.innerHTML = state.content.gallery.map((item, index) => {
+    const image = item.image || createFallbackImage(item.name, "#4f916f");
+    const tall = index % 3 === 0 ? "tall" : "";
     return `
-      <article class="gallery-card panel reveal ${tallClass}">
-        <img src="${image}" alt="${item.name}" loading="lazy" decoding="async">
+      <article class="gallery-card panel reveal is-visible ${tall}">
+        <img src="${image}" alt="${escapeHtml(item.name)}" loading="lazy" decoding="async">
         <div class="gallery-overlay">
-          <span class="gallery-badge">${dictionary.galleryBadge}</span>
-          <h3>${item.name}</h3>
-          <p>${item.location}</p>
+          <span class="gallery-badge">${currencyMeta().code}</span>
+          <h3>${escapeHtml(item.name)}</h3>
+          <p>${escapeHtml(item.location)}</p>
         </div>
       </article>
     `;
   }).join("");
 }
 
-function applyStaticTranslations() {
-  const dictionary = getDictionary();
-
-  document.documentElement.lang = state.language;
-  document.title = dictionary.pageTitle;
-
-  document.querySelectorAll("[data-i18n]").forEach((element) => {
-    const key = element.getAttribute("data-i18n");
-    if (dictionary[key]) {
-      element.textContent = dictionary[key];
+function computeStats() {
+  const totals = state.bookings.reduce((acc, booking) => {
+    acc.revenueUsd += booking.totalUsd;
+    acc.destinations[booking.destinationId] = (acc.destinations[booking.destinationId] || 0) + 1;
+    acc.languages[booking.language] = (acc.languages[booking.language] || 0) + 1;
+    if (booking.operatorStatus === "sent") {
+      acc.operatorSent += 1;
     }
-  });
+    return acc;
+  }, { revenueUsd: 0, destinations: {}, languages: {}, operatorSent: 0 });
 
-  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
-    const key = element.getAttribute("data-i18n-placeholder");
-    if (dictionary[key]) {
-      element.placeholder = dictionary[key];
-    }
-  });
+  const topEntry = Object.entries(totals.destinations).sort((a, b) => b[1] - a[1])[0];
+  const topDestination = topEntry
+    ? textValue(state.content.destinations.find((item) => item.id === topEntry[0])?.name || { en: "-" })
+    : "-";
 
-  document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
-    const key = element.getAttribute("data-i18n-aria");
-    if (dictionary[key]) {
-      element.setAttribute("aria-label", dictionary[key]);
-    }
-  });
-
-  langButtons.forEach((button) => {
-    button.classList.toggle("active", button.dataset.lang === state.language);
-  });
+  return {
+    users: state.users.length,
+    orders: state.bookings.length,
+    revenueUsd: totals.revenueUsd,
+    topDestination,
+    operatorSent: totals.operatorSent,
+    destinations: totals.destinations,
+    languages: totals.languages
+  };
 }
 
-function observeRevealElements() {
-  document.querySelectorAll(".reveal").forEach((element) => {
-    if (!element.classList.contains("is-visible")) {
-      revealObserver.observe(element);
-    }
-  });
+function renderOwnerStats() {
+  const t = currentText();
+  const stats = computeStats();
+  refs.ownerStatsGrid.innerHTML = `
+    <article class="owner-stat"><strong>${stats.users}</strong><span>${t.statUsers}</span></article>
+    <article class="owner-stat"><strong>${stats.orders}</strong><span>${t.statOrders}</span></article>
+    <article class="owner-stat"><strong>${formatMoney(stats.revenueUsd)}</strong><span>${t.statRevenue}</span></article>
+    <article class="owner-stat"><strong>${escapeHtml(stats.topDestination)}</strong><span>${t.statTop}</span></article>
+    <article class="owner-stat"><strong>${stats.operatorSent}</strong><span>${fallbackText("statOperator")}</span></article>
+  `;
+
+  const maxCount = Math.max(1, ...Object.values(stats.destinations));
+  refs.destinationStats.innerHTML = state.content.destinations.map((destination) => {
+    const count = stats.destinations[destination.id] || 0;
+    const width = `${(count / maxCount) * 100}%`;
+    return `
+      <div class="distribution-row">
+        <div class="distribution-top">
+          <span>${escapeHtml(textValue(destination.name))}</span>
+          <strong>${count}</strong>
+        </div>
+        <div class="distribution-bar">
+          <div class="distribution-fill" style="width:${width};"></div>
+        </div>
+      </div>
+    `;
+  }).join("");
 }
 
-function setDestination(destinationId) {
-  destinationSelect.value = destinationId;
-  document.getElementById("booking").scrollIntoView({ behavior: "smooth", block: "start" });
-}
-
-function handleBookingClick(event) {
-  const button = event.target.closest("[data-book-destination]");
-  if (!button) {
+function renderUsersTable() {
+  const t = currentText();
+  if (!state.users.length) {
+    refs.usersTable.innerHTML = `<p>${t.emptyUsers}</p>`;
     return;
   }
-  setDestination(button.getAttribute("data-book-destination"));
+
+  refs.usersTable.innerHTML = `
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>${t.tableUserName}</th>
+          <th>${t.tableUserEmail}</th>
+          <th>${t.tableUserRole}</th>
+          <th>${t.tableUserCreated}</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${state.users.map((user) => `
+          <tr>
+            <td>${escapeHtml(user.name)}</td>
+            <td>${escapeHtml(user.email)}</td>
+            <td>${user.role === "owner" ? t.ownerRole : t.travelerRole}</td>
+            <td>${new Date(user.createdAt).toLocaleDateString()}</td>
+          </tr>
+        `).join("")}
+      </tbody>
+    </table>
+  `;
 }
 
-function formatDateForLanguage(dateValue) {
-  const localeMap = {
-    en: "en-GB",
-    uz: "uz-UZ",
-    ru: "ru-RU"
-  };
+function renderBookingsTable() {
+  const t = currentText();
+  if (!state.bookings.length) {
+    refs.bookingsTable.innerHTML = `<p>${t.emptyOrders}</p>`;
+    return;
+  }
 
-  const parsedDate = new Date(`${dateValue}T00:00:00`);
-  return new Intl.DateTimeFormat(localeMap[state.language], {
-    day: "numeric",
-    month: "long",
-    year: "numeric"
-  }).format(parsedDate);
+  refs.bookingsTable.innerHTML = `
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>${t.tableOrderUser}</th>
+          <th>${t.tableOrderDestination}</th>
+          <th>${t.tableOrderPhone}</th>
+          <th>${t.tableOrderDate}</th>
+          <th>${t.tableOrderPeople}</th>
+          <th>${t.tableOrderTotal}</th>
+          <th>${fallbackText("tableOrderStatus")}</th>
+          <th>${t.tableOrderLang}</th>
+          <th>${t.tableOrderCreated}</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${state.bookings.map((booking) => `
+          <tr>
+            <td>${escapeHtml(booking.userName)}</td>
+            <td>${escapeHtml(booking.destinationName)}</td>
+            <td>${escapeHtml(booking.phone || "-")}</td>
+            <td>${escapeHtml(booking.travelDateFormatted)}</td>
+            <td>${booking.people}</td>
+            <td>${formatMoney(booking.totalUsd)}</td>
+            <td>${escapeHtml(operatorStatusLabel(booking.operatorStatus))}</td>
+            <td>${booking.language.toUpperCase()}</td>
+            <td>${escapeHtml(booking.createdLabel)}</td>
+          </tr>
+        `).join("")}
+      </tbody>
+    </table>
+  `;
 }
 
-function updateMinTravelDate() {
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = `${today.getMonth() + 1}`.padStart(2, "0");
-  const day = `${today.getDate()}`.padStart(2, "0");
-  travelDateInput.min = `${year}-${month}-${day}`;
+function renderOwnerEditors() {
+  refs.settingsEditor.value = JSON.stringify(state.content.settings, null, 2);
+  refs.destinationsEditor.value = JSON.stringify(state.content.destinations, null, 2);
+  refs.hotelsEditor.value = JSON.stringify(state.content.hotels, null, 2);
+  refs.toursEditor.value = JSON.stringify(state.content.tours, null, 2);
+  refs.galleryEditor.value = JSON.stringify(state.content.gallery, null, 2);
 }
 
-function closeMobileMenu() {
-  siteHeader.classList.remove("menu-open");
-  document.body.classList.remove("menu-open");
-  menuButton.setAttribute("aria-expanded", "false");
+function renderSession() {
+  const t = currentText();
+  const bookingControls = refs.bookingForm.querySelectorAll("input, select, button[type='submit']");
+  if (!state.currentUser) {
+    refs.sessionChip.textContent = t.authGuest;
+    refs.authButton.classList.remove("hidden");
+    refs.logoutButton.classList.add("hidden");
+    refs.ownerPanel.classList.add("hidden");
+    refs.bookingLock.classList.remove("hidden");
+    bookingControls.forEach((element) => {
+      element.disabled = true;
+    });
+    return;
+  }
+
+  const prefix = state.currentUser.role === "owner" ? t.authWelcomeOwner : t.authWelcomeUser;
+  refs.sessionChip.textContent = `${prefix}: ${state.currentUser.name}`;
+  refs.authButton.classList.add("hidden");
+  refs.logoutButton.classList.remove("hidden");
+  refs.bookingLock.classList.add("hidden");
+  bookingControls.forEach((element) => {
+    element.disabled = false;
+  });
+
+  if (state.currentUser.role === "owner") {
+    refs.ownerPanel.classList.remove("hidden");
+    renderOwnerStats();
+    renderUsersTable();
+    renderBookingsTable();
+    renderOwnerEditors();
+  } else {
+    refs.ownerPanel.classList.add("hidden");
+  }
 }
 
 function renderAll() {
-  const currentSelection = destinationSelect.value;
-  applyStaticTranslations();
+  applyUiText();
+  renderSession();
+  renderDestinationSelect();
   renderDestinations();
   renderHotels();
   renderTours();
   renderGallery();
-  renderDestinationOptions(currentSelection);
-  observeRevealElements();
 }
 
-langButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    state.language = button.dataset.lang;
-    renderAll();
+function openAuthModal(tabName = "login", message = "") {
+  state.authTab = tabName;
+  refs.authModal.classList.remove("hidden");
+  refs.authModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("menu-open");
+  document.querySelectorAll(".auth-tab").forEach((button) => {
+    button.classList.toggle("active", button.dataset.authTab === tabName);
   });
-});
+  document.querySelectorAll(".auth-pane").forEach((pane) => {
+    pane.classList.toggle("active", pane.dataset.authPane === tabName);
+  });
+  refs.authMessage.textContent = message;
+  refs.authMessage.classList.toggle("error", Boolean(message));
+}
 
-menuButton.addEventListener("click", () => {
-  const isOpen = siteHeader.classList.toggle("menu-open");
-  document.body.classList.toggle("menu-open", isOpen);
-  menuButton.setAttribute("aria-expanded", String(isOpen));
-});
+function closeAuthModal() {
+  refs.authModal.classList.add("hidden");
+  refs.authModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("menu-open");
+  refs.authMessage.textContent = "";
+  refs.loginForm.reset();
+  refs.registerForm.reset();
+}
 
-navMenu.addEventListener("click", (event) => {
-  if (event.target.classList.contains("nav-link")) {
-    closeMobileMenu();
+function requireLogin() {
+  if (state.currentUser) {
+    return true;
   }
-});
+  openAuthModal("login", currentText().authRequired);
+  return false;
+}
 
-window.addEventListener("scroll", () => {
-  siteHeader.classList.toggle("is-scrolled", window.scrollY > 10);
-});
+function bindBookButton(event) {
+  const button = event.target.closest("[data-book-destination]");
+  if (!button) {
+    return;
+  }
+  refs.destinationSelect.value = button.getAttribute("data-book-destination");
+  document.getElementById("booking").scrollIntoView({ behavior: "smooth", block: "start" });
+  if (!state.currentUser) {
+    openAuthModal("login", currentText().authRequired);
+  }
+}
 
-destinationGrid.addEventListener("click", handleBookingClick);
-tourGrid.addEventListener("click", handleBookingClick);
-
-bookingForm.addEventListener("submit", (event) => {
+function handleLogin(event) {
   event.preventDefault();
-  const dictionary = getDictionary();
-  const formData = new FormData(bookingForm);
+  const t = currentText();
+  const email = event.target.email.value.trim().toLowerCase();
+  const password = event.target.password.value;
+  const user = state.users.find((item) => item.email.toLowerCase() === email && item.password === password);
 
-  const name = (formData.get("name") || "").toString().trim();
-  const destinationId = (formData.get("destination") || "").toString();
-  const date = (formData.get("date") || "").toString();
-  const people = (formData.get("people") || "").toString();
-
-  if (!name || !destinationId || !date || !people) {
-    bookingMessage.textContent = dictionary.bookingError;
-    bookingMessage.classList.add("error");
+  if (!user) {
+    refs.authMessage.textContent = t.authInvalid;
+    refs.authMessage.classList.add("error");
     return;
   }
 
-  const selectedDestination = destinations.find((destination) => destination.id === destinationId);
-  const destinationName = selectedDestination ? selectedDestination.name[state.language] : destinationId;
+  refs.authMessage.classList.remove("error");
+  setSession(user);
+  renderAll();
+  closeAuthModal();
+}
 
-  bookingMessage.textContent = formatMessage(dictionary.bookingSuccess, {
+function handleRegister(event) {
+  event.preventDefault();
+  const t = currentText();
+  const name = event.target.name.value.trim();
+  const email = event.target.email.value.trim().toLowerCase();
+  const password = event.target.password.value;
+
+  if (state.users.some((user) => user.email.toLowerCase() === email)) {
+    refs.authMessage.textContent = t.authExists;
+    refs.authMessage.classList.add("error");
+    return;
+  }
+
+  const user = {
+    id: `traveler-${Date.now()}`,
     name,
-    destination: destinationName,
-    date: formatDateForLanguage(date),
-    people
+    email,
+    password,
+    role: "traveler",
+    createdAt: new Date().toISOString()
+  };
+
+  state.users.push(user);
+  saveUsers();
+  setSession(user);
+  refs.authMessage.classList.remove("error");
+  renderAll();
+  closeAuthModal();
+}
+
+async function handleBookingSubmit(event) {
+  event.preventDefault();
+  const t = currentText();
+  if (!requireLogin()) {
+    return;
+  }
+
+  const form = new FormData(refs.bookingForm);
+  const name = String(form.get("name") || "").trim();
+  const phone = String(form.get("phone") || "").trim();
+  const destinationId = String(form.get("destination") || "");
+  const date = String(form.get("date") || "");
+  const people = Number(form.get("people") || 0);
+
+  if (!name || !phone || !destinationId || !date || !people) {
+    refs.bookingMessage.textContent = t.bookingError;
+    refs.bookingMessage.classList.add("error");
+    return;
+  }
+
+  const destination = state.content.destinations.find((item) => item.id === destinationId);
+  if (!destination) {
+    refs.bookingMessage.textContent = t.bookingError;
+    refs.bookingMessage.classList.add("error");
+    return;
+  }
+
+  const totalUsd = destination.priceUsd * people;
+  const booking = {
+    id: `booking-${Date.now()}`,
+    userId: state.currentUser.id,
+    userName: name,
+    phone,
+    destinationId,
+    destinationName: textValue(destination.name),
+    people,
+    totalUsd,
+    language: state.language,
+    travelDate: date,
+    travelDateFormatted: formatDate(date),
+    createdAt: new Date().toISOString(),
+    createdLabel: nowLabel(),
+    operatorStatus: "pending"
+  };
+
+  state.bookings.unshift(booking);
+  saveBookings();
+  booking.operatorStatus = await notifyOperators(booking);
+  saveBookings();
+
+  const operatorMessage = booking.operatorStatus === "sent"
+    ? t.bookingOperatorSent
+    : booking.operatorStatus === "failed"
+      ? t.bookingOperatorFailed
+      : t.bookingOperatorPending;
+
+  refs.bookingMessage.textContent = `${t.bookingSuccess
+    .replace("{destination}", booking.destinationName)
+    .replace("{total}", formatMoney(totalUsd))} ${operatorMessage}`;
+  refs.bookingMessage.classList.remove("error");
+  refs.bookingForm.reset();
+  refs.destinationSelect.value = "";
+  refs.travelDate.min = new Date().toISOString().split("T")[0];
+  if (state.currentUser && state.currentUser.role === "owner") {
+    renderOwnerStats();
+    renderBookingsTable();
+  }
+}
+
+function handleOwnerSave() {
+  if (!state.currentUser || state.currentUser.role !== "owner") {
+    refs.ownerMessage.textContent = currentText().ownerOnly;
+    refs.ownerMessage.classList.add("error");
+    return;
+  }
+
+  try {
+    state.content = {
+      settings: JSON.parse(refs.settingsEditor.value),
+      destinations: JSON.parse(refs.destinationsEditor.value),
+      hotels: JSON.parse(refs.hotelsEditor.value),
+      tours: JSON.parse(refs.toursEditor.value),
+      gallery: JSON.parse(refs.galleryEditor.value)
+    };
+    if (typeof state.content.settings.operatorWebhookUrl !== "string") {
+      state.content.settings.operatorWebhookUrl = "";
+    }
+    saveContent();
+    refs.ownerMessage.textContent = currentText().ownerSaved;
+    refs.ownerMessage.classList.remove("error");
+    renderAll();
+  } catch {
+    refs.ownerMessage.textContent = currentText().ownerSaveError;
+    refs.ownerMessage.classList.add("error");
+  }
+}
+
+function handleExportStats() {
+  if (!state.currentUser || state.currentUser.role !== "owner") {
+    return;
+  }
+  const payload = {
+    exportedAt: new Date().toISOString(),
+    stats: computeStats(),
+    users: state.users,
+    bookings: state.bookings
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "discover-uzbekistan-stats.json";
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+function handleResetBookings() {
+  if (!state.currentUser || state.currentUser.role !== "owner") {
+    return;
+  }
+  state.bookings = [];
+  saveBookings();
+  refs.ownerMessage.textContent = currentText().ownerResetDone;
+  refs.ownerMessage.classList.remove("error");
+  renderOwnerStats();
+  renderBookingsTable();
+}
+
+function bindEvents() {
+  document.querySelectorAll(".lang-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.language = button.dataset.lang;
+      renderAll();
+    });
   });
 
-  bookingMessage.classList.remove("error");
-  bookingForm.reset();
-  renderDestinationOptions();
-  updateMinTravelDate();
-  document.getElementById("travelersCount").value = "2";
-});
+  refs.authButton.addEventListener("click", () => openAuthModal("login"));
+  refs.bookingLoginButton.addEventListener("click", () => openAuthModal("login"));
+  refs.logoutButton.addEventListener("click", () => {
+    setSession(null);
+    renderAll();
+  });
 
-currentYear.textContent = new Date().getFullYear();
-updateMinTravelDate();
-renderAll();
-closeMobileMenu();
+  refs.authOverlay.addEventListener("click", closeAuthModal);
+  refs.closeAuthButton.addEventListener("click", closeAuthModal);
+
+  document.querySelectorAll(".auth-tab").forEach((button) => {
+    button.addEventListener("click", () => openAuthModal(button.dataset.authTab));
+  });
+
+  refs.loginForm.addEventListener("submit", handleLogin);
+  refs.registerForm.addEventListener("submit", handleRegister);
+  refs.bookingForm.addEventListener("submit", handleBookingSubmit);
+  refs.destinationGrid.addEventListener("click", bindBookButton);
+  refs.tourGrid.addEventListener("click", bindBookButton);
+  refs.saveContentButton.addEventListener("click", handleOwnerSave);
+  refs.exportStatsButton.addEventListener("click", handleExportStats);
+  refs.resetBookingsButton.addEventListener("click", handleResetBookings);
+
+  refs.menuButton.addEventListener("click", () => {
+    const isOpen = refs.header.classList.toggle("menu-open");
+    document.body.classList.toggle("menu-open", isOpen);
+    refs.menuButton.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  refs.navMenu.addEventListener("click", (event) => {
+    if (event.target.classList.contains("nav-link")) {
+      refs.header.classList.remove("menu-open");
+      document.body.classList.remove("menu-open");
+      refs.menuButton.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  window.addEventListener("scroll", () => {
+    refs.header.classList.toggle("is-scrolled", window.scrollY > 10);
+  });
+}
+
+function init() {
+  loadState();
+  ensureRefs();
+  refs.travelDate.min = new Date().toISOString().split("T")[0];
+  bindEvents();
+  renderAll();
+  $("currentYear").textContent = new Date().getFullYear();
+}
+
+init();
