@@ -1,6 +1,6 @@
 const uiText = {
   en: {
-    pageTitle: "DiscoverUzbekistan | Tourism & Booking",
+    pageTitle: "Discover Uzbekistan | Tourism & Booking",
     navHome: "Home",
     navDestinations: "Destinations",
     navHotels: "Hotels",
@@ -40,7 +40,7 @@ const uiText = {
     authRegisterTab: "Register",
     authLoginTitle: "Login to continue",
     authRegisterTitle: "Create traveler account",
-    authOwnerHint: "Owner account is reserved for Shahzod. Travelers can create their own account.",
+    authOwnerHint: "Owner account is reserved for Sherzod. Travelers can create their own account.",
     authName: "Name",
     authEmail: "Email",
     authPassword: "Password",
@@ -114,7 +114,7 @@ const uiText = {
     travelerRole: "Traveler"
   },
   uz: {
-    pageTitle: "DiscoverUzbekistan | Sayohat va Buyurtma",
+    pageTitle: "Discover Uzbekistan | Sayohat va Buyurtma",
     navHome: "Bosh sahifa",
     navDestinations: "Manzillar",
     navHotels: "Mehmonxonalar",
@@ -154,7 +154,7 @@ const uiText = {
     authRegisterTab: "Ro'yxatdan o'tish",
     authLoginTitle: "Davom etish uchun kiring",
     authRegisterTitle: "Sayohatchi akkaunti yarating",
-    authOwnerHint: "Owner akkaunti Shahzod uchun ajratilgan. Sayohatchilar yangi akkaunt ochishi mumkin.",
+    authOwnerHint: "Owner akkaunti Sherzod uchun ajratilgan. Sayohatchilar yangi akkaunt ochishi mumkin.",
     authName: "Ism",
     authEmail: "Email",
     authPassword: "Parol",
@@ -228,7 +228,7 @@ const uiText = {
     travelerRole: "Sayohatchi"
   },
   ru: {
-    pageTitle: "DiscoverUzbekistan | Туризм и Бронирование",
+    pageTitle: "Discover Uzbekistan | Туризм и Бронирование",
     navHome: "Главная",
     navDestinations: "Направления",
     navHotels: "Отели",
@@ -268,7 +268,7 @@ const uiText = {
     authRegisterTab: "Регистрация",
     authLoginTitle: "Войдите, чтобы продолжить",
     authRegisterTitle: "Создать аккаунт путешественника",
-    authOwnerHint: "Аккаунт владельца зарезервирован для Shahzod. Путешественники могут зарегистрироваться отдельно.",
+    authOwnerHint: "Аккаунт владельца зарезервирован для Sherzod. Путешественники могут зарегистрироваться отдельно.",
     authName: "Имя",
     authEmail: "Email",
     authPassword: "Пароль",
@@ -352,7 +352,7 @@ const STORAGE_KEYS = {
 };
 
 const OWNER_ACCOUNT = {
-  id: "owner-shahzod",
+  id: "owner-Sherzod",
   name: "SherzodAmirov",
   email: "sherzod@discoveruzbekistan.uz",
   password: "Amirov1717",
@@ -364,9 +364,9 @@ const defaultContent = {
   settings: {
     brandName: "DiscoverUzbekistan",
     footerText: {
-      en: "DiscoverUzbekistan. Modern travel experiences across Uzbekistan.",
-      uz: "DiscoverUzbekistan. O'zbekiston bo'ylab zamonaviy sayohat tajribalari.",
-      ru: "DiscoverUzbekistan. Современные путешествия по Узбекистану."
+      en: "Discover Uzbekistan. Modern travel experiences across Uzbekistan.",
+      uz: "Discover Uzbekistan. O'zbekiston bo'ylab zamonaviy sayohat tajribalari.",
+      ru: "Discover Uzbekistan. Современные путешествия по Узбекистану."
     },
     heroEyebrow: {
       en: "Owner-led journeys through Uzbekistan",
@@ -374,9 +374,9 @@ const defaultContent = {
       ru: "Путешествия по Узбекистану под управлением владельца"
     },
     heroTitle: {
-      en: "DiscoverUzbekistan with flexible routes, login booking, and real owner control",
-      uz: "DiscoverUzbekistan: moslashuvchan marshrut, login bilan buyurtma va to'liq owner nazorati",
-      ru: "DiscoverUzbekistan: гибкие маршруты, бронирование через вход и полный контроль владельца"
+      en: "Discover Uzbekistan with flexible routes, login booking, and real owner control",
+      uz: "Discover Uzbekistan: moslashuvchan marshrut, login bilan buyurtma va to'liq owner nazorati",
+      ru: "Discover Uzbekistan: гибкие маршруты, бронирование через вход и полный контроль владельца"
     },
     heroText: {
       en: "Explore historic cities, modern routes, trusted hotels, and curated tours. Booking requires login, and all activity appears in the owner dashboard.",
