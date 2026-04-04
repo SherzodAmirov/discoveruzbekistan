@@ -1,6 +1,6 @@
 const translations = {
   en: {
-    pageTitle: "UzJourney | Discover Uzbekistan",
+    pageTitle: "Discover Uzbekistan | Discover Uzbekistan",
     menuLabel: "Toggle navigation",
     navHome: "Home",
     navDestinations: "Destinations",
