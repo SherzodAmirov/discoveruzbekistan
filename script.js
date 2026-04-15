@@ -17,6 +17,38 @@ const uiText = {
     tourCta: "Reserve Tour",
     perNight: "per night",
     packageTotal: "package total",
+    heroEyebrow: "Silk Road escapes across Uzbekistan",
+    heroTitle: "Discover the timeless beauty of Uzbekistan",
+    heroText: "From turquoise domes in Samarkand to sunset alleys in Khiva, plan elegant journeys with handpicked stays, guided tours, and seamless booking.",
+    heroPrimary: "Explore Destinations",
+    heroSecondary: "Plan My Trip",
+    heroChip1: "UNESCO cities",
+    heroChip2: "Boutique stays",
+    heroChip3: "Local guides",
+    heroCardCity: "Most booked route",
+    heroCardCityValue: "Samarkand - Bukhara",
+    heroCardSeason: "Best season",
+    heroCardSeasonValue: "April to June",
+    heroCardSupport: "Guided in",
+    heroCardSupportValue: "UZ / RU / EN",
+    statValue1: "5",
+    statLabel1: "Historic cities",
+    statValue2: "12+",
+    statLabel2: "Signature tours",
+    statValue3: "24/7",
+    statLabel3: "Support",
+    destinationsKicker: "Signature Journeys",
+    destinationsTitle: "Top Destinations",
+    destinationsText: "Visit Uzbekistan's most iconic cities with flexible itineraries, reliable transfers, and cultural highlights.",
+    hotelsKicker: "Comfortable Stays",
+    hotelsTitle: "Recommended Hotels",
+    hotelsText: "Stay in carefully selected hotels that combine local character, comfort, and ideal locations.",
+    toursKicker: "Curated Packages",
+    toursTitle: "Popular Tours",
+    toursText: "Choose from curated cultural journeys, city escapes, and multi-day adventures through Uzbekistan.",
+    bookingKicker: "Easy Booking",
+    bookingTitle: "Book Your Uzbekistan Tour",
+    bookingText: "Tell us your travel details and we will prepare a tailored itinerary for you.",
     bookingName: "Full name",
     bookingNamePlaceholder: "Enter your full name",
     bookingPhone: "Phone number",
@@ -59,8 +91,12 @@ const uiText = {
     bookingStatusSent: "Sent",
     bookingStatusPending: "Pending",
     bookingStatusFailed: "Failed",
+    galleryKicker: "Visual Highlights",
+    galleryTitle: "Landmark Gallery",
+    galleryText: "A glimpse of the architecture, atmosphere, and legendary sites that define Uzbekistan.",
     contactTitle: "Contact Us",
     contactBadge: "Travel concierge",
+    contactText: "Need help with routes, hotels, or custom group travel? Reach out and let us design the right plan.",
     contactPrimary: "Contact on WhatsApp",
     contactSecondary: "Plan a private route",
     contactCard1Title: "Travel Office",
@@ -775,6 +811,32 @@ function addListener(element, eventName, handler) {
   if (element) {
     element.addEventListener(eventName, handler);
   }
+}
+
+function setupRevealAnimations() {
+  const revealItems = Array.from(document.querySelectorAll(".reveal"));
+  if (!revealItems.length) {
+    return;
+  }
+
+  if (typeof IntersectionObserver !== "function") {
+    revealItems.forEach((element) => element.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: "0px 0px -40px 0px"
+  });
+
+  revealItems.forEach((element) => observer.observe(element));
 }
 
 function formatMoney(usdValue) {
@@ -1818,6 +1880,7 @@ function init() {
     refs.travelDate.min = new Date().toISOString().split("T")[0];
   }
   bindEvents();
+  setupRevealAnimations();
   renderAll();
   $("currentYear").textContent = new Date().getFullYear();
 }
