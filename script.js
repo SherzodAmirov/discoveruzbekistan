@@ -648,6 +648,54 @@ function deepClone(value) {
   return JSON.parse(JSON.stringify(value));
 }
 
+function isPlainObject(value) {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+function mergeContentDefaults(savedValue, defaultValue) {
+  if (Array.isArray(defaultValue)) {
+    return Array.isArray(savedValue) ? savedValue : deepClone(defaultValue);
+  }
+
+  if (isPlainObject(defaultValue)) {
+    const source = isPlainObject(savedValue) ? savedValue : {};
+    const result = {};
+
+    Object.keys(defaultValue).forEach((key) => {
+      result[key] = mergeContentDefaults(source[key], defaultValue[key]);
+    });
+
+    Object.keys(source).forEach((key) => {
+      if (!(key in result)) {
+        result[key] = source[key];
+      }
+    });
+
+    return result;
+  }
+
+  return savedValue === undefined ? defaultValue : savedValue;
+}
+
+function normalizeContent(content) {
+  const merged = mergeContentDefaults(content, defaultContent);
+
+  if (!Array.isArray(merged.destinations)) {
+    merged.destinations = deepClone(defaultContent.destinations);
+  }
+  if (!Array.isArray(merged.hotels)) {
+    merged.hotels = deepClone(defaultContent.hotels);
+  }
+  if (!Array.isArray(merged.tours)) {
+    merged.tours = deepClone(defaultContent.tours);
+  }
+  if (!Array.isArray(merged.gallery)) {
+    merged.gallery = deepClone(defaultContent.gallery);
+  }
+
+  return merged;
+}
+
 function readStorage(key, fallback) {
   try {
     const raw = localStorage.getItem(key);
@@ -673,7 +721,7 @@ function loadState() {
   seedOwner();
   state.users = readStorage(STORAGE_KEYS.users, []);
   state.bookings = readStorage(STORAGE_KEYS.bookings, []);
-  state.content = readStorage(STORAGE_KEYS.content, deepClone(defaultContent));
+  state.content = normalizeContent(readStorage(STORAGE_KEYS.content, deepClone(defaultContent)));
   if (!state.content.settings) {
     state.content.settings = {};
   }
@@ -963,10 +1011,22 @@ function applyUiText() {
   if (refs.footerText) {
     refs.footerText.textContent = textValue(settings.footerText);
   }
-  document.querySelector('[data-i18n="heroEyebrow"]').textContent = textValue(settings.heroEyebrow);
-  document.querySelector('[data-i18n="heroTitle"]').textContent = textValue(settings.heroTitle);
-  document.querySelector('[data-i18n="heroText"]').textContent = textValue(settings.heroText);
-  document.querySelector('[data-i18n="contactText"]').textContent = textValue(settings.contactText);
+  const heroEyebrow = document.querySelector('[data-i18n="heroEyebrow"]');
+  const heroTitle = document.querySelector('[data-i18n="heroTitle"]');
+  const heroText = document.querySelector('[data-i18n="heroText"]');
+  const contactText = document.querySelector('[data-i18n="contactText"]');
+  if (heroEyebrow) {
+    heroEyebrow.textContent = textValue(settings.heroEyebrow);
+  }
+  if (heroTitle) {
+    heroTitle.textContent = textValue(settings.heroTitle);
+  }
+  if (heroText) {
+    heroText.textContent = textValue(settings.heroText);
+  }
+  if (contactText) {
+    contactText.textContent = textValue(settings.contactText);
+  }
 
   document.querySelectorAll(".lang-btn").forEach((button) => {
     button.classList.toggle("active", button.dataset.lang === state.language);
@@ -979,9 +1039,10 @@ function applyUiText() {
 
 function renderDestinationSelect() {
   const t = currentText();
+  const destinations = Array.isArray(state.content.destinations) ? state.content.destinations : [];
   refs.destinationSelect.innerHTML = `
     <option value="">${t.selectDestination}</option>
-    ${state.content.destinations.map((destination) => `
+    ${destinations.map((destination) => `
       <option value="${destination.id}">${textValue(destination.name)}</option>
     `).join("")}
   `;
@@ -989,7 +1050,8 @@ function renderDestinationSelect() {
 
 function renderDestinations() {
   const t = currentText();
-  refs.destinationGrid.innerHTML = state.content.destinations.map((destination) => {
+  const destinations = Array.isArray(state.content.destinations) ? state.content.destinations : [];
+  refs.destinationGrid.innerHTML = destinations.map((destination) => {
     const image = destination.image || createFallbackImage(textValue(destination.name));
     return `
       <article class="destination-card panel reveal is-visible">
@@ -1019,7 +1081,8 @@ function renderDestinations() {
 
 function renderHotels() {
   const t = currentText();
-  refs.hotelGrid.innerHTML = state.content.hotels.map((hotel) => {
+  const hotels = Array.isArray(state.content.hotels) ? state.content.hotels : [];
+  refs.hotelGrid.innerHTML = hotels.map((hotel) => {
     const image = hotel.image || createFallbackImage(hotel.name, "#cb9452");
     return `
       <article class="hotel-card panel reveal is-visible">
@@ -1046,7 +1109,8 @@ function renderHotels() {
 
 function renderTours() {
   const t = currentText();
-  refs.tourGrid.innerHTML = state.content.tours.map((tour) => `
+  const tours = Array.isArray(state.content.tours) ? state.content.tours : [];
+  refs.tourGrid.innerHTML = tours.map((tour) => `
     <article class="tour-card panel reveal is-visible">
       <p class="tour-route">${escapeHtml(tour.route)}</p>
       <h3>${escapeHtml(tour.name)}</h3>
@@ -1068,7 +1132,8 @@ function renderTours() {
 }
 
 function renderGallery() {
-  refs.galleryGrid.innerHTML = state.content.gallery.map((item, index) => {
+  const gallery = Array.isArray(state.content.gallery) ? state.content.gallery : [];
+  refs.galleryGrid.innerHTML = gallery.map((item, index) => {
     const image = item.image || createFallbackImage(item.name, "#4f916f");
     const tall = index % 3 === 0 ? "tall" : "";
     return `
@@ -1085,7 +1150,8 @@ function renderGallery() {
 }
 
 function renderLightbox() {
-  const item = state.content.gallery[state.lightboxIndex];
+  const gallery = Array.isArray(state.content.gallery) ? state.content.gallery : [];
+  const item = gallery[state.lightboxIndex];
   if (!item || !refs.lightboxImage) {
     return;
   }
@@ -1118,7 +1184,8 @@ function closeLightbox() {
 }
 
 function stepLightbox(delta) {
-  const total = state.content.gallery.length;
+  const gallery = Array.isArray(state.content.gallery) ? state.content.gallery : [];
+  const total = gallery.length;
   if (!total) {
     return;
   }
@@ -1138,8 +1205,9 @@ function computeStats() {
   }, { revenueUsd: 0, destinations: {}, languages: {}, operatorSent: 0 });
 
   const topEntry = Object.entries(totals.destinations).sort((a, b) => b[1] - a[1])[0];
+  const destinations = Array.isArray(state.content.destinations) ? state.content.destinations : [];
   const topDestination = topEntry
-    ? textValue(state.content.destinations.find((item) => item.id === topEntry[0])?.name || { en: "-" })
+    ? textValue(destinations.find((item) => item.id === topEntry[0])?.name || { en: "-" })
     : "-";
 
   return {
@@ -1156,6 +1224,7 @@ function computeStats() {
 function renderOwnerStats() {
   const t = currentText();
   const stats = computeStats();
+  const destinations = Array.isArray(state.content.destinations) ? state.content.destinations : [];
   refs.ownerStatsGrid.innerHTML = `
     <article class="owner-stat"><strong>${stats.users}</strong><span>${t.statUsers}</span></article>
     <article class="owner-stat"><strong>${stats.orders}</strong><span>${t.statOrders}</span></article>
@@ -1165,7 +1234,7 @@ function renderOwnerStats() {
   `;
 
   const maxCount = Math.max(1, ...Object.values(stats.destinations));
-  refs.destinationStats.innerHTML = state.content.destinations.map((destination) => {
+  refs.destinationStats.innerHTML = destinations.map((destination) => {
     const count = stats.destinations[destination.id] || 0;
     const width = `${(count / maxCount) * 100}%`;
     return `
@@ -1258,6 +1327,7 @@ function renderOwnerDestinationsTable() {
   if (!refs.ownerDestinationsTable) {
     return;
   }
+  const destinations = Array.isArray(state.content.destinations) ? state.content.destinations : [];
   refs.ownerDestinationsTable.innerHTML = `
     <table class="data-table">
       <thead>
@@ -1270,7 +1340,7 @@ function renderOwnerDestinationsTable() {
         </tr>
       </thead>
       <tbody>
-        ${state.content.destinations.map((destination) => `
+        ${destinations.map((destination) => `
           <tr>
             <td>${escapeHtml(destination.name?.en || destination.id)}</td>
             <td>
@@ -1308,6 +1378,9 @@ function handleOwnerDestinationSubmit(event) {
   event.preventDefault();
   if (!state.currentUser || state.currentUser.role !== "owner") {
     return;
+  }
+  if (!Array.isArray(state.content.destinations)) {
+    state.content.destinations = deepClone(defaultContent.destinations);
   }
   const nameEn = (document.getElementById("destNameEn")?.value || "").trim();
   const nameUz = (document.getElementById("destNameUz")?.value || "").trim();
@@ -1350,7 +1423,8 @@ function handleOwnerDestinationUpdate(event) {
   const priceInput = document.querySelector(`[data-dest-price="${id}"]`);
   const imageInput = document.querySelector(`[data-dest-image="${id}"]`);
   const mapInput = document.querySelector(`[data-dest-map="${id}"]`);
-  const destination = state.content.destinations.find((item) => item.id === id);
+  const destinations = Array.isArray(state.content.destinations) ? state.content.destinations : [];
+  const destination = destinations.find((item) => item.id === id);
   if (!destination) {
     return;
   }
@@ -1567,7 +1641,8 @@ async function handleBookingSubmit(event) {
     return;
   }
 
-  const destination = state.content.destinations.find((item) => item.id === destinationId);
+  const destinations = Array.isArray(state.content.destinations) ? state.content.destinations : [];
+  const destination = destinations.find((item) => item.id === destinationId);
   if (!destination) {
     refs.bookingMessage.textContent = t.bookingError;
     refs.bookingMessage.classList.add("error");
