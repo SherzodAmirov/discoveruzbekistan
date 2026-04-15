@@ -40,7 +40,7 @@ const uiText = {
     authRegisterTab: "Register",
     authLoginTitle: "Login to continue",
     authRegisterTitle: "Create traveler account",
-    authOwnerHint: "Owner account is reserved for Sherzod. Travelers can create their own account.",
+    authOwnerHint: "Owner account is reserved for Shahzod. Travelers can create their own account.",
     authName: "Name",
     authEmail: "Email",
     authPassword: "Password",
@@ -77,13 +77,21 @@ const uiText = {
     ownerUsersTitle: "Users",
     ownerOrdersTitle: "Orders",
     ownerStudioTitle: "Content Studio",
-    ownerStudioText: "Edit settings and all content collections as JSON. Paste operatorWebhookUrl into Settings JSON after deploying the bot.",
-    ownerSettingsJson: "Settings JSON",
-    ownerDestinationsJson: "Destinations JSON",
-    ownerHotelsJson: "Hotels JSON",
-    ownerToursJson: "Tours JSON",
-    ownerGalleryJson: "Gallery JSON",
-    ownerSaveContent: "Save Changes",
+    ownerStudioText: "Add destinations, update prices, and configure operator alerts.",
+    ownerDestinationManage: "Manage Destinations",
+    ownerAddDestination: "Add New Destination",
+    ownerDestNameEn: "Name (EN)",
+    ownerDestNameUz: "Name (UZ)",
+    ownerDestNameRu: "Name (RU)",
+    ownerDestPrice: "Price (USD)",
+    ownerDestImage: "Image URL",
+    ownerDestMap: "Google Maps URL",
+    ownerAddDestinationBtn: "Add Destination",
+    ownerOperatorSettings: "Operator & Telegram",
+    ownerWebhookUrl: "Webhook URL",
+    ownerTelegramToken: "Telegram Bot Token",
+    ownerTelegramChat: "Telegram Chat IDs",
+    ownerSaveOperator: "Save Operator Settings",
     ownerExportStats: "Export Statistics",
     ownerResetBookings: "Reset Orders",
     ownerOnly: "Only the owner can access this section.",
@@ -154,7 +162,7 @@ const uiText = {
     authRegisterTab: "Ro'yxatdan o'tish",
     authLoginTitle: "Davom etish uchun kiring",
     authRegisterTitle: "Sayohatchi akkaunti yarating",
-    authOwnerHint: "Owner akkaunti Sherzod uchun ajratilgan. Sayohatchilar yangi akkaunt ochishi mumkin.",
+    authOwnerHint: "Owner akkaunti Shahzod uchun ajratilgan. Sayohatchilar yangi akkaunt ochishi mumkin.",
     authName: "Ism",
     authEmail: "Email",
     authPassword: "Parol",
@@ -191,13 +199,21 @@ const uiText = {
     ownerUsersTitle: "Foydalanuvchilar",
     ownerOrdersTitle: "Buyurtmalar",
     ownerStudioTitle: "Kontent Studio",
-    ownerStudioText: "Sozlamalar va barcha kolleksiyalarni JSON orqali tahrir qiling. Botni deploy qilgandan keyin operatorWebhookUrl ni Settings JSON ichiga yozing.",
-    ownerSettingsJson: "Settings JSON",
-    ownerDestinationsJson: "Destinations JSON",
-    ownerHotelsJson: "Hotels JSON",
-    ownerToursJson: "Tours JSON",
-    ownerGalleryJson: "Gallery JSON",
-    ownerSaveContent: "O'zgarishlarni saqlash",
+    ownerStudioText: "Yangi manzillar qo'shing, narxlarni o'zgartiring va operator xabarlarini sozlang.",
+    ownerDestinationManage: "Manzillarni boshqarish",
+    ownerAddDestination: "Yangi manzil qo'shish",
+    ownerDestNameEn: "Nom (EN)",
+    ownerDestNameUz: "Nom (UZ)",
+    ownerDestNameRu: "Nom (RU)",
+    ownerDestPrice: "Narx (USD)",
+    ownerDestImage: "Rasm URL",
+    ownerDestMap: "Google Maps URL",
+    ownerAddDestinationBtn: "Manzil qo'shish",
+    ownerOperatorSettings: "Operator va Telegram",
+    ownerWebhookUrl: "Webhook URL",
+    ownerTelegramToken: "Telegram bot token",
+    ownerTelegramChat: "Telegram chat ID lar",
+    ownerSaveOperator: "Operator sozlamalarini saqlash",
     ownerExportStats: "Statistikani export qilish",
     ownerResetBookings: "Buyurtmalarni tozalash",
     ownerOnly: "Bu bo'lim faqat owner uchun.",
@@ -228,7 +244,7 @@ const uiText = {
     travelerRole: "Sayohatchi"
   },
   ru: {
-    pageTitle: "Discover Uzbekistan | Туризм и Бронирование",
+    pageTitle: "DiscoverUzbekistan | Туризм и Бронирование",
     navHome: "Главная",
     navDestinations: "Направления",
     navHotels: "Отели",
@@ -268,7 +284,7 @@ const uiText = {
     authRegisterTab: "Регистрация",
     authLoginTitle: "Войдите, чтобы продолжить",
     authRegisterTitle: "Создать аккаунт путешественника",
-    authOwnerHint: "Аккаунт владельца зарезервирован для Sherzod. Путешественники могут зарегистрироваться отдельно.",
+    authOwnerHint: "Аккаунт владельца зарезервирован для Shahzod. Путешественники могут зарегистрироваться отдельно.",
     authName: "Имя",
     authEmail: "Email",
     authPassword: "Пароль",
@@ -352,7 +368,7 @@ const STORAGE_KEYS = {
 };
 
 const OWNER_ACCOUNT = {
-  id: "owner-Sherzod",
+  id: "owner-shahzod",
   name: "SherzodAmirov",
   email: "sherzod@discoveruzbekistan.uz",
   password: "Amirov1717",
@@ -362,11 +378,11 @@ const OWNER_ACCOUNT = {
 
 const defaultContent = {
   settings: {
-    brandName: "DiscoverUzbekistan",
+    brandName: "Discover Uzbekistan",
     footerText: {
       en: "Discover Uzbekistan. Modern travel experiences across Uzbekistan.",
       uz: "Discover Uzbekistan. O'zbekiston bo'ylab zamonaviy sayohat tajribalari.",
-      ru: "Discover Uzbekistan. Современные путешествия по Узбекистану."
+      ru: "DiscoverUzbekistan. Современные путешествия по Узбекистану."
     },
     heroEyebrow: {
       en: "Owner-led journeys through Uzbekistan",
@@ -376,7 +392,7 @@ const defaultContent = {
     heroTitle: {
       en: "Discover Uzbekistan with flexible routes, login booking, and real owner control",
       uz: "Discover Uzbekistan: moslashuvchan marshrut, login bilan buyurtma va to'liq owner nazorati",
-      ru: "Discover Uzbekistan: гибкие маршруты, бронирование через вход и полный контроль владельца"
+      ru: "DiscoverUzbekistan: гибкие маршруты, бронирование через вход и полный контроль владельца"
     },
     heroText: {
       en: "Explore historic cities, modern routes, trusted hotels, and curated tours. Booking requires login, and all activity appears in the owner dashboard.",
@@ -465,7 +481,7 @@ const defaultContent = {
         ru: "Маршрут по Ферганской долине с дворцовыми интерьерами, ремеслами и более спокойным ритмом."
       },
       priceUsd: 230,
-      image: "",
+      image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
       map: "https://www.google.com/maps?q=Kokand+Uzbekistan"
     },
     {
@@ -478,8 +494,47 @@ const defaultContent = {
         ru: "Лучший выбор для шелковых мастерских, керамики, семейных студий и частных ремесленных программ."
       },
       priceUsd: 260,
-      image: "",
+      image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80",
       map: "https://www.google.com/maps?q=Fergana+Valley+Uzbekistan"
+    },
+    {
+      id: "termez",
+      name: { en: "Termez", uz: "Termiz", ru: "Ð¢ÐµÑ€Ð¼ÐµÐ·" },
+      subtitle: { en: "Southern heritage route", uz: "Janubiy meros yo'nalishi", ru: "Ð®Ð¶Ð½Ñ‹Ð¹ Ð¼Ð°Ñ€ÑˆÑ€ÑƒÑ‚" },
+      description: {
+        en: "A southern frontier stop with ancient sites, warm climate, and distinct cultural layers.",
+        uz: "Qadimiy yodgorliklar, iliq iqlim va boy madaniy qatlamlari bilan janubiy yo'nalish.",
+        ru: "Ð®Ð¶Ð½Ð°Ñ Ð¾ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ° Ñ Ð´Ñ€ÐµÐ²Ð½Ð¸Ð¼Ð¸ Ð¿Ð°Ð¼ÑÑ‚Ð½Ð¸ÐºÐ°Ð¼Ð¸ Ð¸ Ð¾ÑÐ¾Ð±Ñ‹Ð¼ Ñ…Ð°Ñ€Ð°ÐºÑ‚ÐµÑ€Ð¾Ð¼."
+      },
+      priceUsd: 240,
+      image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+      map: "https://www.google.com/maps?q=Termez+Uzbekistan"
+    },
+    {
+      id: "nukus",
+      name: { en: "Nukus", uz: "Nukus", ru: "ÐÑƒÐºÑƒÑ" },
+      subtitle: { en: "Karakalpakstan art", uz: "Qoraqalpog'iston san'ati", ru: "Ð˜ÑÐºÑƒÑÑÑ‚Ð²Ð¾ ÐšÐ°Ñ€Ð°ÐºÐ°Ð»Ð¿Ð°ÐºÑÑ‚Ð°Ð½Ð°" },
+      description: {
+        en: "A unique route for avant-garde art, desert landscapes, and museum-focused travel.",
+        uz: "Avangard san'at, sahro manzaralari va muzey sayohati uchun o'ziga xos yo'nalish.",
+        ru: "Ð£Ð½Ð¸ÐºÐ°Ð»ÑŒÐ½Ñ‹Ð¹ Ð¼Ð°Ñ€ÑˆÑ€ÑƒÑ‚ Ð´Ð»Ñ Ð»ÑŽÐ±Ð¸Ñ‚ÐµÐ»ÐµÐ¹ Ð°Ð²Ð°Ð½Ð³Ð°Ñ€Ð´Ð½Ð¾Ð³Ð¾ Ð¸ÑÐºÑƒÑÑÑ‚Ð²Ð° Ð¸ Ð¿ÑƒÑÑ‚Ñ‹Ð½Ð½Ñ‹Ñ… Ð¿ÐµÐ¹Ð·Ð°Ð¶ÐµÐ¹."
+      },
+      priceUsd: 255,
+      image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
+      map: "https://www.google.com/maps?q=Nukus+Uzbekistan"
+    },
+    {
+      id: "qarshi",
+      name: { en: "Qarshi", uz: "Qarshi", ru: "ÐšÐ°Ñ€ÑˆÐ¸" },
+      subtitle: { en: "Crossroad city escape", uz: "Kesishma shahar sayohati", ru: "Ð“Ð¾Ñ€Ð¾Ð´ Ð½Ð° Ð¿ÐµÑ€ÐµÐºÑ€ÐµÑÑ‚ÐºÐµ" },
+      description: {
+        en: "A calmer city break for travelers who want authentic markets and regional flavors.",
+        uz: "Mahalliy bozorlar va hududiy ta'mlarni ko'rishni xohlaganlar uchun sokin yo'nalish.",
+        ru: "Ð¡Ð¿Ð¾ÐºÐ¾Ð¹Ð½Ñ‹Ð¹ Ð³Ð¾Ñ€Ð¾Ð´ÑÐºÐ¾Ð¹ Ð¼Ð°Ñ€ÑˆÑ€ÑƒÑ‚ Ñ Ð°ÑƒÑ‚ÐµÐ½Ñ‚Ð¸Ñ‡Ð½Ñ‹Ð¼Ð¸ Ñ€Ñ‹Ð½ÐºÐ°Ð¼Ð¸ Ð¸ Ð²ÐºÑƒÑÐ°Ð¼Ð¸ Ñ€ÐµÐ³Ð¸Ð¾Ð½Ð°."
+      },
+      priceUsd: 220,
+      image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80",
+      map: "https://www.google.com/maps?q=Qarshi+Uzbekistan"
     }
   ],
   hotels: [
@@ -557,7 +612,12 @@ const defaultContent = {
     { id: "poi-kalyan", name: "Poi Kalyan", location: "Bukhara", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Po-i-Kalyan%20in%20Bukhara.jpg" },
     { id: "ichan-kala", name: "Ichan Kala Walls", location: "Khiva", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Khiva%2C%20Uzbekistan%20%286132128821%29.jpg" },
     { id: "metro", name: "Tashkent Metro", location: "Tashkent", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Metro-Tashkent.jpg" },
-    { id: "aksaray", name: "Ak-Saray Remains", location: "Shahrisabz", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Aksaray%20Shahrisabz.jpg" }
+    { id: "aksaray", name: "Ak-Saray Remains", location: "Shahrisabz", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Aksaray%20Shahrisabz.jpg" },
+    { id: "samarkand-alt", name: "Registan Courtyard", location: "Samarkand", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Registan%20Samarkand.jpg" },
+    { id: "bukhara-ark", name: "Ark Fortress", location: "Bukhara", image: "https://upload.wikimedia.org/wikipedia/commons/9/98/Ark_of_Bukhara_02.jpg" },
+    { id: "khiva-minaret", name: "Kalta Minor", location: "Khiva", image: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Kalta_Minor_1.jpg" },
+    { id: "tashkent-tower", name: "Tashkent TV Tower", location: "Tashkent", image: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Tashkent_TV_Tower.jpg" },
+    { id: "fergana-silk", name: "Fergana Silk", location: "Fergana Valley", image: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Silk_weaving.jpg" }
   ]
 };
 
@@ -567,7 +627,8 @@ const state = {
   currentUser: null,
   users: [],
   bookings: [],
-  content: null
+  content: null,
+  lightboxIndex: 0
 };
 
 const refs = {};
@@ -619,6 +680,12 @@ function loadState() {
   if (typeof state.content.settings.operatorWebhookUrl !== "string") {
     state.content.settings.operatorWebhookUrl = "";
   }
+  if (typeof state.content.settings.telegramBotToken !== "string") {
+    state.content.settings.telegramBotToken = "";
+  }
+  if (typeof state.content.settings.telegramChatIds !== "string") {
+    state.content.settings.telegramChatIds = "";
+  }
   const session = readStorage(STORAGE_KEYS.session, null);
   state.currentUser = session ? state.users.find((user) => user.id === session.userId) || null : null;
 }
@@ -654,6 +721,12 @@ function fallbackText(key) {
 
 function currencyMeta() {
   return currencyByLanguage[state.language];
+}
+
+function addListener(element, eventName, handler) {
+  if (element) {
+    element.addEventListener(eventName, handler);
+  }
 }
 
 function formatMoney(usdValue) {
@@ -694,9 +767,14 @@ function operatorStatusLabel(status) {
 
 async function notifyOperators(booking) {
   const webhookUrl = String(state.content.settings.operatorWebhookUrl || "").trim();
-  if (!webhookUrl) {
-    return "pending";
-  }
+  const telegramToken = String(state.content.settings.telegramBotToken || "").trim();
+  const telegramChats = String(state.content.settings.telegramChatIds || "")
+    .split(",")
+    .map((value) => value.trim())
+    .filter(Boolean);
+
+  let sent = false;
+  let failed = false;
 
   const payload = {
     bookingId: booking.id,
@@ -713,19 +791,57 @@ async function notifyOperators(booking) {
     createdLabel: booking.createdLabel
   };
 
-  try {
-    await fetch(webhookUrl, {
-      method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "text/plain;charset=utf-8"
-      },
-      body: JSON.stringify(payload)
-    });
+  if (webhookUrl) {
+    try {
+      await fetch(webhookUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(payload)
+      });
+      sent = true;
+    } catch {
+      failed = true;
+    }
+  }
+
+  if (telegramToken && telegramChats.length) {
+    const text = [
+      "New booking",
+      `Traveler: ${booking.userName}`,
+      `Phone: ${booking.phone}`,
+      `Destination: ${booking.destinationName}`,
+      `People: ${booking.people}`,
+      `Travel date: ${booking.travelDateFormatted}`,
+      `Total: ${formatMoney(booking.totalUsd)}`
+    ].join("\n");
+
+    await Promise.all(telegramChats.map(async (chatId) => {
+      try {
+        await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ chat_id: chatId, text })
+        });
+        sent = true;
+      } catch {
+        failed = true;
+      }
+    }));
+  }
+
+  if (sent) {
     return "sent";
-  } catch {
+  }
+  if (failed) {
     return "failed";
   }
+  return "pending";
 }
 
 function escapeHtml(value) {
@@ -783,13 +899,13 @@ function ensureRefs() {
   refs.usersTable = $("usersTable");
   refs.bookingsTable = $("bookingsTable");
   refs.ownerCurrencyBadge = $("ownerCurrencyBadge");
-  refs.settingsEditor = $("settingsEditor");
-  refs.destinationsEditor = $("destinationsEditor");
-  refs.hotelsEditor = $("hotelsEditor");
-  refs.toursEditor = $("toursEditor");
-  refs.galleryEditor = $("galleryEditor");
   refs.ownerMessage = $("ownerMessage");
-  refs.saveContentButton = $("saveContentButton");
+  refs.ownerDestinationsTable = $("ownerDestinationsTable");
+  refs.ownerDestinationForm = $("ownerDestinationForm");
+  refs.operatorWebhookUrl = $("operatorWebhookUrl");
+  refs.telegramBotToken = $("telegramBotToken");
+  refs.telegramChatIds = $("telegramChatIds");
+  refs.ownerOperatorForm = $("ownerOperatorForm");
   refs.exportStatsButton = $("exportStatsButton");
   refs.resetBookingsButton = $("resetBookingsButton");
   refs.authModal = $("authModal");
@@ -801,6 +917,14 @@ function ensureRefs() {
   refs.menuButton = $("menuButton");
   refs.navMenu = $("siteNav");
   refs.header = document.querySelector(".site-header");
+  refs.lightbox = $("lightbox");
+  refs.lightboxOverlay = $("lightboxOverlay");
+  refs.lightboxImage = $("lightboxImage");
+  refs.lightboxTitle = $("lightboxTitle");
+  refs.lightboxSubtitle = $("lightboxSubtitle");
+  refs.lightboxPrev = $("lightboxPrev");
+  refs.lightboxNext = $("lightboxNext");
+  refs.lightboxClose = $("lightboxClose");
 }
 
 function applyUiText() {
@@ -830,9 +954,15 @@ function applyUiText() {
   });
 
   const settings = state.content.settings;
-  refs.brandText.textContent = settings.brandName;
-  refs.footerBrand.textContent = settings.brandName;
-  refs.footerText.textContent = textValue(settings.footerText);
+  if (refs.brandText) {
+    refs.brandText.textContent = settings.brandName;
+  }
+  if (refs.footerBrand) {
+    refs.footerBrand.textContent = settings.brandName;
+  }
+  if (refs.footerText) {
+    refs.footerText.textContent = textValue(settings.footerText);
+  }
   document.querySelector('[data-i18n="heroEyebrow"]').textContent = textValue(settings.heroEyebrow);
   document.querySelector('[data-i18n="heroTitle"]').textContent = textValue(settings.heroTitle);
   document.querySelector('[data-i18n="heroText"]').textContent = textValue(settings.heroText);
@@ -842,7 +972,9 @@ function applyUiText() {
     button.classList.toggle("active", button.dataset.lang === state.language);
   });
 
-  refs.ownerCurrencyBadge.textContent = currencyMeta().code;
+  if (refs.ownerCurrencyBadge) {
+    refs.ownerCurrencyBadge.textContent = currencyMeta().code;
+  }
 }
 
 function renderDestinationSelect() {
@@ -940,7 +1072,7 @@ function renderGallery() {
     const image = item.image || createFallbackImage(item.name, "#4f916f");
     const tall = index % 3 === 0 ? "tall" : "";
     return `
-      <article class="gallery-card panel reveal is-visible ${tall}">
+      <article class="gallery-card panel reveal is-visible ${tall}" data-gallery-index="${index}" role="button" tabindex="0">
         <img src="${image}" alt="${escapeHtml(item.name)}" loading="lazy" decoding="async">
         <div class="gallery-overlay">
           <span class="gallery-badge">${currencyMeta().code}</span>
@@ -950,6 +1082,48 @@ function renderGallery() {
       </article>
     `;
   }).join("");
+}
+
+function renderLightbox() {
+  const item = state.content.gallery[state.lightboxIndex];
+  if (!item || !refs.lightboxImage) {
+    return;
+  }
+  refs.lightboxImage.src = item.image || createFallbackImage(item.name, "#4f916f");
+  refs.lightboxImage.alt = item.name;
+  if (refs.lightboxTitle) {
+    refs.lightboxTitle.textContent = item.name;
+  }
+  if (refs.lightboxSubtitle) {
+    refs.lightboxSubtitle.textContent = item.location || "";
+  }
+}
+
+function openLightbox(index) {
+  state.lightboxIndex = index;
+  renderLightbox();
+  if (refs.lightbox) {
+    refs.lightbox.classList.remove("hidden");
+    refs.lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("menu-open");
+  }
+}
+
+function closeLightbox() {
+  if (refs.lightbox) {
+    refs.lightbox.classList.add("hidden");
+    refs.lightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("menu-open");
+  }
+}
+
+function stepLightbox(delta) {
+  const total = state.content.gallery.length;
+  if (!total) {
+    return;
+  }
+  state.lightboxIndex = (state.lightboxIndex + delta + total) % total;
+  renderLightbox();
 }
 
 function computeStats() {
@@ -1080,17 +1254,137 @@ function renderBookingsTable() {
   `;
 }
 
-function renderOwnerEditors() {
-  refs.settingsEditor.value = JSON.stringify(state.content.settings, null, 2);
-  refs.destinationsEditor.value = JSON.stringify(state.content.destinations, null, 2);
-  refs.hotelsEditor.value = JSON.stringify(state.content.hotels, null, 2);
-  refs.toursEditor.value = JSON.stringify(state.content.tours, null, 2);
-  refs.galleryEditor.value = JSON.stringify(state.content.gallery, null, 2);
+function renderOwnerDestinationsTable() {
+  if (!refs.ownerDestinationsTable) {
+    return;
+  }
+  refs.ownerDestinationsTable.innerHTML = `
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Name (EN)</th>
+          <th>Price USD</th>
+          <th>Image URL</th>
+          <th>Map URL</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${state.content.destinations.map((destination) => `
+          <tr>
+            <td>${escapeHtml(destination.name?.en || destination.id)}</td>
+            <td>
+              <input class="owner-input" type="number" min="1" data-dest-price="${destination.id}" value="${destination.priceUsd}">
+            </td>
+            <td>
+              <input class="owner-input" type="url" data-dest-image="${destination.id}" value="${destination.image || ""}">
+            </td>
+            <td>
+              <input class="owner-input" type="url" data-dest-map="${destination.id}" value="${destination.map || ""}">
+            </td>
+            <td>
+              <button class="btn btn-secondary" type="button" data-dest-update="${destination.id}">Update</button>
+            </td>
+          </tr>
+        `).join("")}
+      </tbody>
+    </table>
+  `;
+}
+
+function renderOwnerSettings() {
+  if (refs.operatorWebhookUrl) {
+    refs.operatorWebhookUrl.value = state.content.settings.operatorWebhookUrl || "";
+  }
+  if (refs.telegramBotToken) {
+    refs.telegramBotToken.value = state.content.settings.telegramBotToken || "";
+  }
+  if (refs.telegramChatIds) {
+    refs.telegramChatIds.value = state.content.settings.telegramChatIds || "";
+  }
+}
+
+function handleOwnerDestinationSubmit(event) {
+  event.preventDefault();
+  if (!state.currentUser || state.currentUser.role !== "owner") {
+    return;
+  }
+  const nameEn = (document.getElementById("destNameEn")?.value || "").trim();
+  const nameUz = (document.getElementById("destNameUz")?.value || "").trim();
+  const nameRu = (document.getElementById("destNameRu")?.value || "").trim();
+  const priceUsd = Number(document.getElementById("destPriceUsd")?.value || 0);
+  const image = (document.getElementById("destImageUrl")?.value || "").trim();
+  const map = (document.getElementById("destMapUrl")?.value || "").trim();
+  if (!nameEn || !nameUz || !nameRu || !priceUsd) {
+    if (refs.ownerMessage) {
+      refs.ownerMessage.textContent = currentText().bookingError;
+      refs.ownerMessage.classList.add("error");
+    }
+    return;
+  }
+  const id = `dest-${Date.now()}`;
+  state.content.destinations.push({
+    id,
+    name: { en: nameEn, uz: nameUz, ru: nameRu },
+    subtitle: { en: "New destination", uz: "Yangi manzil", ru: "ÐÐ¾Ð²Ñ‹Ð¹ Ð¼Ð°Ñ€ÑˆÑ€ÑƒÑ‚" },
+    description: { en: "Custom destination added by owner.", uz: "Owner tomonidan qo'shilgan manzil.", ru: "ÐœÐ°Ñ€ÑˆÑ€ÑƒÑ‚ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½ Ð²Ð»Ð°Ð´ÐµÐ»ÑŒÑ†ÐµÐ¼." },
+    priceUsd,
+    image,
+    map: map || "https://www.google.com/maps?q=Uzbekistan"
+  });
+  saveContent();
+  renderAll();
+  if (refs.ownerMessage) {
+    refs.ownerMessage.textContent = currentText().ownerSaved;
+    refs.ownerMessage.classList.remove("error");
+  }
+  event.target.reset();
+}
+
+function handleOwnerDestinationUpdate(event) {
+  const button = event.target.closest("[data-dest-update]");
+  if (!button || !state.currentUser || state.currentUser.role !== "owner") {
+    return;
+  }
+  const id = button.getAttribute("data-dest-update");
+  const priceInput = document.querySelector(`[data-dest-price="${id}"]`);
+  const imageInput = document.querySelector(`[data-dest-image="${id}"]`);
+  const mapInput = document.querySelector(`[data-dest-map="${id}"]`);
+  const destination = state.content.destinations.find((item) => item.id === id);
+  if (!destination) {
+    return;
+  }
+  const priceUsd = Number(priceInput?.value || destination.priceUsd);
+  destination.priceUsd = priceUsd || destination.priceUsd;
+  destination.image = imageInput ? imageInput.value.trim() : destination.image;
+  destination.map = mapInput ? mapInput.value.trim() : destination.map;
+  saveContent();
+  renderAll();
+  if (refs.ownerMessage) {
+    refs.ownerMessage.textContent = currentText().ownerSaved;
+    refs.ownerMessage.classList.remove("error");
+  }
+}
+
+function handleOwnerOperatorSave(event) {
+  event.preventDefault();
+  if (!state.currentUser || state.currentUser.role !== "owner") {
+    return;
+  }
+  state.content.settings.operatorWebhookUrl = refs.operatorWebhookUrl ? refs.operatorWebhookUrl.value.trim() : "";
+  state.content.settings.telegramBotToken = refs.telegramBotToken ? refs.telegramBotToken.value.trim() : "";
+  state.content.settings.telegramChatIds = refs.telegramChatIds ? refs.telegramChatIds.value.trim() : "";
+  saveContent();
+  if (refs.ownerMessage) {
+    refs.ownerMessage.textContent = currentText().ownerSaved;
+    refs.ownerMessage.classList.remove("error");
+  }
 }
 
 function renderSession() {
   const t = currentText();
-  const bookingControls = refs.bookingForm.querySelectorAll("input, select, button[type='submit']");
+  const bookingControls = refs.bookingForm ? refs.bookingForm.querySelectorAll("input, select") : [];
+  const bookingSubmit = refs.bookingForm ? refs.bookingForm.querySelector("button[type='submit']") : null;
   if (!state.currentUser) {
     refs.sessionChip.textContent = t.authGuest;
     refs.authButton.classList.remove("hidden");
@@ -1098,8 +1392,11 @@ function renderSession() {
     refs.ownerPanel.classList.add("hidden");
     refs.bookingLock.classList.remove("hidden");
     bookingControls.forEach((element) => {
-      element.disabled = true;
+      element.disabled = false;
     });
+    if (bookingSubmit) {
+      bookingSubmit.disabled = true;
+    }
     return;
   }
 
@@ -1111,13 +1408,17 @@ function renderSession() {
   bookingControls.forEach((element) => {
     element.disabled = false;
   });
+  if (bookingSubmit) {
+    bookingSubmit.disabled = false;
+  }
 
   if (state.currentUser.role === "owner") {
     refs.ownerPanel.classList.remove("hidden");
     renderOwnerStats();
     renderUsersTable();
     renderBookingsTable();
-    renderOwnerEditors();
+    renderOwnerDestinationsTable();
+    renderOwnerSettings();
   } else {
     refs.ownerPanel.classList.add("hidden");
   }
@@ -1134,6 +1435,12 @@ function renderAll() {
 }
 
 function openAuthModal(tabName = "login", message = "") {
+  if (!refs.authModal) {
+    ensureRefs();
+  }
+  if (!refs.authModal) {
+    return;
+  }
   state.authTab = tabName;
   refs.authModal.classList.remove("hidden");
   refs.authModal.setAttribute("aria-hidden", "false");
@@ -1144,17 +1451,31 @@ function openAuthModal(tabName = "login", message = "") {
   document.querySelectorAll(".auth-pane").forEach((pane) => {
     pane.classList.toggle("active", pane.dataset.authPane === tabName);
   });
-  refs.authMessage.textContent = message;
-  refs.authMessage.classList.toggle("error", Boolean(message));
+  if (refs.authMessage) {
+    refs.authMessage.textContent = message;
+    refs.authMessage.classList.toggle("error", Boolean(message));
+  }
 }
 
 function closeAuthModal() {
+  if (!refs.authModal) {
+    ensureRefs();
+  }
+  if (!refs.authModal) {
+    return;
+  }
   refs.authModal.classList.add("hidden");
   refs.authModal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("menu-open");
-  refs.authMessage.textContent = "";
-  refs.loginForm.reset();
-  refs.registerForm.reset();
+  if (refs.authMessage) {
+    refs.authMessage.textContent = "";
+  }
+  if (refs.loginForm) {
+    refs.loginForm.reset();
+  }
+  if (refs.registerForm) {
+    refs.registerForm.reset();
+  }
 }
 
 function requireLogin() {
@@ -1295,34 +1616,6 @@ async function handleBookingSubmit(event) {
   }
 }
 
-function handleOwnerSave() {
-  if (!state.currentUser || state.currentUser.role !== "owner") {
-    refs.ownerMessage.textContent = currentText().ownerOnly;
-    refs.ownerMessage.classList.add("error");
-    return;
-  }
-
-  try {
-    state.content = {
-      settings: JSON.parse(refs.settingsEditor.value),
-      destinations: JSON.parse(refs.destinationsEditor.value),
-      hotels: JSON.parse(refs.hotelsEditor.value),
-      tours: JSON.parse(refs.toursEditor.value),
-      gallery: JSON.parse(refs.galleryEditor.value)
-    };
-    if (typeof state.content.settings.operatorWebhookUrl !== "string") {
-      state.content.settings.operatorWebhookUrl = "";
-    }
-    saveContent();
-    refs.ownerMessage.textContent = currentText().ownerSaved;
-    refs.ownerMessage.classList.remove("error");
-    renderAll();
-  } catch {
-    refs.ownerMessage.textContent = currentText().ownerSaveError;
-    refs.ownerMessage.classList.add("error");
-  }
-}
-
 function handleExportStats() {
   if (!state.currentUser || state.currentUser.role !== "owner") {
     return;
@@ -1362,36 +1655,38 @@ function bindEvents() {
     });
   });
 
-  refs.authButton.addEventListener("click", () => openAuthModal("login"));
-  refs.bookingLoginButton.addEventListener("click", () => openAuthModal("login"));
-  refs.logoutButton.addEventListener("click", () => {
+  addListener(refs.authButton, "click", () => openAuthModal("login"));
+  addListener(refs.bookingLoginButton, "click", () => openAuthModal("login"));
+  addListener(refs.logoutButton, "click", () => {
     setSession(null);
     renderAll();
   });
 
-  refs.authOverlay.addEventListener("click", closeAuthModal);
-  refs.closeAuthButton.addEventListener("click", closeAuthModal);
+  addListener(refs.authOverlay, "click", closeAuthModal);
+  addListener(refs.closeAuthButton, "click", closeAuthModal);
 
   document.querySelectorAll(".auth-tab").forEach((button) => {
     button.addEventListener("click", () => openAuthModal(button.dataset.authTab));
   });
 
-  refs.loginForm.addEventListener("submit", handleLogin);
-  refs.registerForm.addEventListener("submit", handleRegister);
-  refs.bookingForm.addEventListener("submit", handleBookingSubmit);
-  refs.destinationGrid.addEventListener("click", bindBookButton);
-  refs.tourGrid.addEventListener("click", bindBookButton);
-  refs.saveContentButton.addEventListener("click", handleOwnerSave);
-  refs.exportStatsButton.addEventListener("click", handleExportStats);
-  refs.resetBookingsButton.addEventListener("click", handleResetBookings);
+  addListener(refs.loginForm, "submit", handleLogin);
+  addListener(refs.registerForm, "submit", handleRegister);
+  addListener(refs.bookingForm, "submit", handleBookingSubmit);
+  addListener(refs.destinationGrid, "click", bindBookButton);
+  addListener(refs.tourGrid, "click", bindBookButton);
+  addListener(refs.exportStatsButton, "click", handleExportStats);
+  addListener(refs.resetBookingsButton, "click", handleResetBookings);
+  addListener(refs.ownerDestinationForm, "submit", handleOwnerDestinationSubmit);
+  addListener(refs.ownerDestinationsTable, "click", handleOwnerDestinationUpdate);
+  addListener(refs.ownerOperatorForm, "submit", handleOwnerOperatorSave);
 
-  refs.menuButton.addEventListener("click", () => {
+  addListener(refs.menuButton, "click", () => {
     const isOpen = refs.header.classList.toggle("menu-open");
     document.body.classList.toggle("menu-open", isOpen);
     refs.menuButton.setAttribute("aria-expanded", String(isOpen));
   });
 
-  refs.navMenu.addEventListener("click", (event) => {
+  addListener(refs.navMenu, "click", (event) => {
     if (event.target.classList.contains("nav-link")) {
       refs.header.classList.remove("menu-open");
       document.body.classList.remove("menu-open");
@@ -1402,15 +1697,57 @@ function bindEvents() {
   window.addEventListener("scroll", () => {
     refs.header.classList.toggle("is-scrolled", window.scrollY > 10);
   });
+
+  addListener(refs.galleryGrid, "click", (event) => {
+    const card = event.target.closest("[data-gallery-index]");
+    if (!card) {
+      return;
+    }
+    openLightbox(Number(card.getAttribute("data-gallery-index")));
+  });
+
+  addListener(refs.galleryGrid, "keydown", (event) => {
+    if (event.key === "Enter") {
+      const card = event.target.closest("[data-gallery-index]");
+      if (card) {
+        openLightbox(Number(card.getAttribute("data-gallery-index")));
+      }
+    }
+  });
+
+  addListener(refs.lightboxOverlay, "click", closeLightbox);
+  addListener(refs.lightboxClose, "click", closeLightbox);
+  addListener(refs.lightboxPrev, "click", () => stepLightbox(-1));
+  addListener(refs.lightboxNext, "click", () => stepLightbox(1));
+
+  window.addEventListener("keydown", (event) => {
+    if (!refs.lightbox || refs.lightbox.classList.contains("hidden")) {
+      return;
+    }
+    if (event.key === "Escape") {
+      closeLightbox();
+    }
+    if (event.key === "ArrowLeft") {
+      stepLightbox(-1);
+    }
+    if (event.key === "ArrowRight") {
+      stepLightbox(1);
+    }
+  });
 }
 
 function init() {
   loadState();
   ensureRefs();
-  refs.travelDate.min = new Date().toISOString().split("T")[0];
+  if (refs.travelDate) {
+    refs.travelDate.min = new Date().toISOString().split("T")[0];
+  }
   bindEvents();
   renderAll();
   $("currentYear").textContent = new Date().getFullYear();
 }
+
+window.openDiscoverAuth = openAuthModal;
+window.closeDiscoverAuth = closeAuthModal;
 
 init();

@@ -7,7 +7,7 @@
     name="description"
     content="Modern tourism website for Uzbekistan with destinations, hotels, tours, gallery, and booking form."
   >
-  <title>DiscoverUzbekistan | Tourism &amp; Booking</title>
+  <title>Discover Uzbekistan | Tourism &amp; Booking</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style.css">
@@ -35,7 +35,7 @@
       <div class="header-tools">
         <div class="session-bar">
           <span class="session-chip" id="sessionChip" data-i18n="authGuest">Guest mode</span>
-          <button class="btn btn-secondary header-auth-btn" id="authButton" type="button" data-i18n="authLogin">
+          <button class="btn btn-secondary header-auth-btn" id="authButton" type="button" onclick="window.openDiscoverAuth && window.openDiscoverAuth('login')" data-i18n="authLogin">
             Login
           </button>
           <button class="btn btn-ghost header-auth-btn hidden" id="logoutButton" type="button" data-i18n="authLogout">
@@ -68,6 +68,12 @@
 
   <main>
     <section class="hero section" id="home">
+      <div class="hero-video" aria-hidden="true">
+        <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1920&auto=format&fit=crop">
+          <source src="assets/uzbekistan-cities.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-overlay"></div>
+      </div>
       <div class="container hero-grid">
         <div class="hero-copy reveal is-visible">
           <p class="section-kicker" data-i18n="heroEyebrow">Silk Road escapes across Uzbekistan</p>
@@ -212,7 +218,7 @@
             <div class="booking-lock" id="bookingLock">
               <strong data-i18n="bookingLockedTitle">Login required for booking</strong>
               <p data-i18n="bookingLockedText">Please sign in before submitting a travel order.</p>
-              <button class="btn btn-secondary booking-login-btn" id="bookingLoginButton" type="button" data-i18n="authLogin">
+              <button class="btn btn-secondary booking-login-btn" id="bookingLoginButton" type="button" onclick="window.openDiscoverAuth && window.openDiscoverAuth('login')" data-i18n="authLogin">
                 Login
               </button>
             </div>
@@ -333,36 +339,67 @@
           <article class="panel owner-card owner-card-wide">
             <div class="owner-card-head">
               <h3 data-i18n="ownerStudioTitle">Content Studio</h3>
-              <p data-i18n="ownerStudioText">As owner, you can update all collections below.</p>
+              <p data-i18n="ownerStudioText">Add new destinations, update prices, and configure operator alerts.</p>
             </div>
 
-            <div class="editor-grid">
-              <label class="field editor-field">
-                <span data-i18n="ownerSettingsJson">Settings JSON</span>
-                <textarea id="settingsEditor" rows="8"></textarea>
-              </label>
-              <label class="field editor-field">
-                <span data-i18n="ownerDestinationsJson">Destinations JSON</span>
-                <textarea id="destinationsEditor" rows="12"></textarea>
-              </label>
-              <label class="field editor-field">
-                <span data-i18n="ownerHotelsJson">Hotels JSON</span>
-                <textarea id="hotelsEditor" rows="10"></textarea>
-              </label>
-              <label class="field editor-field">
-                <span data-i18n="ownerToursJson">Tours JSON</span>
-                <textarea id="toursEditor" rows="10"></textarea>
-              </label>
-              <label class="field editor-field">
-                <span data-i18n="ownerGalleryJson">Gallery JSON</span>
-                <textarea id="galleryEditor" rows="10"></textarea>
-              </label>
+            <div class="owner-section-grid">
+              <div class="owner-block">
+                <h4 data-i18n="ownerDestinationManage">Manage Destinations</h4>
+                <div class="table-wrap" id="ownerDestinationsTable"></div>
+              </div>
+
+              <div class="owner-block">
+                <h4 data-i18n="ownerAddDestination">Add New Destination</h4>
+                <form id="ownerDestinationForm" class="owner-form">
+                  <label class="field">
+                    <span data-i18n="ownerDestNameEn">Name (EN)</span>
+                    <input type="text" id="destNameEn" required>
+                  </label>
+                  <label class="field">
+                    <span data-i18n="ownerDestNameUz">Name (UZ)</span>
+                    <input type="text" id="destNameUz" required>
+                  </label>
+                  <label class="field">
+                    <span data-i18n="ownerDestNameRu">Name (RU)</span>
+                    <input type="text" id="destNameRu" required>
+                  </label>
+                  <label class="field">
+                    <span data-i18n="ownerDestPrice">Price (USD)</span>
+                    <input type="number" id="destPriceUsd" min="1" required>
+                  </label>
+                  <label class="field">
+                    <span data-i18n="ownerDestImage">Image URL</span>
+                    <input type="url" id="destImageUrl">
+                  </label>
+                  <label class="field">
+                    <span data-i18n="ownerDestMap">Google Maps URL</span>
+                    <input type="url" id="destMapUrl">
+                  </label>
+                  <button class="btn btn-primary" type="submit" data-i18n="ownerAddDestinationBtn">Add Destination</button>
+                </form>
+              </div>
+
+              <div class="owner-block">
+                <h4 data-i18n="ownerOperatorSettings">Operator & Telegram</h4>
+                <form id="ownerOperatorForm" class="owner-form">
+                  <label class="field">
+                    <span data-i18n="ownerWebhookUrl">Webhook URL</span>
+                    <input type="url" id="operatorWebhookUrl">
+                  </label>
+                  <label class="field">
+                    <span data-i18n="ownerTelegramToken">Telegram Bot Token</span>
+                    <input type="password" id="telegramBotToken">
+                  </label>
+                  <label class="field">
+                    <span data-i18n="ownerTelegramChat">Telegram Chat IDs</span>
+                    <input type="text" id="telegramChatIds" placeholder="123456789,-1001234567890">
+                  </label>
+                  <button class="btn btn-secondary" type="submit" data-i18n="ownerSaveOperator">Save Operator Settings</button>
+                </form>
+              </div>
             </div>
 
             <div class="owner-actions">
-              <button class="btn btn-primary" id="saveContentButton" type="button" data-i18n="ownerSaveContent">
-                Save Changes
-              </button>
               <button class="btn btn-secondary" id="exportStatsButton" type="button" data-i18n="ownerExportStats">
                 Export Statistics
               </button>
@@ -409,9 +446,9 @@
           <article class="contact-card panel reveal">
             <h3 data-i18n="contactCard2Title">Phone &amp; Email</h3>
             <p data-i18n="contactCard2Text">
-              Call +998 99 075 70 13 or email discoveruzbekistann@gmail.com for fast assistance.
+              Call +998 71 000 00 00 or email hello@discoveruzbekistan.uz for fast assistance.
             </p>
-            <a href="tel:+998710000000">+998 99 075 70 13</a>
+            <a href="tel:+998710000000">+998 71 000 00 00</a>
             <a href="mailto:hello@discoveruzbekistan.uz">hello@discoveruzbekistan.uz</a>
           </article>
 
@@ -436,9 +473,9 @@
   </footer>
 
   <div class="auth-modal hidden" id="authModal" aria-hidden="true">
-    <div class="auth-overlay" id="authOverlay"></div>
+    <div class="auth-overlay" id="authOverlay" onclick="window.closeDiscoverAuth && window.closeDiscoverAuth()"></div>
     <div class="auth-card panel" role="dialog" aria-modal="true" aria-labelledby="authTitle">
-      <button class="auth-close" id="closeAuthButton" type="button" aria-label="Close">×</button>
+      <button class="auth-close" id="closeAuthButton" type="button" onclick="window.closeDiscoverAuth && window.closeDiscoverAuth()" aria-label="Close">×</button>
 
       <div class="auth-tabs">
         <button class="auth-tab active" type="button" data-auth-tab="login" data-i18n="authLoginTab">Login</button>
@@ -448,7 +485,7 @@
       <div class="auth-pane active" data-auth-pane="login">
         <h3 id="authTitle" data-i18n="authLoginTitle">Login to continue</h3>
         <p class="auth-hint" data-i18n="authOwnerHint">
-          Owner account is reserved for Sherzod. Regular travelers can register below.
+          Owner account is reserved for Shahzod. Regular travelers can register below.
         </p>
 
         <form class="auth-form" id="loginForm">
@@ -484,6 +521,20 @@
       </div>
 
       <p class="form-message" id="authMessage" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div class="lightbox hidden" id="lightbox" aria-hidden="true">
+    <div class="lightbox-overlay" id="lightboxOverlay"></div>
+    <div class="lightbox-card">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">×</button>
+      <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous">‹</button>
+      <img id="lightboxImage" alt="">
+      <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next">›</button>
+      <div class="lightbox-caption">
+        <strong id="lightboxTitle"></strong>
+        <span id="lightboxSubtitle"></span>
+      </div>
     </div>
   </div>
 
