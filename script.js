@@ -1102,12 +1102,23 @@ function applyUiText() {
 function renderDestinationSelect() {
   const t = currentText();
   const destinations = Array.isArray(state.content.destinations) ? state.content.destinations : [];
+  const previousValue = refs.destinationSelect ? refs.destinationSelect.value : "";
   refs.destinationSelect.innerHTML = `
     <option value="">${t.selectDestination}</option>
     ${destinations.map((destination) => `
       <option value="${destination.id}">${textValue(destination.name)}</option>
     `).join("")}
   `;
+  if (!refs.destinationSelect) {
+    return;
+  }
+  if (previousValue && destinations.some((destination) => destination.id === previousValue)) {
+    refs.destinationSelect.value = previousValue;
+    return;
+  }
+  if (!refs.destinationSelect.value && destinations.length) {
+    refs.destinationSelect.value = destinations[0].id;
+  }
 }
 
 function renderDestinations() {
@@ -1690,12 +1701,13 @@ async function handleBookingSubmit(event) {
     return;
   }
 
-  const form = new FormData(refs.bookingForm);
-  const name = String(form.get("name") || "").trim();
-  const phone = String(form.get("phone") || "").trim();
-  const destinationId = String(form.get("destination") || "");
-  const date = String(form.get("date") || "");
-  const people = Number(form.get("people") || 0);
+  const name = String(document.getElementById("travelerName")?.value || "").trim();
+  const phone = String(document.getElementById("travelerPhone")?.value || "").trim();
+  const destinations = Array.isArray(state.content.destinations) ? state.content.destinations : [];
+  const destinationId = String(refs.destinationSelect?.value || destinations[0]?.id || "");
+  const date = String(refs.travelDate?.value || "");
+  const peopleRaw = String(document.getElementById("travelersCount")?.value || "2").trim();
+  const people = Math.max(1, Number(peopleRaw || 2));
 
   if (!name || !phone || !destinationId || !date || !people) {
     refs.bookingMessage.textContent = t.bookingError;
@@ -1703,7 +1715,6 @@ async function handleBookingSubmit(event) {
     return;
   }
 
-  const destinations = Array.isArray(state.content.destinations) ? state.content.destinations : [];
   const destination = destinations.find((item) => item.id === destinationId);
   if (!destination) {
     refs.bookingMessage.textContent = t.bookingError;
