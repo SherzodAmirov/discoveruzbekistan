@@ -403,6 +403,8 @@ const STORAGE_KEYS = {
   content: "discover-uzbekistan-content"
 };
 
+const DEFAULT_OPERATOR_WEBHOOK_URL = "https://discoveruzbekistan.amirovrich.workers.dev";
+
 const OWNER_ACCOUNT = {
   id: "owner-shahzod",
   name: "SherzodAmirov",
@@ -415,6 +417,9 @@ const OWNER_ACCOUNT = {
 const defaultContent = {
   settings: {
     brandName: "Discover Uzbekistan",
+    operatorWebhookUrl: DEFAULT_OPERATOR_WEBHOOK_URL,
+    telegramBotToken: "",
+    telegramChatIds: "",
     footerText: {
       en: "Discover Uzbekistan. Modern travel experiences across Uzbekistan.",
       uz: "Discover Uzbekistan. O'zbekiston bo'ylab zamonaviy sayohat tajribalari.",
@@ -762,7 +767,10 @@ function loadState() {
     state.content.settings = {};
   }
   if (typeof state.content.settings.operatorWebhookUrl !== "string") {
-    state.content.settings.operatorWebhookUrl = "";
+    state.content.settings.operatorWebhookUrl = DEFAULT_OPERATOR_WEBHOOK_URL;
+  }
+  if (!state.content.settings.operatorWebhookUrl.trim()) {
+    state.content.settings.operatorWebhookUrl = DEFAULT_OPERATOR_WEBHOOK_URL;
   }
   if (typeof state.content.settings.telegramBotToken !== "string") {
     state.content.settings.telegramBotToken = "";
