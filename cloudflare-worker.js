@@ -72,20 +72,31 @@ export default {
 
 function buildTelegramMessage(payload) {
   const safe = (value) => escapeHtml(String(value || "-"));
+  const isTest = String(payload.bookingId || payload.id || "").startsWith("test-");
+  const title = isTest ? "Test booking" : "New booking request";
+  const destination = safe(payload.destination || payload.destinationName);
+  const traveler = safe(payload.traveler || payload.userName);
+  const phone = safe(payload.phone);
+  const people = safe(payload.people);
+  const date = safe(payload.travelDateLabel || payload.travelDate);
+  const total = safe(payload.totalLabel || payload.totalUsd);
+  const language = String(payload.language || "").toUpperCase() || "-";
+  const created = safe(payload.createdLabel || payload.createdAt);
+  const bookingId = safe(payload.bookingId || payload.id);
 
   return [
-    "<b>New booking</b>",
+    `<b>${title}</b>`,
     "",
-    `<b>Traveler:</b> ${safe(payload.traveler || payload.userName)}`,
-    `<b>Phone:</b> ${safe(payload.phone)}`,
-    `<b>Destination:</b> ${safe(payload.destination || payload.destinationName)}`,
-    `<b>People:</b> ${safe(payload.people)}`,
-    `<b>Travel date:</b> ${safe(payload.travelDateLabel || payload.travelDate)}`,
-    `<b>Total:</b> ${safe(payload.totalLabel || payload.totalUsd)}`,
-    `<b>Language:</b> ${safe(payload.language)}`,
-    `<b>Created:</b> ${safe(payload.createdLabel || payload.createdAt)}`,
+    `<b>Destination:</b> ${destination}`,
+    `<b>Traveler:</b> ${traveler}`,
+    `<b>Phone:</b> ${phone}`,
+    `<b>People:</b> ${people}`,
+    `<b>Travel date:</b> ${date}`,
+    `<b>Total price:</b> ${total}`,
+    `<b>Language:</b> ${escapeHtml(language)}`,
+    `<b>Created:</b> ${created}`,
     "",
-    `<b>Booking ID:</b> ${safe(payload.bookingId || payload.id)}`
+    `<b>Booking ID:</b> <code>${bookingId}</code>`
   ].join("\n");
 }
 
